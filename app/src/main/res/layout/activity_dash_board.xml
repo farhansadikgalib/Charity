@@ -41,6 +41,7 @@
                 </RelativeLayout>
 
                 <LinearLayout
+                    android:id="@+id/linertwoID"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -152,9 +153,60 @@
 
 
         <LinearLayout
+
+            android:elevation="10dp"
+            android:background="@color/white"
+            android:id="@+id/linerPieChart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/relativelay1"
+            android:layout_margin="15dp"
+            android:orientation="vertical"
+            android:paddingBottom="8dp"
+            >
+
+
+            <TextView
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/blue_text"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:text="আবেদনের পরিসংখ্যান"
+                android:textStyle="bold"
+                android:layout_marginBottom="20dp"
+                >
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                >
+
+                <com.github.mikephil.charting.charts.PieChart
+
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:id="@+id/piechart"
+                    android:paddingBottom="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/linerPieChart"
             android:orientation="vertical"
             android:layout_margin="30dp"
             >
