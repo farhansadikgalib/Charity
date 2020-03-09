@@ -2,5 +2,13 @@
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#D81B60</color>'
+
+
+<!--    turzzz-->
+    <color name="grey_text">#515151</color>
+    <color name="blue_text">#26A9E1</color>
+    <color name="black">#111111</color>
+    <color name="white">#ffffff</color>
+
 </resources>
