@@ -9,9 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Dashboard_Items.Forward_Application_Activity"></activity>
+        <activity android:name=".Dashboard_Items.All_Application_Activity" />
+        <activity android:name=".Dashboard_Items.HealthRelatedActivity" />
+        <activity android:name=".Dashboard_Items.DisabilityRelatedActivity" />
+        <activity android:name=".Dashboard_Items.DisasterRelatedActivity" />
+        <activity android:name=".Dashboard_Items.ApplicationOf_EducationActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".DashBoard" />
-        <activity android:name=".ProfilewithPermanentAddressActivity">
+        <activity android:name=".ProfilewithPermanentAddressActivity" />
+        <activity android:name=".DashBoard">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

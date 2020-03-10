@@ -19,8 +19,8 @@ public class ProfilewithPermanentAddressActivity extends AppCompatActivity {
 
 
 
-        tabLayout= findViewById(R.id.tabLayout1);
-        viewPager= findViewById(R.id.viewPager);
+//        tabLayout= findViewById(R.id.tabLayout1);
+//        viewPager= findViewById(R.id.viewPager);
         //
         //        i1= findViewById(R.id.item1);
 //        i2= findViewById(R.id.item2);
