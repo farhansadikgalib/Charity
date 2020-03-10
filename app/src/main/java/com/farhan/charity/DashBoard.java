@@ -12,6 +12,7 @@ import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.farhan.charity.Dashboard_Items.All_Application_Activity;
 import com.farhan.charity.Dashboard_Items.ApplicationOf_EducationActivity;
+import com.farhan.charity.Dashboard_Items.DisabilityRelatedActivity;
 import com.farhan.charity.Dashboard_Items.DisasterRelatedActivity;
 import com.farhan.charity.Dashboard_Items.Forward_Application_Activity;
 import com.farhan.charity.Dashboard_Items.HealthRelatedActivity;
@@ -132,7 +133,7 @@ public class DashBoard extends AppCompatActivity {
                 disabilityLayout.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startActivity(new Intent(DashBoard.this, DisasterRelatedActivity.class));
+                        startActivity(new Intent(DashBoard.this, DisabilityRelatedActivity.class));
                     }
                 });
 
