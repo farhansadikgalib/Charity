@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Applicant_Details">
+
+
+
+    <TextView
+        android:id="@+id/Applicants"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="আবেদনকারী"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textColor="#26A9E1"
+        android:layout_alignParentTop="true"
+        />
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_crose"
+        app:civ_border_width="3dp"
+        app:civ_border_color="#03A9F4"
+        android:layout_below="@id/Applicants"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="25dp"/>
+
+
+    <TextView
+        android:id="@+id/applicantsNameTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profile_image"
+        android:layout_below="@id/profile_image"
+        android:text="তাহমিদ শাহারিয়ার ধ্রুব"
+
+        android:textColor="#0B287B"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/applicantsNameTV"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        app:cardCornerRadius="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/applicationDesTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="আবেদনের বিস্তারিত"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:textColor="#26A9E1"/>
+
+            <View
+                android:id="@+id/view1"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#26A9E1"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_below="@id/applicationDesTV"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view1"
+                android:orientation="horizontal"
+                android:weightSum="5">
+                <TextView
+                    android:id="@+id/titleIdTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="আপ্লিকেশন আই ডি : "
+                    android:textStyle="bold"
+                    android:layout_weight="2"
+                    android:textColor="#515151"
+                    android:layout_marginLeft="25dp"
+                    android:textSize="15sp"
+                    android:layout_marginTop="10dp"
+                    />
+
+
+                <TextView
+                    android:id="@+id/idTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="১১২২৩৩৪৪৫৫৬৬৭৭৮৮"
+                    android:layout_marginRight="10dp"
+                    android:textColor="#515151"
+                    android:layout_marginTop="10dp"
+                    android:textSize="15sp"/>
+
+
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view1"
+                android:orientation="horizontal"
+                android:weightSum="5">
+                <TextView
+                    android:id="@+id/headlineTitleTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="শিরোনাম : "
+                    android:layout_weight="2"
+                    android:textStyle="bold"
+                    android:textColor="#515151"
+                    android:layout_marginLeft="25dp"
+                    android:textSize="15sp"
+                    android:layout_marginTop="10dp"
+                    />
+
+
+                <TextView
+                    android:id="@+id/titleHeadingTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="শিক্ষা সংক্রান্ত আবেদন ২ "
+                    android:textColor="#515151"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textSize="15sp"/>
+
+
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view1"
+                android:orientation="horizontal"
+                android:weightSum="5">
+                <TextView
+                    android:id="@+id/currencyAmountTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="অর্থের পরিমাণ :   "
+                    android:textStyle="bold"
+                    android:layout_weight="2"
+                    android:textColor="#515151"
+                    android:layout_marginLeft="25dp"
+                    android:textSize="15sp"
+                    android:layout_marginTop="10dp"
+                    />
+
+
+                <TextView
+                    android:id="@+id/currencyTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="৫,০০০ টাকা"
+                    android:layout_marginRight="10dp"
+                    android:textColor="#515151"
+                    android:layout_marginTop="10dp"
+                    android:textSize="15sp"/>
+
+
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view1"
+                android:orientation="horizontal"
+                android:weightSum="5">
+                <TextView
+                    android:id="@+id/stateTitleTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="অবস্থা : "
+                    android:layout_weight="2"
+                    android:textStyle="bold"
+                    android:textColor="#515151"
+                    android:layout_marginLeft="25dp"
+                    android:textSize="15sp"
+                    android:layout_marginTop="10dp"
+                    />
+
+
+                <TextView
+                    android:id="@+id/stateTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="উপস্থিত "
+                    android:textColor="#515151"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textSize="15sp"/>
+
+
+
+
+
+
+
+
+            </LinearLayout>
+
+
+
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20sp"
+                android:layout_marginTop="20sp"
+                android:layout_marginRight="20sp"
+                android:background="@drawable/buttonbackground"
+                android:backgroundTint="#0B287B"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:textColor="#ffffff">
+
+
+                <ImageView
+                    android:id="@+id/showIcon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_green" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="অনুমোদন করুন"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/buttonbackground"
+
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:textColor="#ffffff">
+
+
+                <ImageView
+                    android:id="@+id/n"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_crose" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="প্রত্যাখ্যান করুন"
+                    android:textColor="#515151"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/buttonbackground"
+        android:text="ফরওয়ার্ড করুন"
+        android:textColor="#ffff"
+        android:backgroundTint="#0B287B"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/cardView"
+        />
+
+
+</RelativeLayout>

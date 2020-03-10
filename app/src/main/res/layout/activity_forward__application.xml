@@ -1,9 +1,218 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Dashboard_Items.Forward_Application_Activity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:id="@+id/forward_toolbar"
+        android:background="@drawable/small_banner">
+
+
+
+
+ <RelativeLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+>
+
+     <ImageView
+         android:layout_alignParentTop="true"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:src="@drawable/ic_arrow_back_black_24dp" />
+
+
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="ফরওয়ার্ড আবেদন"
+         android:textColor="#ffffff"
+         android:fontFamily="@font/bengali"
+         android:textStyle="bold"
+         android:textSize="20dp"
+         android:layout_centerInParent="true"/>
+
+
+
+ </RelativeLayout>
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ll"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:weightSum="5"
+        android:layout_below="@id/forward_toolbar"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/all_tv"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:padding="5dp"
+            android:background="#0B287B"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:layout_marginRight="10dp"
+            android:fontFamily="@font/bengali"
+            android:textSize="15dp"
+            android:text="সকল " />
+
+
+
+
+        <TextView
+            android:id="@+id/education_tv"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:padding="5dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/bg"
+            android:gravity="center"
+            android:fontFamily="@font/bengali"
+            android:textColor="@color/txt_color1"
+            android:textSize="15dp"
+            android:text="শিক্ষা" />
+
+
+        <TextView
+            android:id="@+id/calamities_tv"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:padding="5dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/bg"
+            android:gravity="center"
+            android:textColor="@color/txt_color1"
+            android:fontFamily="@font/bengali"
+            android:textSize="15dp"
+            android:text=" দূর্যোগ" />
+
+        <TextView
+            android:id="@+id/health_tv"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:padding="5dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/bg"
+            android:gravity="center"
+            android:textColor="@color/txt_color1"
+            android:fontFamily="@font/bengali"
+            android:textSize="15dp"
+            android:text="স্বাস্থ্য" />
+
+
+
+        <TextView
+            android:id="@+id/autistic_tv"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:padding="5dp"
+            android:fontFamily="@font/bengali"
+            android:background="@color/bg"
+            android:gravity="center"
+            android:textColor="@color/txt_color1"
+            android:textSize="15dp"
+            android:text="প্রতিবন্ধী" />
+
+
+    </LinearLayout>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/cardView"
+        android:layout_below="@id/ll">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:gravity="center_vertical"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="আবেদনের ধরণঃ "
+                android:fontFamily="@font/bengali"
+                android:layout_marginLeft="10dp"
+                android:textSize="18dp"
+                android:textStyle="bold"/>
+
+            <!--        <Spinner-->
+            <!--            android:layout_width="?attr/spinnerStyle"-->
+            <!--            android:layout_height="?attr/spinnerStyle"-->
+            <!--            android:entries="@array/country_arrays"-->
+            <!--            android:prompt="@string/country_prompt"-->
+            <!--            />-->
+
+
+
+        </LinearLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/rootTv"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@id/cardView">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="সকল/"
+            android:fontFamily="@font/bengali"
+            android:id="@+id/root_tv"
+            android:textSize="14dp"
+            android:textColor="#0B287B"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="সাম্প্রতিক আবেদন/"
+            android:textSize="14dp"
+            android:fontFamily="@font/bengali"
+            android:textColor="#0B287B"
+            />
+
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recyclerView1"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/rootTv"
+        />
+
+
+
+</RelativeLayout>
+
+

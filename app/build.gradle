@@ -37,4 +37,13 @@ dependencies {
     implementation 'com.android.support:design:29.0.3'
 
 
+
+    //farhan
+
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'de.hdodenhof:circleimageview:3.0.1'
+    implementation 'androidx.cardview:cardview:1.0.0'
 }
+
+
+

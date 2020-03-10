@@ -5,6 +5,11 @@
     <color name="colorAccent">#D81B60</color>'
 
 
+    <color name="bg">#fff</color>
+    <color name="bg2">#0B287B</color>
+    <color name="txt_color1">#515151</color>
+
+
 <!--    turzzz-->
     <color name="grey_text">#515151</color>
     <color name="blue_text">#26A9E1</color>
