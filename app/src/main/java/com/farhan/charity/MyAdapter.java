@@ -12,6 +12,14 @@ public class MyAdapter extends FragmentPagerAdapter {
     private Context myContext;
     int totalTabs;
 
+    private String[] tabTitles = new String[]{"স্থায়ী ঠিকানা", "বর্তমান ঠিকানা"};
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return tabTitles[position];
+    }
+
+
     public MyAdapter(Context context, FragmentManager fm, int totalTabs) {
         super(fm);
         myContext = context;

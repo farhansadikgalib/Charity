@@ -15,5 +15,8 @@
     <color name="blue_text">#26A9E1</color>
     <color name="black">#111111</color>
     <color name="white">#ffffff</color>
+    <color name="blue_unclick">#A8DDF3</color>
+
+
 
 </resources>
