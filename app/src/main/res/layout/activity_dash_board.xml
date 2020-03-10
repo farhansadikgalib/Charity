@@ -59,6 +59,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:orientation="vertical"
+                                    android:id="@+id/allApplicationBT"
                                     >
 
                                     <ImageView
@@ -105,7 +106,9 @@
 
                                 <androidx.constraintlayout.widget.ConstraintLayout
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent">
+                                    android:layout_height="match_parent"
+                                    android:id="@+id/forwardApplicationBT"
+                                    >
 
                                     <ImageView
                                         android:id="@+id/imageView2"
@@ -238,6 +241,7 @@
                     android:orientation="horizontal"
                     >
                     <LinearLayout
+                        android:id="@+id/educationApplicationBT"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@color/white"
@@ -268,6 +272,7 @@
 
 
                     <LinearLayout
+                        android:id="@+id/climateRelatedBT"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@color/white"
@@ -304,6 +309,7 @@
                     android:layout_weight="1"
                     >
                     <LinearLayout
+                        android:id="@+id/disabilityRelatedBT"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@color/white"
@@ -332,6 +338,7 @@
                         </ImageView>
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/healthRelatedBT"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@color/white"
