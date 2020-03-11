@@ -185,8 +185,8 @@ public class Forward_Application_Activity extends AppCompatActivity {
     public void getData(){
 
         items.add(new ItemModel(R.mipmap.ic_launcher,"Farhan","শিক্ষা আবেদন","৫০০০০০৯"));
-        items.add(new ItemModel(R.mipmap.ic_launcher,"Farhan","শিক্ষা আবেদন","৫০০০০০৯"));
-        items.add(new ItemModel(R.mipmap.ic_launcher,"Farhan","শিক্ষা আবেদন","৫০০০০০৯"));
+        items.add(new ItemModel(R.mipmap.ic_launcher,"Sadik","শিক্ষা আবেদন","৫০০০০০৯"));
+        items.add(new ItemModel(R.mipmap.ic_launcher,"Galib","শিক্ষা আবেদন","৫০০০০০৯"));
         items.add(new ItemModel(R.mipmap.ic_launcher,"Farhan","শিক্ষা আবেদন","৫০০০০০৯"));
         items.add(new ItemModel(R.mipmap.ic_launcher,"Farhan","শিক্ষা আবেদন","৫০০০০০৯"));
         items.add(new ItemModel(R.mipmap.ic_launcher,"Farhan","শিক্ষা আবেদন","৫০০০০০৯"));

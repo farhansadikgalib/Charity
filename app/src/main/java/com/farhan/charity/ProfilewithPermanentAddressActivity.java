@@ -5,6 +5,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 
+import com.farhan.charity.Adapter.MyAdapter;
 import com.google.android.material.tabs.TabLayout;
 
 public class ProfilewithPermanentAddressActivity extends AppCompatActivity {

@@ -21,9 +21,9 @@
         <activity android:name=".Unapproved_Application_Details_Activity" />
         <activity android:name=".Under_consideration_Activity" />
         <activity android:name=".Applicant_Details" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".DashBoard" />
         <activity android:name=".ProfilewithPermanentAddressActivity" />
-        <activity android:name=".DashBoard">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

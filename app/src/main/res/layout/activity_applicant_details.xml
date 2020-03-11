@@ -250,6 +250,7 @@
                 android:layout_marginLeft="20sp"
                 android:layout_marginTop="20sp"
                 android:layout_marginRight="20sp"
+                android:onClick="Onumodon_korun"
                 android:background="@drawable/buttonbackground"
                 android:backgroundTint="#0B287B"
                 android:gravity="center"
@@ -283,7 +284,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/buttonbackground"
-
+                android:onClick="prottakhan_korun"
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:textColor="#ffffff">
