@@ -1,19 +1,26 @@
 package com.farhan.charity;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.farhan.charity.Dashboard_Items.All_Application_Activity;
+import com.farhan.charity.Dashboard_Items.Forward_Application_Activity;
+
 public class Applicant_Details extends AppCompatActivity {
     AlertDialog alertDialog;
+    Button forwardBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_applicant_details);
+        forwardBtn=findViewById(R.id.forwardBtn);
     }
 
     public void Onumodon_korun(View view) {
@@ -69,6 +76,22 @@ public class Applicant_Details extends AppCompatActivity {
         builder.setView(dialogView);
         alertDialog = builder.create();
         alertDialog.show();
+
+    }
+
+    public void forwardForm(View view) {
+
+        //startActivity(new Intent(Applicant_Details.this, FowardForm.class));
+        startActivity(new Intent(Applicant_Details.this,FowardForm.class));
+
+
+    }
+
+
+    public void backToAllApplication(View view){
+
+
+        super.onBackPressed();
 
     }
 }
