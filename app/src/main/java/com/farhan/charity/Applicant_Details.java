@@ -1,29 +1,74 @@
 package com.farhan.charity;
 
-import android.content.Intent;
+import android.app.AlertDialog;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
+import android.view.ViewGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.farhan.charity.Dashboard_Items.Forward_Application_Activity;
-
 public class Applicant_Details extends AppCompatActivity {
-    Button forwardBtn;
-
+    AlertDialog alertDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_applicant_details);
+    }
 
-        forwardBtn=findViewById(R.id.forwardBtn);
+    public void Onumodon_korun(View view) {
 
-        forwardBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Applicant_Details.this, FowardForm.class));
-            }
-        });
+
+
+        ViewGroup viewGroup = findViewById(android.R.id.content);
+        View dialogView = LayoutInflater.from(this).inflate(R.layout.custom_alert_dialog, viewGroup, false);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setView(dialogView);
+        alertDialog = builder.create();
+        alertDialog.show();
+
+    }
+
+    public void crossBtn(View view) {
+
+        alertDialog.dismiss();
+
+
+
+    }
+
+    public void submit_button(View view) {
+
+        ViewGroup viewGroup = findViewById(android.R.id.content);
+        View dialogView = LayoutInflater.from(this).inflate(R.layout.custom_alert_dialog_3, viewGroup, false);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setView(dialogView);
+        alertDialog = builder.create();
+        alertDialog.show();
+
+
+    }
+
+    public void prottakhan_korun(View view) {
+
+
+        ViewGroup viewGroup = findViewById(android.R.id.content);
+        View dialogView = LayoutInflater.from(this).inflate(R.layout.custom_alert_dialog_2, viewGroup, false);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setView(dialogView);
+        alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    public void submit_prottakhan(View view) {
+
+
+        ViewGroup viewGroup = findViewById(android.R.id.content);
+        View dialogView = LayoutInflater.from(this).inflate(R.layout.custom_alert_dialog_4, viewGroup, false);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setView(dialogView);
+        alertDialog = builder.create();
+        alertDialog.show();
+
     }
 }
