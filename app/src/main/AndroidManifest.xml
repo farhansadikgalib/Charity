@@ -11,6 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Test"></activity>
         <activity android:name=".Dashboard_Items.Forward_Application_Activity" />
+        <activity android:name=".FowardForm" />
         <activity android:name=".Dashboard_Items.All_Application_Activity" />
         <activity android:name=".Dashboard_Items.HealthRelatedActivity" />
         <activity android:name=".Dashboard_Items.DisabilityRelatedActivity" />

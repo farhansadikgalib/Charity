@@ -3,6 +3,7 @@ package com.farhan.charity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -57,6 +58,11 @@ public class FowardForm extends AppCompatActivity {
 
 
 
+
+    }
+
+    public void backToApplicantsDetails(View view){
+        super.onBackPressed();
 
     }
 }

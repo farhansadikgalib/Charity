@@ -7,18 +7,11 @@
     tools:context=".Applicant_Details">
 
 
+<include
+    android:id="@+id/toolbar"
+    layout="@layout/applicants_details_toolbar"
+    />
 
-    <TextView
-        android:id="@+id/Applicants"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="আবেদনকারী"
-        android:layout_marginTop="10dp"
-        android:textSize="20sp"
-        android:gravity="center"
-        android:textColor="#26A9E1"
-        android:layout_alignParentTop="true"
-        />
 
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -28,7 +21,7 @@
         android:src="@drawable/ic_crose"
         app:civ_border_width="3dp"
         app:civ_border_color="#03A9F4"
-        android:layout_below="@id/Applicants"
+        android:layout_below="@id/toolbar"
         android:layout_centerInParent="true"
         android:layout_marginTop="25dp"/>
 
@@ -321,10 +314,10 @@
         android:background="@drawable/buttonbackground"
         android:text="ফরওয়ার্ড করুন"
         android:textColor="#ffff"
+        android:onClick="forwardForm"
         android:backgroundTint="#0B287B"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
-        android:layout_marginTop="30dp"
         android:layout_below="@+id/cardView"
         />
 
