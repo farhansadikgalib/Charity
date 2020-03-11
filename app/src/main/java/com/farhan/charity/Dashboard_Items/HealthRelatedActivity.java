@@ -1,9 +1,13 @@
 package com.farhan.charity.Dashboard_Items;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.farhan.charity.DashbordAdapter.DashbordRecyclerViewAdapter;
+import com.farhan.charity.DashbordAdapter.DataModel;
 import com.farhan.charity.R;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
@@ -24,7 +28,7 @@ public class HealthRelatedActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_health_related);
-
+        Recyclerview();
 
         PieChart pieChart = findViewById(R.id.piechart);
         PieDataSet pieDataSet = new PieDataSet(getData(), "");
@@ -52,5 +56,25 @@ public class HealthRelatedActivity extends AppCompatActivity {
         entries.add(new PieEntry(60, " স্বাস্থ্য সংক্রান্ত"));
         entries.add(new PieEntry(70, "দুর্যোগ সংক্রান্ত"));
         return entries;
+    }
+    public void Recyclerview() {
+        RecyclerView recyclerView;
+        DashbordRecyclerViewAdapter mAdapter;
+        ArrayList<DataModel> dataModels;
+        RecyclerView.LayoutManager layoutManager;
+        recyclerView = findViewById(R.id.recyclerViewId);
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.stopScroll();
+        dataModels = new ArrayList<>();
+        dataModels.add(new DataModel("সাম্প্রতিক আবেদন", "১,৫২৮", R.drawable.ic_icon_3));
+        dataModels.add(new DataModel("অনুমোদিত আবেদন", "২১,২৫৬", R.drawable.ic_icon_4));
+        dataModels.add(new DataModel("বিবেচনাধীন আবেদন", "৮৫১", R.drawable.ic_icon_2));
+        dataModels.add(new DataModel("অননুমদিত আবেদন", "২৫", R.drawable.ic_icon_1));
+        dataModels.add(new DataModel("পুনরায় জমা আবেদন", "৫", R.drawable.ic_icon_5));
+        mAdapter = new DashbordRecyclerViewAdapter(HealthRelatedActivity.this, dataModels);
+        recyclerView.setAdapter(mAdapter);
+
     }
 }

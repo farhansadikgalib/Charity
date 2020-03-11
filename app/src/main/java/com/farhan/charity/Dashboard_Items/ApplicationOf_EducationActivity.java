@@ -1,9 +1,13 @@
 package com.farhan.charity.Dashboard_Items;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.farhan.charity.DashbordAdapter.DashbordRecyclerViewAdapter;
+import com.farhan.charity.DashbordAdapter.DataModel;
 import com.farhan.charity.R;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
@@ -16,6 +20,7 @@ import static com.github.mikephil.charting.utils.ColorTemplate.rgb;
 
 public class ApplicationOf_EducationActivity extends AppCompatActivity {
 
+
     public static final int[] colordata = {
             rgb("#FF2531"), rgb("#0B287B"), rgb("#02AFAE"), rgb("#FEA200")};
 
@@ -25,6 +30,11 @@ public class ApplicationOf_EducationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_application_of__education);
+
+        // Add RecyclerView Start here
+        Recyclerview();
+
+
 
         PieChart pieChart = findViewById(R.id.piechart);
         PieDataSet pieDataSet = new PieDataSet(getData(), "");
@@ -43,6 +53,27 @@ public class ApplicationOf_EducationActivity extends AppCompatActivity {
         pieChart.setData(pieData);
         pieChart.animateXY(3000, 3000);
         pieChart.invalidate();
+    }
+
+    public void Recyclerview() {
+        RecyclerView recyclerView;
+        DashbordRecyclerViewAdapter mAdapter;
+        ArrayList<DataModel> dataModels;
+        RecyclerView.LayoutManager layoutManager;
+        recyclerView = findViewById(R.id.recyclerViewId);
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.stopScroll();
+        dataModels = new ArrayList<>();
+        dataModels.add(new DataModel("সাম্প্রতিক আবেদন", "১,৫২৮", R.drawable.ic_icon_3));
+        dataModels.add(new DataModel("অনুমোদিত আবেদন", "২১,২৫৬", R.drawable.ic_icon_4));
+        dataModels.add(new DataModel("বিবেচনাধীন আবেদন", "৮৫১", R.drawable.ic_icon_2));
+        dataModels.add(new DataModel("অননুমদিত আবেদন", "২৫", R.drawable.ic_icon_1));
+        dataModels.add(new DataModel("পুনরায় জমা আবেদন", "৫", R.drawable.ic_icon_5));
+        mAdapter = new DashbordRecyclerViewAdapter(ApplicationOf_EducationActivity.this, dataModels);
+        recyclerView.setAdapter(mAdapter);
+
     }
 
     private ArrayList getData() {
