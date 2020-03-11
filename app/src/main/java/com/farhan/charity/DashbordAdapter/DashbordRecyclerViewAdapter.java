@@ -1,6 +1,7 @@
 package com.farhan.charity.DashbordAdapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.farhan.charity.Adapter.Adapter_item1;
 import com.farhan.charity.R;
+import com.farhan.charity.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +45,12 @@ public class DashbordRecyclerViewAdapter extends RecyclerView.Adapter<DashbordRe
         holder.Name.setText(model.getName());
         holder.Number.setText(model.getNumber());
         holder.imageView.setImageResource(model.getImage());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                context.startActivity(new Intent(context, Test.class));
+            }
+        });
 
     }
 
@@ -63,12 +71,12 @@ public class DashbordRecyclerViewAdapter extends RecyclerView.Adapter<DashbordRe
             imageView = itemView.findViewById(R.id.imageViewId);
             cardView = itemView.findViewById(R.id.cardViewId);
 
-            cardView.setOnClickListener(new View.OnClickListener() {
+            /*cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(context, "Item"+getLayoutPosition(), Toast.LENGTH_SHORT).show();
                 }
-            });
+            });*/
         }
     }
 }
