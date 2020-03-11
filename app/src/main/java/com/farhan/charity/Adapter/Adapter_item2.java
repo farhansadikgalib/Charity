@@ -18,20 +18,20 @@ import com.farhan.charity.R;
 
 import java.util.List;
 
-public class Adapter_item1 extends  RecyclerView.Adapter<Adapter_item1.ViewHolder> {
+public class Adapter_item2 extends  RecyclerView.Adapter<Adapter_item2.ViewHolder> {
 
     private Context context;
     private List<ItemModel> itemModelList;
 
-    public Adapter_item1(Context context, List<ItemModel> list) {
+    public Adapter_item2(Context context, List<ItemModel> list) {
         this.context = context;
         this.itemModelList = list;
     }
 
     @Override
-    public Adapter_item1.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public Adapter_item2.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.row_layout, parent, false);
-        return new Adapter_item1.ViewHolder(v);
+        return new Adapter_item2.ViewHolder(v);
     }
 
     @Override

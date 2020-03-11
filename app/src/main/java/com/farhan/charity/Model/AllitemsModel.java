@@ -1,15 +1,18 @@
-package com.farhan.charity.Adapter;
+package com.farhan.charity.Model;
 
 import androidx.annotation.NonNull;
 
-public class AllZillaAdapter {
+public class AllitemsModel {
+
     private String name;
 
-    public AllZillaAdapter(String name) {
-        this.name = name;
+
+    public AllitemsModel() {
     }
 
-    public AllZillaAdapter() {
+
+    public AllitemsModel(String name) {
+        this.name = name;
     }
 
     public String getName() {

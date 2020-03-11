@@ -10,9 +10,6 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.farhan.charity.Dashboard_Items.All_Application_Activity;
-import com.farhan.charity.Dashboard_Items.Forward_Application_Activity;
-
 public class Applicant_Details extends AppCompatActivity {
     AlertDialog alertDialog;
     Button forwardBtn;
@@ -82,7 +79,7 @@ public class Applicant_Details extends AppCompatActivity {
     public void forwardForm(View view) {
 
         //startActivity(new Intent(Applicant_Details.this, FowardForm.class));
-        startActivity(new Intent(Applicant_Details.this,FowardForm.class));
+        startActivity(new Intent(Applicant_Details.this, ForwardForm.class));
 
 
     }

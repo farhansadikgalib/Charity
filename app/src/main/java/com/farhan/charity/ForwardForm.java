@@ -7,18 +7,19 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-import com.farhan.charity.Adapter.AllZillaAdapter;
+
+import com.farhan.charity.Model.AllZillaAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FowardForm extends AppCompatActivity {
+public class ForwardForm extends AppCompatActivity {
     Spinner zillaSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_foward_form);
+        setContentView(R.layout.activity_forward_form);
 
         zillaSpinner=findViewById(R.id.zillaSpinner);
 
