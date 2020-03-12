@@ -1,4 +1,4 @@
-package com.farhan.charity.DashbordAdapter.Dashbor_subItem;
+package com.farhan.charity.Dashbor_subItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,24 +9,24 @@ import android.os.Bundle;
 import com.farhan.charity.Adapter.Unapproved_Adapter;
 import com.farhan.charity.Model.ItemModel;
 import com.farhan.charity.R;
+import com.farhan.charity.SubItem_Adapter.ApplicationUnderConsideration_Adapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class UnapprovedApplication extends AppCompatActivity {
-
+public class ApplicationUnderConsideration extends AppCompatActivity {
     private RecyclerView recyclerView;
     List<ItemModel> items;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_unapproved_application);
+        setContentView(R.layout.activity_application_under_consideration);
         items = new ArrayList<>();
         getData();
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(UnapprovedApplication.this);
-        recyclerView = findViewById(R.id.recyclerView_unapproved);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ApplicationUnderConsideration.this);
+        recyclerView = findViewById(R.id.recyclerView_underConsideration);
         recyclerView.setLayoutManager(linearLayoutManager);
-        Unapproved_Adapter adapter = new Unapproved_Adapter(UnapprovedApplication.this, items);
+        ApplicationUnderConsideration_Adapter adapter = new ApplicationUnderConsideration_Adapter(ApplicationUnderConsideration.this, items);
         recyclerView.setAdapter(adapter);
     }
     public void getData(){
