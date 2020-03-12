@@ -19,6 +19,7 @@
         android:layout_height="wrap_content"
         android:text="জেলা নির্বাহী অফিসারকে ফরওয়ার্ড করুন"
         android:layout_marginLeft="20dp"
+        android:gravity="center"
         android:textSize="20sp"
         android:textColor="#26A9E1"/>
 

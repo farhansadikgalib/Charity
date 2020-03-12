@@ -24,10 +24,10 @@
                 android:minHeight="?attr/actionBarSize"
                 android:background="@drawable/helthe">
 
-                <Button
+                <ImageView
                     android:layout_width="30dp"
                     android:layout_height="25dp"
-                    android:background="@drawable/ic_vector"
+                    android:src="@drawable/ic_arrow_back_black_24dp"
                     android:onClick="backToPrevious"/>
 
 
