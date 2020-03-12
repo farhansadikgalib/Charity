@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.farhan.charity.Adapter.MyAdapter;
 import com.google.android.material.tabs.TabLayout;
@@ -51,6 +52,11 @@ public class ProfilewithPermanentAddressActivity extends AppCompatActivity {
 
 
 
+    }
+
+    public void backToAllApplication(View view){
+
+        super.onBackPressed();
     }
 
 

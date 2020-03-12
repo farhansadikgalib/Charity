@@ -54,14 +54,14 @@ public class DashBoard extends AppCompatActivity {
 
 
     public void imageSlider() {
-        ImageSlider imageSlider = findViewById(R.id.slider);
-
-        List<SlideModel> slideModels = new ArrayList<>();
-        slideModels.add(new SlideModel(R.drawable.coverpic_001));
-        slideModels.add(new SlideModel(R.drawable.coverpic_001));
-        slideModels.add(new SlideModel(R.drawable.coverpic_001));
-        slideModels.add(new SlideModel(R.drawable.coverpic_001));
-        imageSlider.setImageList(slideModels, true);
+//        ImageSlider imageSlider = findViewById(R.id.slider);
+//
+//        List<SlideModel> slideModels = new ArrayList<>();
+//        slideModels.add(new SlideModel(R.drawable.coverpic101));
+////        slideModels.add(new SlideModel(R.drawable.coverpic101));
+////        slideModels.add(new SlideModel(R.drawable.coverpic101));
+////        slideModels.add(new SlideModel(R.drawable.coverpic101));
+//        imageSlider.setImageList(slideModels, false);
 
     }
 

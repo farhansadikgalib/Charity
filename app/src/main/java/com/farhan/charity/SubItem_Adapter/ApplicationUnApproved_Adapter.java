@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.farhan.charity.Model.ItemModel;
 import com.farhan.charity.R;
+import com.farhan.charity.Unapproved_Application_Details_Activity;
 import com.farhan.charity.UnderConsideration_Details_Activity;
 
 import java.util.List;
@@ -43,7 +44,7 @@ public class ApplicationUnApproved_Adapter extends  RecyclerView.Adapter<Applica
             public void onClick(View v) {
 
                 Toast.makeText(context, ""+ itemModel.getApplicantName() ,Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(context, UnderConsideration_Details_Activity.class);
+                Intent i = new Intent(context, Unapproved_Application_Details_Activity.class);
                 context.startActivity(i);
             }
         });

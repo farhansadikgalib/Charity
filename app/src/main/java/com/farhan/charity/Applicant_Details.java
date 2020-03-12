@@ -7,22 +7,33 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Applicant_Details extends AppCompatActivity {
     AlertDialog alertDialog;
+    TextView applicantsNameTV1;
     Button forwardBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_applicant_details);
         forwardBtn=findViewById(R.id.forwardBtn);
+
+        applicantsNameTV1 = findViewById(R.id.applicantsNameTV);
+
+        applicantsNameTV1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Applicant_Details.this, ProfilewithPermanentAddressActivity.class));
+            }
+        });
+
+
     }
 
     public void Onumodon_korun(View view) {
-
-
 
         ViewGroup viewGroup = findViewById(android.R.id.content);
         View dialogView = LayoutInflater.from(this).inflate(R.layout.custom_alert_dialog, viewGroup, false);
@@ -88,8 +99,6 @@ public class Applicant_Details extends AppCompatActivity {
 
     public void backToAllApplication(View view){
 
-
         super.onBackPressed();
-
     }
 }
