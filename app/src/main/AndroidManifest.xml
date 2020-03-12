@@ -22,7 +22,6 @@
         <activity android:name=".Dashboard_Items.DisasterRelatedActivity" />
         <activity android:name=".Dashboard_Items.ApplicationOf_EducationActivity" />
         <activity android:name=".UnderConsideration_Details_Activity" />
-        <activity android:name=".Unapproved_Activity" />
         <activity android:name=".Unapproved_Application_Details_Activity" />
         <activity android:name=".Under_consideration_Activity" />
         <activity android:name=".Applicant_Details" />
