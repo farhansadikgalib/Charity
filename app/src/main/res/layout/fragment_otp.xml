@@ -14,7 +14,7 @@
         android:orientation="vertical">
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="300dp"
+            android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:layout_gravity="center"
             android:padding="50dp"
@@ -72,6 +72,7 @@
             android:text="সাবমিট "
             android:textColor="#FFFFFF"
             android:textSize="20dp"
+            android:layout_marginBottom="30dp"
             android:textStyle="bold" />
 
     </LinearLayout>
