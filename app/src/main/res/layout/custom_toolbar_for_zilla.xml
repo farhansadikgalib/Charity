@@ -9,8 +9,8 @@
     app:popupTheme="@style/AppTheme">
 
     <ImageView
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:layout_width="30dp"
+        android:layout_height="25dp"
         android:src="@drawable/ic_arrow_back_black_24dp"/>
 
 
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:text="জেলা নির্বাহী অফিসারকে ফরওয়ার্ড করুন"
         android:layout_marginLeft="20dp"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textColor="#26A9E1"/>
 
 

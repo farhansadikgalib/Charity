@@ -27,8 +27,8 @@
                 android:background="@drawable/disabilety">
 
                 <Button
-                    android:layout_width="20dp"
-                    android:layout_height="15dp"
+                    android:layout_width="30dp"
+                    android:layout_height="25dp"
                     android:background="@drawable/back"
                     android:onClick="backToPrevious"/>
 
