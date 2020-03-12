@@ -218,6 +218,7 @@
 
 
         <LinearLayout
+            android:id="@+id/fourcard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/linerPieChart"
@@ -225,7 +226,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:layout_marginBottom="70dp"
+            android:layout_marginBottom="30dp"
             >
 
 
@@ -392,7 +393,31 @@
 
             </LinearLayout>
 
+        <LinearLayout
+            android:layout_below="@+id/fourcard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F9F9F9"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/multiple_logo"
+                android:adjustViewBounds="true"
+                >
+
+            </ImageView>
+
+        </LinearLayout>
+
+
     </RelativeLayout>
+
+
 </ScrollView>
 
 
