@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.farhan.charity.Model.ItemModel;
 import com.farhan.charity.R;
@@ -41,5 +42,9 @@ public class RecentApplication extends AppCompatActivity {
         items.add(new ItemModel(R.mipmap.ic_launcher,"Farhan","শিক্ষা আবেদন","৫০০০০০৯"));
 
 
+    }
+
+    public void backToPrevious(View view) {
+        super.onBackPressed();
     }
 }

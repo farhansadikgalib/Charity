@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.farhan.charity.Adapter.Unapproved_Adapter;
 import com.farhan.charity.Model.ItemModel;
@@ -42,5 +43,9 @@ public class ResubmitApplication extends AppCompatActivity {
         items.add(new ItemModel(R.mipmap.ic_launcher,"Farhan","শিক্ষা আবেদন","৫০০০০০৯"));
 
 
+    }
+
+    public void backToPrevious(View view) {
+        super.onBackPressed();
     }
 }

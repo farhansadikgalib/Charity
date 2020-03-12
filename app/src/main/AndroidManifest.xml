@@ -27,6 +27,7 @@
         <activity android:name=".Applicant_Details" />
         <activity android:name=".DashBoard" />
         <activity android:name=".ProfilewithPermanentAddressActivity" />
+
         <activity android:name=".MainActivity" />
         <activity android:name=".SplashScreen">
             <intent-filter>
