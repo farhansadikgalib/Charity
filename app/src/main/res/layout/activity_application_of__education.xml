@@ -29,7 +29,8 @@
                 <Button
                     android:layout_width="20dp"
                     android:layout_height="15dp"
-                    android:background="@drawable/ic_vector"/>
+                    android:onClick="backToPrevious"
+                    android:background="@drawable/ic_vector" />
 
 
                 <TextView

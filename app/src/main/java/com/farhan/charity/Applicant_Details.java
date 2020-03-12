@@ -82,6 +82,7 @@ public class Applicant_Details extends AppCompatActivity {
         startActivity(new Intent(Applicant_Details.this, ForwardForm.class));
 
 
+
     }
 
 

@@ -46,7 +46,7 @@ public class All_Application_Activity extends AppCompatActivity {
         ////
 
 
-
+        //Below code is for spinner
 
         List<AllitemsModel> itemxx =new ArrayList<>();
         AllitemsModel allitemsModelAdapter =new AllitemsModel("সাম্প্রতিক আবেদন ");
@@ -138,7 +138,7 @@ public class All_Application_Activity extends AppCompatActivity {
     }
 
 
-
-
-
+    public void onBackPressed(View view) {
+        super.onBackPressed();
+    }
 }
