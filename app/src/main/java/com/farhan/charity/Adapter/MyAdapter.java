@@ -1,10 +1,13 @@
-package com.farhan.charity;
+package com.farhan.charity.Adapter;
 
 import android.content.Context;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+
+import com.farhan.charity.ParmanentAddressFragment;
+import com.farhan.charity.PresentAddressFragment;
 
 public class MyAdapter extends FragmentPagerAdapter {
 

@@ -7,9 +7,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.farhan.charity.Adapter.Adapter_item1;
+import com.farhan.charity.Adapter.Adapter_item2;
+import com.farhan.charity.Model.AllitemsModel;
 import com.farhan.charity.Model.ItemModel;
 import com.farhan.charity.R;
 
@@ -24,6 +28,7 @@ public class Forward_Application_Activity extends AppCompatActivity {
 
     TextView tv1,tv2,tv3,tv4,tv5;
     TextView rootTV;
+    Spinner itemsSpinnerx;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +41,38 @@ public class Forward_Application_Activity extends AppCompatActivity {
         tv5 = findViewById(R.id.autistic_tv);
 
         rootTV = findViewById(R.id.root_tv);
+
+        itemsSpinnerx=findViewById(R.id.itemsSpinnerx);
+
+
+
+
+
+
+        List<AllitemsModel> itemxx =new ArrayList<>();
+        AllitemsModel allitemsModelAdapter =new AllitemsModel("সাম্প্রতিক আবেদন ");
+        itemxx.add(allitemsModelAdapter);
+
+        AllitemsModel allitemsModelAdapter2 =new AllitemsModel("অনুমোদিত আবেদন ");
+        itemxx.add(allitemsModelAdapter2);
+        AllitemsModel allitemsModelAdapter3 =new AllitemsModel("বিবেচনাধীন আবেদন ");
+        itemxx.add(allitemsModelAdapter3);
+        AllitemsModel allitemsModelAdapter4 =new AllitemsModel("অননুমদিত আবেদন ");
+        itemxx.add(allitemsModelAdapter4);
+        AllitemsModel allitemsModelAdapter5 =new AllitemsModel("পুনরায় জমা আবেদন ");
+        itemxx.add(allitemsModelAdapter5);
+
+
+
+
+        ArrayAdapter<AllitemsModel> adapterx=new ArrayAdapter<AllitemsModel>(this,android.R.layout.simple_spinner_dropdown_item,itemxx);
+        adapterx.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        itemsSpinnerx.setAdapter(adapterx);
+
+
+
+
+
 
 
         tv1.setOnClickListener(new View.OnClickListener() {
@@ -176,7 +213,7 @@ public class Forward_Application_Activity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(Forward_Application_Activity.this);
         recyclerView = findViewById(R.id.recyclerView1);
         recyclerView.setLayoutManager(linearLayoutManager);
-        Adapter_item1 adapter = new Adapter_item1(Forward_Application_Activity.this, items);
+        Adapter_item2 adapter = new Adapter_item2(Forward_Application_Activity.this, items);
         recyclerView.setAdapter(adapter);
 
 
@@ -185,8 +222,8 @@ public class Forward_Application_Activity extends AppCompatActivity {
     public void getData(){
 
         items.add(new ItemModel(R.mipmap.ic_launcher,"Farhan","শিক্ষা আবেদন","৫০০০০০৯"));
-        items.add(new ItemModel(R.mipmap.ic_launcher,"Farhan","শিক্ষা আবেদন","৫০০০০০৯"));
-        items.add(new ItemModel(R.mipmap.ic_launcher,"Farhan","শিক্ষা আবেদন","৫০০০০০৯"));
+        items.add(new ItemModel(R.mipmap.ic_launcher,"Sadik","শিক্ষা আবেদন","৫০০০০০৯"));
+        items.add(new ItemModel(R.mipmap.ic_launcher,"Galib","শিক্ষা আবেদন","৫০০০০০৯"));
         items.add(new ItemModel(R.mipmap.ic_launcher,"Farhan","শিক্ষা আবেদন","৫০০০০০৯"));
         items.add(new ItemModel(R.mipmap.ic_launcher,"Farhan","শিক্ষা আবেদন","৫০০০০০৯"));
         items.add(new ItemModel(R.mipmap.ic_launcher,"Farhan","শিক্ষা আবেদন","৫০০০০০৯"));

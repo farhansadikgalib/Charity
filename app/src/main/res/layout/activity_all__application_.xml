@@ -107,14 +107,14 @@
                 android:fontFamily="@font/bengali"
                 android:textStyle="bold"/>
 
-            <!--        <Spinner-->
-            <!--            android:layout_width="?attr/spinnerStyle"-->
-            <!--            android:layout_height="?attr/spinnerStyle"-->
-            <!--            android:entries="@array/country_arrays"-->
-            <!--            android:prompt="@string/country_prompt"-->
-            <!--            />-->
 
-
+            <Spinner
+                android:id="@+id/itemsSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#ECECEC"
+                android:layout_marginLeft="20sp"
+                android:layout_marginRight="10dp"/>
 
         </LinearLayout>
 
