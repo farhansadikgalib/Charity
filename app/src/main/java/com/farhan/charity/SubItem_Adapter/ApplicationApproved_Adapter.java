@@ -44,7 +44,7 @@ public class ApplicationApproved_Adapter extends  RecyclerView.Adapter<Applicati
             public void onClick(View v) {
 
                 Toast.makeText(context, ""+ itemModel.getApplicantName() ,Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(context, UnderConsideration_Details_Activity.class);
+                Intent i = new Intent(context, Applicant_Details.class);
                 context.startActivity(i);
             }
         });

@@ -56,7 +56,7 @@ public class All_Application_Activity extends AppCompatActivity {
         itemxx.add(allitemsModelAdapter2);
         AllitemsModel allitemsModelAdapter3 =new AllitemsModel("বিবেচনাধীন আবেদন ");
         itemxx.add(allitemsModelAdapter3);
-        AllitemsModel allitemsModelAdapter4 =new AllitemsModel("অননুমদিত আবেদন ");
+        AllitemsModel allitemsModelAdapter4 =new AllitemsModel("অননুমোদিত আবেদন ");
         itemxx.add(allitemsModelAdapter4);
         AllitemsModel allitemsModelAdapter5 =new AllitemsModel("পুনরায় জমা আবেদন ");
         itemxx.add(allitemsModelAdapter5);
