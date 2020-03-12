@@ -6,9 +6,8 @@
 
 
     <ImageView
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:padding="5dp"
+        android:layout_width="45dp"
+        android:layout_height="30dp"
         android:src="@drawable/ic_arrow_back_black_24dp"
         android:onClick="backToAllApplication"
         />
@@ -18,8 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="আবেদনকারী "
-        android:layout_marginLeft="20dp"
-        android:textSize="15sp"
+        android:textSize="25sp"
+        android:layout_marginRight="40dp"
         android:textColor="#26A9E1"
         android:gravity="center"/>
 
