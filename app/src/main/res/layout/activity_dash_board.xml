@@ -28,16 +28,27 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <com.denzcoskun.imageslider.ImageSlider
+                    <ImageView
                         android:id="@+id/slider"
                         android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        app:auto_cycle="true"
-                        app:corner_radius="20"
-                        app:delay="0"
-                        app:error_image="@drawable/bg_grey"
-                        app:period="1000"
-                        app:placeholder="@drawable/bg_grey" />
+                        android:layout_height="150dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/coverpic101"
+                        />
+
+<!--                    <com.denzcoskun.imageslider.ImageSlider-->
+<!--                        android:id="@+id/slider"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="180dp"-->
+<!--                        app:selected_dot="@color/black"-->
+<!--                        app:unselected_dot="@color/black"-->
+<!--                        app:auto_cycle="true"-->
+<!--                        app:delay="0"-->
+<!--                        app:error_image="@drawable/coverpic_001"-->
+<!--                        app:period="1000"-->
+<!--                        app:placeholder="@drawable/coverpic_001" />-->
+
+
                 </RelativeLayout>
 
                 <LinearLayout
@@ -45,7 +56,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="140dp"
+                    android:layout_marginTop="125dp"
                     android:weightSum="2"
                     >
 
@@ -211,7 +222,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/linerPieChart"
             android:orientation="vertical"
-            android:layout_margin="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="70dp"
             >
 
 
