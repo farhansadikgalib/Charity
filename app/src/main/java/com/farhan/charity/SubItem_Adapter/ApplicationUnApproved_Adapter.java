@@ -1,4 +1,4 @@
-package com.farhan.charity.Adapter;
+package com.farhan.charity.SubItem_Adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,20 +17,20 @@ import com.farhan.charity.UnderConsideration_Details_Activity;
 
 import java.util.List;
 
-public class UnderConsideration_Adapter extends  RecyclerView.Adapter<UnderConsideration_Adapter.ViewHolder> {
+public class ApplicationUnApproved_Adapter extends  RecyclerView.Adapter<ApplicationUnApproved_Adapter.ViewHolder> {
 
     private Context context;
     private List<ItemModel> itemModelList;
 
-    public UnderConsideration_Adapter(Context context, List<ItemModel> list) {
+    public ApplicationUnApproved_Adapter(Context context, List<ItemModel> list) {
         this.context = context;
         this.itemModelList = list;
     }
 
     @Override
-    public UnderConsideration_Adapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ApplicationUnApproved_Adapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.row_layout_2, parent, false);
-        return new UnderConsideration_Adapter.ViewHolder(v);
+        return new ApplicationUnApproved_Adapter.ViewHolder(v);
     }
 
     @Override

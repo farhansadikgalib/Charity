@@ -1,33 +1,33 @@
-package com.farhan.charity;
-
-import android.os.Bundle;
-import android.view.View;
+package com.farhan.charity.Dashbor_subItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.farhan.charity.SubItem_Adapter.ApplicationUnApproved_Adapter;
+import android.os.Bundle;
+import android.view.View;
+
+import com.farhan.charity.Adapter.Unapproved_Adapter;
 import com.farhan.charity.Model.ItemModel;
+import com.farhan.charity.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Under_consideration_Activity extends AppCompatActivity {
+public class UnapprovedApplication extends AppCompatActivity {
+
     private RecyclerView recyclerView;
     List<ItemModel> items;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_under_consideration);
-
-
+        setContentView(R.layout.activity_unapproved_application);
         items = new ArrayList<>();
         getData();
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(Under_consideration_Activity.this);
-        recyclerView = findViewById(R.id.recyclerView_underConsideration);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(UnapprovedApplication.this);
+        recyclerView = findViewById(R.id.recyclerView_unapproved);
         recyclerView.setLayoutManager(linearLayoutManager);
-        ApplicationUnApproved_Adapter adapter = new ApplicationUnApproved_Adapter(Under_consideration_Activity.this, items);
+        Unapproved_Adapter adapter = new Unapproved_Adapter(UnapprovedApplication.this, items);
         recyclerView.setAdapter(adapter);
     }
     public void getData(){
@@ -44,7 +44,7 @@ public class Under_consideration_Activity extends AppCompatActivity {
 
     }
 
-    public void backToApplicantsDetails(View view) {
+    public void backToPrevious(View view) {
         super.onBackPressed();
     }
 }

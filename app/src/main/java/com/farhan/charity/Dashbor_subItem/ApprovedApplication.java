@@ -1,33 +1,32 @@
-package com.farhan.charity;
-
-import android.os.Bundle;
-import android.view.View;
+package com.farhan.charity.Dashbor_subItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.farhan.charity.SubItem_Adapter.ApplicationUnApproved_Adapter;
+import android.os.Bundle;
+
 import com.farhan.charity.Model.ItemModel;
+import com.farhan.charity.R;
+import com.farhan.charity.SubItem_Adapter.ApplicationApproved_Adapter;
+import com.farhan.charity.SubItem_Adapter.ApplicationRecent_Adapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Under_consideration_Activity extends AppCompatActivity {
+public class ApprovedApplication extends AppCompatActivity {
     private RecyclerView recyclerView;
     List<ItemModel> items;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_under_consideration);
-
-
+        setContentView(R.layout.activity_approved_application);
         items = new ArrayList<>();
         getData();
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(Under_consideration_Activity.this);
-        recyclerView = findViewById(R.id.recyclerView_underConsideration);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ApprovedApplication.this);
+        recyclerView = findViewById(R.id.recyclerView_approved);
         recyclerView.setLayoutManager(linearLayoutManager);
-        ApplicationUnApproved_Adapter adapter = new ApplicationUnApproved_Adapter(Under_consideration_Activity.this, items);
+        ApplicationApproved_Adapter adapter = new ApplicationApproved_Adapter(ApprovedApplication.this, items);
         recyclerView.setAdapter(adapter);
     }
     public void getData(){
@@ -42,9 +41,5 @@ public class Under_consideration_Activity extends AppCompatActivity {
         items.add(new ItemModel(R.mipmap.ic_launcher,"Farhan","শিক্ষা আবেদন","৫০০০০০৯"));
 
 
-    }
-
-    public void backToApplicantsDetails(View view) {
-        super.onBackPressed();
     }
 }
