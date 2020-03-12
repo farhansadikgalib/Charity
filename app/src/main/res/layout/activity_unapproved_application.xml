@@ -37,7 +37,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/ic_arrow_back_black_24dp" />
+                android:src="@drawable/ic_arrow_back_black_24dp"
+                android:onClick="backToPrevious"/>
 
 
             <TextView

@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.farhan.charity.DashbordAdapter.DashbordRecyclerViewAdapter;
 import com.farhan.charity.DashbordAdapter.DataModel;
@@ -78,5 +79,9 @@ public class DisasterRelatedActivity extends AppCompatActivity {
         mAdapter = new DashbordRecyclerViewAdapter(DisasterRelatedActivity.this, dataModels);
         recyclerView.setAdapter(mAdapter);
 
+    }
+
+    public void backToPrevious(View view) {
+        super.onBackPressed();
     }
 }

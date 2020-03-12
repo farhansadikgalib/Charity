@@ -1,6 +1,7 @@
 package com.farhan.charity.Dashboard_Items;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -83,5 +84,9 @@ public class ApplicationOf_EducationActivity extends AppCompatActivity {
         entries.add(new PieEntry(60, " স্বাস্থ্য সংক্রান্ত"));
         entries.add(new PieEntry(70, "দুর্যোগ সংক্রান্ত"));
         return entries;
+    }
+
+    public void backToPrevious(View view) {
+        super.onBackPressed();
     }
 }
