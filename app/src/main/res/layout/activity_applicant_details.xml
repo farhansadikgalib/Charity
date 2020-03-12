@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,7 +8,7 @@
 
 <RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".Applicant_Details">
 
 
@@ -50,37 +50,38 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_marginLeft="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/applicantsNameTV"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
         app:cardCornerRadius="5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/applicationDesTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="আবেদনের বিস্তারিত"
                 android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
                 android:layout_marginTop="10dp"
-                android:textSize="20sp"
-                android:textColor="#26A9E1"/>
+                android:layout_marginRight="25dp"
+                android:text="আবেদনের বিস্তারিত"
+                android:textColor="#26A9E1"
+                android:textSize="20sp" />
 
             <View
                 android:id="@+id/view1"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="#26A9E1"
+                android:layout_below="@id/applicationDesTV"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp"
-                android:layout_below="@id/applicationDesTV"/>
+                android:background="#26A9E1" />
 
 
             <LinearLayout
@@ -89,33 +90,30 @@
                 android:layout_below="@id/view1"
                 android:orientation="horizontal"
                 android:weightSum="6">
+
                 <TextView
                     android:id="@+id/titleIdTV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="আপ্লিকেশন আই ডি : "
-                    android:textStyle="bold"
-                    android:layout_weight="2.5"
-                    android:textColor="#515151"
                     android:layout_marginLeft="25dp"
-                    android:textSize="15sp"
                     android:layout_marginTop="10dp"
-                    />
+                    android:layout_weight="2.5"
+                    android:text="আপ্লিকেশন আই ডি : "
+                    android:textColor="#515151"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
 
                 <TextView
                     android:id="@+id/idTV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="3.5"
                     android:text="১১২২৩৩৪৪৫৫৬৬৭৭৮৮"
-                    android:layout_marginRight="10dp"
                     android:textColor="#515151"
-                    android:layout_marginTop="10dp"
-                    android:textSize="15sp"/>
-
-
-
+                    android:textSize="15sp" />
 
 
             </LinearLayout>
@@ -126,33 +124,30 @@
                 android:layout_below="@id/view1"
                 android:orientation="horizontal"
                 android:weightSum="5">
+
                 <TextView
                     android:id="@+id/headlineTitleTV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="শিরোনাম : "
-                    android:layout_weight="2"
-                    android:textStyle="bold"
-                    android:textColor="#515151"
                     android:layout_marginLeft="25dp"
-                    android:textSize="15sp"
                     android:layout_marginTop="10dp"
-                    />
+                    android:layout_weight="2"
+                    android:text="শিরোনাম : "
+                    android:textColor="#515151"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
 
                 <TextView
                     android:id="@+id/titleHeadingTV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="3"
                     android:text="শিক্ষা সংক্রান্ত আবেদন ২ "
                     android:textColor="#515151"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
-                    android:textSize="15sp"/>
-
-
-
+                    android:textSize="15sp" />
 
 
             </LinearLayout>
@@ -163,33 +158,30 @@
                 android:layout_below="@id/view1"
                 android:orientation="horizontal"
                 android:weightSum="5">
+
                 <TextView
                     android:id="@+id/currencyAmountTV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="অর্থের পরিমাণ :   "
-                    android:textStyle="bold"
-                    android:layout_weight="2"
-                    android:textColor="#515151"
                     android:layout_marginLeft="25dp"
-                    android:textSize="15sp"
                     android:layout_marginTop="10dp"
-                    />
+                    android:layout_weight="2"
+                    android:text="অর্থের পরিমাণ :   "
+                    android:textColor="#515151"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
 
                 <TextView
                     android:id="@+id/currencyTV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="3"
                     android:text="৫,০০০ টাকা"
-                    android:layout_marginRight="10dp"
                     android:textColor="#515151"
-                    android:layout_marginTop="10dp"
-                    android:textSize="15sp"/>
-
-
-
+                    android:textSize="15sp" />
 
 
             </LinearLayout>
@@ -200,45 +192,33 @@
                 android:layout_below="@id/view1"
                 android:orientation="horizontal"
                 android:weightSum="5">
+
                 <TextView
                     android:id="@+id/stateTitleTV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="অবস্থা : "
-                    android:layout_weight="2"
-                    android:textStyle="bold"
-                    android:textColor="#515151"
                     android:layout_marginLeft="25dp"
-                    android:textSize="15sp"
                     android:layout_marginTop="10dp"
-                    />
+                    android:layout_weight="2"
+                    android:text="অবস্থা : "
+                    android:textColor="#515151"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
 
                 <TextView
                     android:id="@+id/stateTV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="3"
                     android:text="উপস্থিত "
                     android:textColor="#515151"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
-                    android:textSize="15sp"/>
-
-
-
-
-
-
+                    android:textSize="15sp" />
 
 
             </LinearLayout>
-
-
-
-
-
-
 
 
             <LinearLayout
@@ -248,10 +228,10 @@
                 android:layout_marginLeft="20sp"
                 android:layout_marginTop="20sp"
                 android:layout_marginRight="20sp"
-                android:onClick="Onumodon_korun"
                 android:background="@drawable/buttonbackground"
                 android:backgroundTint="#0B287B"
                 android:gravity="center"
+                android:onClick="Onumodon_korun"
                 android:orientation="horizontal"
                 android:textColor="#ffffff">
 
@@ -273,7 +253,6 @@
             </LinearLayout>
 
 
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
@@ -281,9 +260,10 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/buttonbackground"
-                android:onClick="prottakhan_korun"
                 android:gravity="center"
+                android:onClick="prottakhan_korun"
                 android:orientation="horizontal"
                 android:textColor="#ffffff">
 
@@ -305,8 +285,6 @@
             </LinearLayout>
 
 
-
-
         </LinearLayout>
 
 
@@ -323,10 +301,12 @@
         android:backgroundTint="#0B287B"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="20dp"
         android:layout_below="@+id/cardView"
         />
 
 
 </RelativeLayout>
 
-</ScrollView>
+</androidx.core.widget.NestedScrollView>
