@@ -70,7 +70,7 @@ public class ApplicationOf_EducationActivity extends AppCompatActivity {
         dataModels.add(new DataModel("সাম্প্রতিক আবেদন", "১,৫২৮", R.drawable.ic_icon_3));
         dataModels.add(new DataModel("অনুমোদিত আবেদন", "২১,২৫৬", R.drawable.ic_icon_4));
         dataModels.add(new DataModel("বিবেচনাধীন আবেদন", "৮৫১", R.drawable.ic_icon_2));
-        dataModels.add(new DataModel("অননুমদিত আবেদন", "২৫", R.drawable.ic_icon_1));
+        dataModels.add(new DataModel("অনুমোদিত আবেদন", "২৫", R.drawable.ic_icon_1));
         dataModels.add(new DataModel("পুনরায় জমা আবেদন", "৫", R.drawable.ic_icon_5));
         mAdapter = new DashbordRecyclerViewAdapter(ApplicationOf_EducationActivity.this, dataModels);
         recyclerView.setAdapter(mAdapter);
