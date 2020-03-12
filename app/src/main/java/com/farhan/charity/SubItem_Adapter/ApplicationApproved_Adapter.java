@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.farhan.charity.Applicant_Details;
 import com.farhan.charity.Model.ItemModel;
 import com.farhan.charity.R;
 import com.farhan.charity.UnderConsideration_Details_Activity;
