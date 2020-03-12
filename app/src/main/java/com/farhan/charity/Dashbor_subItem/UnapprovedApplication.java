@@ -44,7 +44,7 @@ public class UnapprovedApplication extends AppCompatActivity {
 
     }
 
-    public void backToPrevious(View view) {
+    public void backToPreviouss(View view) {
         super.onBackPressed();
     }
 }
