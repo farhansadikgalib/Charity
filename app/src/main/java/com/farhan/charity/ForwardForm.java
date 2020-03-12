@@ -2,12 +2,15 @@ package com.farhan.charity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 
+import com.farhan.charity.Dashboard_Items.All_Application_Activity;
 import com.farhan.charity.Model.AllZillaAdapter;
 
 import java.util.ArrayList;
@@ -65,5 +68,9 @@ public class ForwardForm extends AppCompatActivity {
     public void backToApplicantsDetails(View view){
         super.onBackPressed();
 
+    }
+    public void forwardComplete(View view){
+        Toast.makeText(this, "Forward successful", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this, All_Application_Activity.class));
     }
 }

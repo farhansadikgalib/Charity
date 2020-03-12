@@ -234,7 +234,7 @@ public class Forward_Application_Activity extends AppCompatActivity {
     }
 
 
-
-
-
+    public void onBackPressed(View view) {
+        super.onBackPressed();
+    }
 }

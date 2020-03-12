@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.FrameLayout;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,4 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void backToPrevious(View view) {
+        super.onBackPressed();
+    }
 }

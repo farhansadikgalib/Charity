@@ -1,6 +1,7 @@
 package com.farhan.charity;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -41,5 +42,9 @@ public class Under_consideration_Activity extends AppCompatActivity {
         items.add(new ItemModel(R.mipmap.ic_launcher,"Farhan","শিক্ষা আবেদন","৫০০০০০৯"));
 
 
+    }
+
+    public void backToApplicantsDetails(View view) {
+        super.onBackPressed();
     }
 }
