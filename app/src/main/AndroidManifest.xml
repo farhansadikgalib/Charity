@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Test"></activity>
+        <activity android:name=".DashbordAdapter.Dashbor_subItem.ResubmitApplication"></activity>
+        <activity android:name=".DashbordAdapter.Dashbor_subItem.UnapprovedApplication" />
+        <activity android:name=".DashbordAdapter.Dashbor_subItem.ApplicationUnderConsideration" />
+        <activity android:name=".DashbordAdapter.Dashbor_subItem.ApprovedApplication" />
+        <activity android:name=".DashbordAdapter.Dashbor_subItem.RecentApplication" />
         <activity android:name=".Dashboard_Items.Forward_Application_Activity" />
         <activity android:name=".Dashboard_Items.All_Application_Activity" />
         <activity android:name=".Dashboard_Items.HealthRelatedActivity" />

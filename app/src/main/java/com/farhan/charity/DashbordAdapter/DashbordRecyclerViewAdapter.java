@@ -7,15 +7,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.farhan.charity.Adapter.Adapter_item1;
+import com.farhan.charity.DashbordAdapter.Dashbor_subItem.ApplicationUnderConsideration;
+import com.farhan.charity.DashbordAdapter.Dashbor_subItem.ApprovedApplication;
+import com.farhan.charity.DashbordAdapter.Dashbor_subItem.RecentApplication;
+import com.farhan.charity.DashbordAdapter.Dashbor_subItem.ResubmitApplication;
+import com.farhan.charity.DashbordAdapter.Dashbor_subItem.UnapprovedApplication;
 import com.farhan.charity.R;
-import com.farhan.charity.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,12 +47,6 @@ public class DashbordRecyclerViewAdapter extends RecyclerView.Adapter<DashbordRe
         holder.Name.setText(model.getName());
         holder.Number.setText(model.getNumber());
         holder.imageView.setImageResource(model.getImage());
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                context.startActivity(new Intent(context, Test.class));
-            }
-        });
 
     }
 
@@ -71,12 +67,27 @@ public class DashbordRecyclerViewAdapter extends RecyclerView.Adapter<DashbordRe
             imageView = itemView.findViewById(R.id.imageViewId);
             cardView = itemView.findViewById(R.id.cardViewId);
 
-            /*cardView.setOnClickListener(new View.OnClickListener() {
+            cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(context, "Item"+getLayoutPosition(), Toast.LENGTH_SHORT).show();
+                    if(getLayoutPosition()==0){
+                        context.startActivity(new Intent(context, RecentApplication.class));
+                    }
+                    if(getLayoutPosition()==1){
+                        context.startActivity(new Intent(context, ApprovedApplication.class));
+                    }
+                    if(getLayoutPosition()==2){
+                        context.startActivity(new Intent(context, ApplicationUnderConsideration.class));
+                    }
+                    if(getLayoutPosition()==3){
+                        context.startActivity(new Intent(context, UnapprovedApplication.class));
+                    }
+                    if(getLayoutPosition()==4){
+                        context.startActivity(new Intent(context, ResubmitApplication.class));
+                    }
+
                 }
-            });*/
+            });
         }
     }
 }
