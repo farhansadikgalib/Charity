@@ -144,7 +144,7 @@ public class SignInFragment extends Fragment {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://charity.olivineltd.com/api/login", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(getContext(), "hello" + response, Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(getContext(), "hello" + response, Toast.LENGTH_SHORT).show();
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     String status = jsonObject.getString("status");
