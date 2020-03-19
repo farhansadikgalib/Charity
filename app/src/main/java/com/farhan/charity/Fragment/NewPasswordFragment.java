@@ -1,4 +1,4 @@
-package com.farhan.charity;
+package com.farhan.charity.Fragment;
 
 
 import android.content.Intent;
@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
+
+import com.farhan.charity.DashBoard;
+import com.farhan.charity.R;
 
 
 /**

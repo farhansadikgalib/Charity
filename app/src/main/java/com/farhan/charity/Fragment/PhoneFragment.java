@@ -1,4 +1,4 @@
-package com.farhan.charity;
+package com.farhan.charity.Fragment;
 
 
 import android.os.Bundle;
@@ -11,6 +11,8 @@ import android.widget.FrameLayout;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+
+import com.farhan.charity.R;
 
 
 /**
