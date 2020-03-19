@@ -7,7 +7,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.farhan.charity.Dashboard_Items.All_Application_Activity;
@@ -16,13 +23,17 @@ import com.farhan.charity.Dashboard_Items.DisabilityRelatedActivity;
 import com.farhan.charity.Dashboard_Items.DisasterRelatedActivity;
 import com.farhan.charity.Dashboard_Items.Forward_Application_Activity;
 import com.farhan.charity.Dashboard_Items.HealthRelatedActivity;
+import com.farhan.charity.Fragment.MainActivity;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
-import java.util.List;
 
 import static com.github.mikephil.charting.utils.ColorTemplate.rgb;
 
@@ -37,6 +48,8 @@ public class DashBoard extends AppCompatActivity {
 
     LinearLayout educationLayout,climateLayout,disabilityLayout,healthLayout;
     ConstraintLayout allApplicationLayout,forwardApplicationLayout;
+    private RequestQueue mRequestQueue;
+
 
 
     @Override
@@ -48,9 +61,12 @@ public class DashBoard extends AppCompatActivity {
         pieChartFuntion();
         buttonIDsetFuction();
         buttonClickListenersetFunction();
+        mRequestQueue = Volley.newRequestQueue(this);
 
+        PieChartParsex();
 
     }
+
 
 
     public void imageSlider() {
@@ -97,8 +113,6 @@ public class DashBoard extends AppCompatActivity {
                 return entries;
             }
 
-
-
             public void buttonIDsetFuction(){
 
                 educationLayout = findViewById(R.id.educationApplicationBT);
@@ -110,9 +124,6 @@ public class DashBoard extends AppCompatActivity {
                 forwardApplicationLayout = findViewById(R.id.forwardApplicationBT);
 
           }
-
-
-
 
             public void buttonClickListenersetFunction(){
 
@@ -163,7 +174,50 @@ public class DashBoard extends AppCompatActivity {
 
 
 
-}
+    private void PieChartParsex() {
+
+        String url = "http://charity.olivineltd.com/api/dashboard";
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+
+
+                        Toast.makeText(DashBoard.this, "Data hit successfull", Toast.LENGTH_SHORT).show();
+                        //  JSONArray jsonArray = response.getJSONArray("hits");
+
+                 /*           for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject hit = jsonArray.getJSONObject(i);
+
+
+*//*
+                                String creatorName = hit.getString("user");
+                                String imageUrl = hit.getString("webformatURL");
+                                int likeCount = hit.getInt("likes");*//*
+
+                               *//* mExampleList.add(new ExampleItem(imageUrl, creatorName, likeCount));*//*
+                            }
+
+                            mExampleAdapter = new ExampleAdapter(MainActivity.this, mExampleList);
+                            mRecyclerView.setAdapter(mExampleAdapter);*/
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        mRequestQueue.add(request);
+    }
+
+
+    }
+
+
+
 
 
 
