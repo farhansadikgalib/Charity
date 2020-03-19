@@ -153,6 +153,7 @@ public class SignInFragment extends Fragment {
                     {
                         Toast.makeText(getContext(), "OK", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getContext(),DashBoard.class));
+                        return;
                     }
 
                    // Toast.makeText(getContext(), ""+jsonObject.getString("Valid"), Toast.LENGTH_SHORT).show();
@@ -162,7 +163,8 @@ public class SignInFragment extends Fragment {
 
 // Toast.makeText(MainActivity.this, ""+data, Toast.LENGTH_SHORT).show();
 
-                    startActivity(new Intent(getContext(),DashBoard.class));
+                   // startActivity(new Intent(getContext(),DashBoard.class));
+                    Toast.makeText(getContext(), "আপনি ভুল পাসওয়ার্ড দিয়েছেন ", Toast.LENGTH_SHORT).show();
 
                 } catch (Exception e) {
                     e.printStackTrace();
