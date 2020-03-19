@@ -4,6 +4,7 @@ package com.farhan.charity.Fragment;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -57,6 +58,11 @@ public class SignInFragment extends Fragment {
         // Required empty public constructor
     }
 
+    public static final String SHARED_PREFS = "sharedPrefs";
+    public static final String TEXT = "text";
+    public static final String PASS = "pass";
+    int c;
+
     private EditText phoneET, passwordET;
     private TextView forgetPass;
     private Button singInBtn;
@@ -87,6 +93,11 @@ public class SignInFragment extends Fragment {
                  password = passwordET.getText().toString().trim();
                  parseJSON();
 
+                if(c == 1 ) {
+                    saveData();
+                }
+
+
             }
         });
 
@@ -100,7 +111,24 @@ public class SignInFragment extends Fragment {
         });
 
 
+        checkBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(checkBox.isChecked()) {
+                    c =1;
+                }else{
+                    c =0;
+                }
+
+            }
+        });
+
+        loadData();
+        updateViews();
+
         return view;
+
+
     }
 
 
@@ -153,7 +181,6 @@ public class SignInFragment extends Fragment {
                     {
                         Toast.makeText(getContext(), "OK", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getContext(),DashBoard.class));
-                        return;
                     }
 
                    // Toast.makeText(getContext(), ""+jsonObject.getString("Valid"), Toast.LENGTH_SHORT).show();
@@ -163,8 +190,7 @@ public class SignInFragment extends Fragment {
 
 // Toast.makeText(MainActivity.this, ""+data, Toast.LENGTH_SHORT).show();
 
-                   // startActivity(new Intent(getContext(),DashBoard.class));
-                    Toast.makeText(getContext(), "আপনি ভুল পাসওয়ার্ড দিয়েছেন ", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getContext(),DashBoard.class));
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -187,4 +213,25 @@ public class SignInFragment extends Fragment {
         };
         Volley.newRequestQueue(getContext()).add(stringRequest);
     }
+
+    public void saveData() {
+        SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(TEXT, phoneET.getText().toString());
+        editor.putString(PASS, passwordET.getText().toString());
+
+        editor.apply();
+    }
+
+    public void loadData() {
+        SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+        phone = sharedPreferences.getString(TEXT, "");
+        password = sharedPreferences.getString(PASS, "");
+    }
+
+    public void updateViews() {
+        phoneET.setText(phone);
+        passwordET.setText(password);
+    }
+
 }
