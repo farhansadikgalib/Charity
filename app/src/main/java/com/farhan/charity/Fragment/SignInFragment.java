@@ -129,14 +129,14 @@ public class SignInFragment extends Fragment {
 
 
         if (TextUtils.isEmpty(phone)) {
-            phoneET.setError("Please enter Phone Number");
+            phoneET.setError("মোবাইল নাম্বার আবশ্যক");
             phoneET.requestFocus();
             return;
         }
 
 
         if (TextUtils.isEmpty(password)) {
-            passwordET.setError("Enter a password");
+            passwordET.setError("পাসওয়ার্ড আবশ্যক");
             passwordET.requestFocus();
             return;
         }
