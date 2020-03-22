@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -17,6 +19,8 @@ import com.farhan.charity.Model.ItemModel;
 import com.farhan.charity.R;
 
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Adapter_item1 extends  RecyclerView.Adapter<Adapter_item1.ViewHolder> {
 
@@ -37,6 +41,9 @@ public class Adapter_item1 extends  RecyclerView.Adapter<Adapter_item1.ViewHolde
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final ItemModel itemModel = itemModelList.get(position);
+        String applicantsName=itemModel.getApplicantName();
+        String applicataionFor=itemModel.getAppliedfor();
+        String applictionAmount=itemModel.getAmount();
 
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
@@ -59,11 +66,22 @@ public class Adapter_item1 extends  RecyclerView.Adapter<Adapter_item1.ViewHolde
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         CardView cardView;
+        CircleImageView profileImage;
+        TextView applicant_name,application_for,applicant_money,applicant_amount;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             cardView = itemView.findViewById(R.id.cardView);
+
+            profileImage=itemView.findViewById(R.id.profile_image);
+            applicant_name=itemView.findViewById(R.id.applicant_name);
+            application_for=itemView.findViewById(R.id.application_for);
+            applicant_money=itemView.findViewById(R.id.applicant_money);
+            applicant_amount=itemView.findViewById(R.id.applicant_amount);
+
+
+
         }
     }
 }

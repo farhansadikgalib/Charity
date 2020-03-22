@@ -125,8 +125,9 @@ public class All_Application_Activity extends AppCompatActivity {
 
     public void getData(){
 
-        items.add(new ItemModel(R.mipmap.ic_launcher,"Farhan","শিক্ষা আবেদন","৫০০০০০৯"));
-        items.add(new ItemModel(R.mipmap.ic_launcher,"Farhan","শিক্ষা আবেদন","৫০০০০০৯"));
+
+        items.add(new ItemModel(R.mipmap.ic_launcher,"Mridul","শিক্ষা আবেদন","৫০০০০০৯"));
+        items.add(new ItemModel(R.mipmap.ic_launcher,"Turjoy","শিক্ষা আবেদন","৫০০০০০৯"));
         items.add(new ItemModel(R.mipmap.ic_launcher,"Farhan","শিক্ষা আবেদন","৫০০০০০৯"));
         items.add(new ItemModel(R.mipmap.ic_launcher,"Farhan","শিক্ষা আবেদন","৫০০০০০৯"));
         items.add(new ItemModel(R.mipmap.ic_launcher,"Farhan","শিক্ষা আবেদন","৫০০০০০৯"));
