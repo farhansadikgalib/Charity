@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
@@ -32,6 +33,8 @@ public class ProfilewithPermanentAddressActivity extends AppCompatActivity {
     ViewPager viewPager;
     TextView users_nameTV,users_name_bnTV,users_emailTV,users_phoneTV,users_father_name_bnTV,users_mother_name_bnTV,users_genderTV,users_blood_groupTV,
             users_dobTV,users_nidTV;
+    private RequestQueue mRequestQueue;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,13 +52,10 @@ public class ProfilewithPermanentAddressActivity extends AppCompatActivity {
         users_dobTV = findViewById(R.id.users_dob_ID);
         users_nidTV = findViewById(R.id.users_nid_ID);
 
+        mRequestQueue = Volley.newRequestQueue(this);
+
 
         DeatailsParsex();
-
-
-
-
-
 
 
         tabLayout= findViewById(R.id.tabLayout1);
@@ -90,12 +90,17 @@ public class ProfilewithPermanentAddressActivity extends AppCompatActivity {
 
     private void DeatailsParsex() {
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://charity.olivineltd.com/api/user/vfDDQMOL20180726203942", new Response.Listener<String>() {
+
+        String url = "http://charity.olivineltd.com/api/user/vfDDQMOL20180726203942";
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,new Response.Listener<JSONObject>() {
             @Override
-            public void onResponse(String response) {
-                //  Toast.makeText(getContext(), "hello" + response, Toast.LENGTH_SHORT).show();
+            public void onResponse(JSONObject response) {
+
+                //      Toast.makeText(DashBoard.this,response.toString(),Toast.LENGTH_LONG).show();
                 try {
-                    JSONObject jsonObject = new JSONObject(response);
+                    JSONObject jsonObject = (JSONObject) response.get("user_information");
+
                     String users_name = jsonObject.getString("users_name");
                     String users_name_bn = jsonObject.getString("users_name_bn");
                     String users_email = jsonObject.getString("users_email");
@@ -107,8 +112,10 @@ public class ProfilewithPermanentAddressActivity extends AppCompatActivity {
                     String users_dob = jsonObject.getString("users_dob");
                     String users_nid = jsonObject.getString("users_nid");
 
+//
 
-                    // Toast.makeText(getContext(), ""+admins_type+" "+admins_track_id, Toast.LENGTH_SHORT).show();
+
+
 
 
                     users_nameTV.setText(users_name);
@@ -122,21 +129,48 @@ public class ProfilewithPermanentAddressActivity extends AppCompatActivity {
                     users_dobTV.setText(users_dob);
                     users_nidTV.setText(users_nid);
 
-
-                } catch (Exception e) {
+                } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), "error" , Toast.LENGTH_SHORT).show();
+                Log.d("error",error.toString());
             }
-        }) ;
+        });
 
-        Volley.newRequestQueue(getApplicationContext()).add(stringRequest);
+        mRequestQueue.add(request);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public void backToAllApplication(View view){
 

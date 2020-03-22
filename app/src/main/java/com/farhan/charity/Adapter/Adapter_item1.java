@@ -17,7 +17,6 @@ import com.farhan.charity.Applicant_Details;
 import com.farhan.charity.Dashboard_Items.All_Application_Activity;
 import com.farhan.charity.Model.ItemModel;
 import com.farhan.charity.R;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
