@@ -10,11 +10,13 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.models.SlideModel;
@@ -35,11 +37,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.github.mikephil.charting.utils.ColorTemplate.rgb;
 
 public class DashBoard extends AppCompatActivity {
 
+
+    public String admins,idx;
 
 
     public static final int[] colordata = {
@@ -68,6 +74,8 @@ public class DashBoard extends AppCompatActivity {
         mRequestQueue = Volley.newRequestQueue(this);
 
         PieChartParsex();
+
+
 
     }
 
@@ -180,44 +188,44 @@ public class DashBoard extends AppCompatActivity {
 
     private void PieChartParsex() {
 
-        String url = "http://charity.olivineltd.com/api/dashboard";
+        String url = "http://charity.olivineltd.com/api/dashboard?admins_type="+admins+"&admins_track_id="+idx ;
 
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+                //      Toast.makeText(DashBoard.this,response.toString(),Toast.LENGTH_LONG).show();
+                try {
+                    JSONObject jsonObject = (JSONObject) response.get("pieChart");
+                    education = jsonObject.get("education").toString();
+                    health = jsonObject.get("health").toString();
+                    disable = jsonObject.get("disable").toString();
+                    disaster = jsonObject.get("disaster").toString();
+
+                    Toast.makeText(DashBoard.this, education, Toast.LENGTH_SHORT).show();
+
+                    i = Integer.parseInt(education);
+                    j = Integer.parseInt(disable);
+                    k = Integer.parseInt(health);
+                    l = Integer.parseInt(disaster);
+
+                    Toast.makeText(DashBoard.this, ""+i+j+k+l, Toast.LENGTH_SHORT).show();
+
+//                    if( i == 0 && j == 0 && k == 0 && l == 0 )
+//                    {
+//                       linerPieChart.setVisibility(View.GONE);
+//                    }
+//                    else {
+                       pieChartFuntion();
+//                    }
 
 
-                        Toast.makeText(DashBoard.this, "Data hit successfull", Toast.LENGTH_SHORT).show();
-                        try {
-                            JSONObject jsonObject = (JSONObject) response.get("pieChart");
-                            education = jsonObject.get("education").toString();
-                            health = jsonObject.get("health").toString();
-                            disable = jsonObject.get("disable").toString();
-                            disaster = jsonObject.get("disaster").toString();
 
-                            Toast.makeText(DashBoard.this, education, Toast.LENGTH_SHORT).show();
-
-                            i = Integer.parseInt(education);
-                            j = Integer.parseInt(disable);
-                            k = Integer.parseInt(health);
-                            l = Integer.parseInt(disaster);
-
-                            if( i == 0 && j == 0 && k == 0 && l == 0 )
-                            {
-                                linerPieChart.setVisibility(View.GONE);
-                            }
-                            else {
-                                pieChartFuntion();
-                            }
-
-
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }, new Response.ErrorListener() {
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.d("error",error.toString());
@@ -228,7 +236,21 @@ public class DashBoard extends AppCompatActivity {
     }
 
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+
+
+        admins = getIntent().getStringExtra("User_Type").toString();
+        idx = getIntent().getStringExtra("User_Track_ID").toString();
+
+        Toast.makeText(this, ""+admins+"\n"+idx, Toast.LENGTH_SHORT).show();
+
+
+
     }
+}
 
 
 

@@ -152,6 +152,7 @@ public class SignInFragment extends Fragment {
         mRequestQueue = Volley.newRequestQueue(getContext());
 
 
+
     }
 
     private void parseJSON() {
@@ -182,23 +183,23 @@ public class SignInFragment extends Fragment {
                     String admins_type = jsonObject.getString("admins_type");
                     String admins_track_id = jsonObject.getString("admins_track_id");
 
-                    Toast.makeText(getContext(), ""+admins_type+" "+admins_track_id, Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(getContext(), ""+admins_type+" "+admins_track_id, Toast.LENGTH_SHORT).show();
                     admin_typeS = admins_type;
                     admins_track_idS= admins_track_id;
                     if (status.equals("Ok"))
                     {
                         Toast.makeText(getContext(), "OK", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(getContext(),DashBoard.class));
+                      //  startActivity(new Intent(getContext(),DashBoard.class));
+
+                        Intent i = new Intent(getContext(),DashBoard.class);
+                        i.putExtra("User_Type",admin_typeS);
+                        i.putExtra("User_Track_ID",admins_track_idS);
+                        startActivity(i);
+
                     }
 
-                   // Toast.makeText(getContext(), ""+jsonObject.getString("Valid"), Toast.LENGTH_SHORT).show();
-                    //String users_phone = jsonObject.getString("mobile");
-                  //  String  users_password= jsonObject.getString("password");
 
-
-// Toast.makeText(MainActivity.this, ""+data, Toast.LENGTH_SHORT).show();
-
-                    startActivity(new Intent(getContext(),DashBoard.class));
+                   // startActivity(new Intent(getContext(),DashBoard.class));
 
                 } catch (Exception e) {
                     e.printStackTrace();
