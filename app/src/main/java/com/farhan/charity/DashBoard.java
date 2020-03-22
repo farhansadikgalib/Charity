@@ -5,6 +5,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -50,6 +51,9 @@ public class DashBoard extends AppCompatActivity {
     ConstraintLayout allApplicationLayout,forwardApplicationLayout;
     private RequestQueue mRequestQueue;
 
+    String education , disable , disaster , health ;
+    LinearLayout linerPieChart ;
+    int i , j , k , l ;
 
 
     @Override
@@ -106,10 +110,10 @@ public class DashBoard extends AppCompatActivity {
 
             private ArrayList getData() {
                 ArrayList<PieEntry> entries = new ArrayList<>();
-                entries.add(new PieEntry(30, "শিক্ষা সংক্রান্ত"));
-                entries.add(new PieEntry(40, "প্রতিবন্ধী সংক্রান্ত"));
-                entries.add(new PieEntry(60, " স্বাস্থ্য সংক্রান্ত"));
-                entries.add(new PieEntry(70, "দুর্যোগ সংক্রান্ত"));
+                entries.add(new PieEntry(i, "শিক্ষা সংক্রান্ত"));
+                entries.add(new PieEntry(j, "প্রতিবন্ধী সংক্রান্ত"));
+                entries.add(new PieEntry(k, " স্বাস্থ্য সংক্রান্ত"));
+                entries.add(new PieEntry(l, "দুর্যোগ সংক্রান্ত"));
                 return entries;
             }
 
@@ -185,28 +189,38 @@ public class DashBoard extends AppCompatActivity {
 
 
                         Toast.makeText(DashBoard.this, "Data hit successfull", Toast.LENGTH_SHORT).show();
-                        //  JSONArray jsonArray = response.getJSONArray("hits");
+                        try {
+                            JSONObject jsonObject = (JSONObject) response.get("pieChart");
+                            education = jsonObject.get("education").toString();
+                            health = jsonObject.get("health").toString();
+                            disable = jsonObject.get("disable").toString();
+                            disaster = jsonObject.get("disaster").toString();
 
-                 /*           for (int i = 0; i < jsonArray.length(); i++) {
-                                JSONObject hit = jsonArray.getJSONObject(i);
+                            Toast.makeText(DashBoard.this, education, Toast.LENGTH_SHORT).show();
 
+                            i = Integer.parseInt(education);
+                            j = Integer.parseInt(disable);
+                            k = Integer.parseInt(health);
+                            l = Integer.parseInt(disaster);
 
-*//*
-                                String creatorName = hit.getString("user");
-                                String imageUrl = hit.getString("webformatURL");
-                                int likeCount = hit.getInt("likes");*//*
-
-                               *//* mExampleList.add(new ExampleItem(imageUrl, creatorName, likeCount));*//*
+                            if( i == 0 && j == 0 && k == 0 && l == 0 )
+                            {
+                                linerPieChart.setVisibility(View.GONE);
+                            }
+                            else {
+                                pieChartFuntion();
                             }
 
-                            mExampleAdapter = new ExampleAdapter(MainActivity.this, mExampleList);
-                            mRecyclerView.setAdapter(mExampleAdapter);*/
 
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
+                Log.d("error",error.toString());
             }
         });
 
