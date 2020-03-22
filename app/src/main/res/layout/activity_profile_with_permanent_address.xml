@@ -81,12 +81,13 @@
                             app:civ_shadow_radius="0dp" />
 
                         <TextView
+                            android:id="@+id/users_name_bn_BOLD_ID"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:paddingTop="10dp"
                             android:paddingBottom="10dp"
-                            android:text="তাহমিদ শাহারিয়ার ধ্রুব"
+
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="#0B287B"
                             android:textSize="20sp"
@@ -153,8 +154,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-
-                                android:text=" আকমল মিয়া "
+                                android:id="@+id/users_name_bn_ID"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                                 android:textColor="@color/grey_text"
                                 />
@@ -182,7 +182,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
 
-                                android:text="Tahmid Shahariar Drobo"
+                                android:id="@+id/users_nameID"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                                 android:textColor="@color/grey_text" />
 
@@ -208,8 +208,8 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:id="@+id/users_father_name_bn_ID"
 
-                                android:text="আকমল মিয়া"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                                 android:textColor="@color/grey_text" />
 
@@ -236,7 +236,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
 
-                                android:text="শ্যায়মিন মাহি"
+                                android:id="@+id/users_mother_name_bn_ID"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                                 android:textColor="@color/grey_text" />
 
@@ -263,7 +263,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
 
-                                android:text="১৯৯০৩৩৪৪৫৫৬৬৭৭৮৮"
+                                android:id="@+id/users_nid_ID"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                                 android:textColor="@color/grey_text" />
 
@@ -290,7 +290,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
 
-                                android:text="+৮৮ ০১৭১১২২৩৩৪৪"
+                                android:id="@+id/users_phoneID"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                                 android:textColor="@color/grey_text" />
 
@@ -316,8 +316,8 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:id="@+id/users_emailID"
 
-                                android:text="myemail@gmail.com"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                                 android:textColor="@color/grey_text" />
 
@@ -371,7 +371,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
 
-                                android:text="পুরুষ"
+                                android:id="@+id/users_gender_ID"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                                 android:textColor="@color/grey_text" />
 
@@ -398,7 +398,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
 
-                                android:text="০২ জানুয়ারি ১৯৯৩"
+                                android:id="@+id/users_dob_ID"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                                 android:textColor="@color/grey_text" />
 
@@ -426,7 +426,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
 
-                                android:text="বি "
+                               android:id="@+id/users_blood_group_ID"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                                 android:textColor="@color/grey_text" />
 
