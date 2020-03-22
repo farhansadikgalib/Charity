@@ -62,6 +62,9 @@ public class SignInFragment extends Fragment {
     public static final String TEXT = "text";
     public static final String PASS = "pass";
     int c;
+    public static String admin_typeS,admins_track_idS;
+
+
 
     private EditText phoneET, passwordET;
     private TextView forgetPass;
@@ -176,7 +179,12 @@ public class SignInFragment extends Fragment {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     String status = jsonObject.getString("status");
+                    String admins_type = jsonObject.getString("admins_type");
+                    String admins_track_id = jsonObject.getString("admins_track_id");
 
+                    Toast.makeText(getContext(), ""+admins_type+" "+admins_track_id, Toast.LENGTH_SHORT).show();
+                    admin_typeS = admins_type;
+                    admins_track_idS= admins_track_id;
                     if (status.equals("Ok"))
                     {
                         Toast.makeText(getContext(), "OK", Toast.LENGTH_SHORT).show();
