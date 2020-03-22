@@ -30,7 +30,7 @@
 
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/profile"
+                    android:id="@+id/profileImage"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="left"
