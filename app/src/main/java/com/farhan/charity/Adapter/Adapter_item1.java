@@ -17,6 +17,7 @@ import com.farhan.charity.Applicant_Details;
 import com.farhan.charity.Dashboard_Items.All_Application_Activity;
 import com.farhan.charity.Model.ItemModel;
 import com.farhan.charity.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -40,17 +41,30 @@ public class Adapter_item1 extends  RecyclerView.Adapter<Adapter_item1.ViewHolde
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
+
         final ItemModel itemModel = itemModelList.get(position);
-        String applicantsName=itemModel.getApplicantName();
-        String applicataionFor=itemModel.getAppliedfor();
-        String applictionAmount=itemModel.getAmount();
+        String applicantsName=itemModel.getUsers_name_bn();
+        String applicataionFor=itemModel.getApplication_title_bn();
+        String applictionAmount=itemModel.getApplication_amount();
+
+        String imageUrl = "http://charity.olivineltd.com/upload/frontend/users_image/"+itemModel.getUsers_image();
+
+        Toast.makeText(context, ""+imageUrl, Toast.LENGTH_LONG).show();
+      //  Picasso.get().load(imageUrl).placeholder(R.mipmap.ic_launcher).into(holder.profileImagex);
+
+
+
+        holder.applicant_name.setText(applicantsName);
+        holder.application_for.setText(applicataionFor);
+        holder.applicant_amount.setText(applictionAmount);
 
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(context, ""+ itemModel.getApplicantName() ,Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, ""+ itemModel.getUsers_name_bn() ,Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(context, Applicant_Details.class);
                 context.startActivity(i);
             }
@@ -66,7 +80,7 @@ public class Adapter_item1 extends  RecyclerView.Adapter<Adapter_item1.ViewHolde
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         CardView cardView;
-        CircleImageView profileImage;
+        CircleImageView profileImagex;
         TextView applicant_name,application_for,applicant_money,applicant_amount;
 
         public ViewHolder(View itemView) {
@@ -74,7 +88,7 @@ public class Adapter_item1 extends  RecyclerView.Adapter<Adapter_item1.ViewHolde
 
             cardView = itemView.findViewById(R.id.cardView);
 
-            profileImage=itemView.findViewById(R.id.profile_image);
+            profileImagex=itemView.findViewById(R.id.profile_image);
             applicant_name=itemView.findViewById(R.id.applicant_name);
             application_for=itemView.findViewById(R.id.application_for);
             applicant_money=itemView.findViewById(R.id.applicant_money);

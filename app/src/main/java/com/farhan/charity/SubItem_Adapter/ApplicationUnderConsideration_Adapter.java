@@ -43,7 +43,7 @@ public class ApplicationUnderConsideration_Adapter extends  RecyclerView.Adapter
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(context, ""+ itemModel.getApplicantName() ,Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, ""+ itemModel.getUsers_name_bn() ,Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(context,Applicant_Details.class);
                 context.startActivity(i);
             }
