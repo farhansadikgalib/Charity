@@ -90,9 +90,6 @@ public class SignInFragment extends Fragment {
                 if(c == 1 ) {
                     saveData();
                 }
-                else {
-                    Toast.makeText(getContext(), "আপনি ভুল মোবাইল নাম্বার অথবা পাসওয়ার্ড দিয়াছেন", Toast.LENGTH_SHORT).show();
-                }
 
             }
         });
@@ -194,12 +191,12 @@ public class SignInFragment extends Fragment {
                     }
 
 
-
-
                    // startActivity(new Intent(getContext(),DashBoard.class));
 
-                } catch (Exception e) {
+                }
+                catch (Exception e) {
                     e.printStackTrace();
+                  Toast.makeText(getContext(), "আপনি ভুল মোবাইল নাম্বার অথবা পাসওয়ার্ড দিয়াছেন", Toast.LENGTH_SHORT).show();
 
                 }
 
