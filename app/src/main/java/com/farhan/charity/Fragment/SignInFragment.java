@@ -58,11 +58,12 @@ public class SignInFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static final String SHARED_PREFS = "sharedPrefs";
-    public static final String TEXT = "text";
-    public static final String PASS = "pass";
+    private static final String SHARED_PREFS = "sharedPrefs";
+    private static final String TEXT = "text";
+    private static final String PASS = "pass";
     int c;
-    public static String admin_typeS,admins_track_idS;
+    private static String admin_typeS,admins_track_idS;
+    private  Context context;
 
 
 
@@ -197,12 +198,16 @@ public class SignInFragment extends Fragment {
                         startActivity(i);
 
                     }
+                    else  {
+                        Toast.makeText(getContext(), "ব্যবহারকারীর নাম এবং পাসওয়ার্ডটি ভুল", Toast.LENGTH_SHORT).show();
+                    }
 
 
                    // startActivity(new Intent(getContext(),DashBoard.class));
 
                 } catch (Exception e) {
                     e.printStackTrace();
+                    Toast.makeText(getContext(), ""  + e, Toast.LENGTH_SHORT).show();
                 }
 
             }
