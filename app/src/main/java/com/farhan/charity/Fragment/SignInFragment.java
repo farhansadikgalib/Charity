@@ -54,7 +54,6 @@ public class SignInFragment extends Fragment {
     private static final String PASS = "pass";
     int c;
     private static String admin_typeS,admins_track_idS;
-    private  Context context;
 
 
 
@@ -94,7 +93,6 @@ public class SignInFragment extends Fragment {
                 else {
                     Toast.makeText(getContext(), "আপনি ভুল মোবাইল নাম্বার অথবা পাসওয়ার্ড দিয়াছেন", Toast.LENGTH_SHORT).show();
                 }
-
 
             }
         });
@@ -194,9 +192,7 @@ public class SignInFragment extends Fragment {
                         startActivity(i);
 
                     }
-                    else  {
-                        Toast.makeText(getContext(), "ব্যবহারকারীর নাম এবং পাসওয়ার্ডটি ভুল", Toast.LENGTH_SHORT).show();
-                    }
+
 
 
 
@@ -204,7 +200,7 @@ public class SignInFragment extends Fragment {
 
                 } catch (Exception e) {
                     e.printStackTrace();
-                    Toast.makeText(getContext(), ""  + e, Toast.LENGTH_SHORT).show();
+
                 }
 
             }
