@@ -36,6 +36,7 @@ public class Adapter_item1 extends  RecyclerView.Adapter<Adapter_item1.ViewHolde
     public Adapter_item1.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.row_layout, parent, false);
         return new Adapter_item1.ViewHolder(v);
+
     }
 
     @Override
@@ -84,7 +85,6 @@ public class Adapter_item1 extends  RecyclerView.Adapter<Adapter_item1.ViewHolde
 
         public ViewHolder(View itemView) {
             super(itemView);
-
             cardView = itemView.findViewById(R.id.cardView);
 
             profileImagex=itemView.findViewById(R.id.profile_image);
