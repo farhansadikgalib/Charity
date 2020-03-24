@@ -33,6 +33,8 @@ public class ProfilewithPermanentAddressActivity extends AppCompatActivity {
     ViewPager viewPager;
     TextView users_nameTV,users_name_bnTV,users_emailTV,users_phoneTV,users_father_name_bnTV,users_mother_name_bnTV,users_genderTV,users_blood_groupTV,
             users_dobTV,users_nidTV;
+    TextView present_address_village_bnTV,present_address_road_bnTV,division_name_bnTV,district_name_bnTV,thana_name_bnTV,
+            upazila_name_bnTV,post_office_name_bnTV,post_office_code_bnTV;
     private RequestQueue mRequestQueue;
 
 
@@ -41,8 +43,8 @@ public class ProfilewithPermanentAddressActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_with_permanent_address);
 
-        users_nameTV = findViewById(R.id.users_name_bn_BOLD_ID);
-        users_name_bnTV = findViewById(R.id.users_nameID);
+        users_nameTV = findViewById(R.id.users_nameID);
+        users_name_bnTV = findViewById(R.id.users_name_bn_BOLD_ID);
         users_emailTV = findViewById(R.id.users_emailID);
         users_phoneTV = findViewById(R.id.users_phoneID);
         users_father_name_bnTV = findViewById(R.id.users_father_name_bn_ID);
@@ -52,10 +54,24 @@ public class ProfilewithPermanentAddressActivity extends AppCompatActivity {
         users_dobTV = findViewById(R.id.users_dob_ID);
         users_nidTV = findViewById(R.id.users_nid_ID);
 
+
+
+
+        present_address_village_bnTV = findViewById(R.id.present_address_village_bnID);
+        present_address_road_bnTV = findViewById(R.id.present_address_road_bnID);
+        division_name_bnTV = findViewById(R.id.division_name_bnID);
+        district_name_bnTV = findViewById(R.id.district_name_bnID);
+        thana_name_bnTV = findViewById(R.id.thana_name_bnID);
+        upazila_name_bnTV = findViewById(R.id.upazila_name_bnID);
+        post_office_name_bnTV = findViewById(R.id.post_office_name_bnID);
+        post_office_code_bnTV = findViewById(R.id.post_office_code_bnID);
+
+
         mRequestQueue = Volley.newRequestQueue(this);
 
 
-        DeatailsParsex();
+//        DeatailsParsex();
+       PresentAddressParse();
 
 
         tabLayout= findViewById(R.id.tabLayout1);
@@ -113,14 +129,9 @@ public class ProfilewithPermanentAddressActivity extends AppCompatActivity {
                     String users_dob = jsonObject.getString("users_dob");
                     String users_nid = jsonObject.getString("users_nid");
 
-//
 
-
-
-
-
-                    users_nameTV.setText(users_name);
                     users_name_bnTV.setText(users_name_bn);
+                    users_nameTV.setText(users_name);
                     users_emailTV.setText(users_email);
                     users_phoneTV.setText(users_phone);
                     users_father_name_bnTV.setText(users_father_name_bn);
@@ -144,27 +155,52 @@ public class ProfilewithPermanentAddressActivity extends AppCompatActivity {
         mRequestQueue.add(request);
     }
 
+    private void PresentAddressParse() {
 
 
+        String url = "http://charity.olivineltd.com/api/user/vfDDQMOL20180726203942";
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+                //      Toast.makeText(DashBoard.this,response.toString(),Toast.LENGTH_LONG).show();
+                try {
+                    JSONObject jsonObject = (JSONObject) response.get("presentAddress");
+
+                    String present_address_village_bn = jsonObject.getString("present_address_village_bn");
+                    String present_address_road_bn = jsonObject.getString("present_address_road_bn");
+                    String division_name_bn = jsonObject.getString("division_name_bn");
+                    String district_name_bn = jsonObject.getString("district_name_bn");
+                    String thana_name_bn = jsonObject.getString("thana_name_bn");
+                    String upazila_name_bn = jsonObject.getString("upazila_name_bn");
+                    String post_office_name_bn = jsonObject.getString("post_office_name_bn");
+                    String post_office_code_bn = jsonObject.getString("post_office_code_bn");
 
 
+                    present_address_village_bnTV.setText(present_address_village_bn);
+                    present_address_road_bnTV.setText(present_address_road_bn);
+                    division_name_bnTV.setText(division_name_bn);
+                    district_name_bnTV.setText(district_name_bn);
+                    thana_name_bnTV.setText(thana_name_bn);
+                    upazila_name_bnTV.setText(upazila_name_bn);
+                    post_office_name_bnTV.setText(post_office_name_bn);
+                    post_office_code_bnTV.setText(post_office_code_bn);
 
 
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("error",error.toString());
+            }
+        });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        mRequestQueue.add(request);
+    }
 
 
 

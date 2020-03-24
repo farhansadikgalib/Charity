@@ -133,34 +133,7 @@
                             android:layout_marginBottom="10dp"
                             android:background="@color/blue_text" />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="horizontal"
-                            android:paddingBottom="7dp"
-                            >
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-
-                                android:text="নাম(বাংলা) :  "
-                                android:textStyle="bold"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                                android:textColor="@color/grey_text"
-
-                                />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:id="@+id/users_name_bn_ID"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                                android:textColor="@color/grey_text"
-                                />
-
-
-                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"

@@ -53,8 +53,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/division_name_bnID"
 
-                            android:text="ঢাকা"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/grey_text" />
                     </LinearLayout>
@@ -76,8 +76,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
-                            android:text="ঢাকা"
+                            android:id="@+id/district_name_bnID"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/grey_text" />
                     </LinearLayout>
@@ -110,8 +109,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/thana_name_bnID"
 
-                            android:text="ঢাকা"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/grey_text" />
                     </LinearLayout>
@@ -135,7 +134,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
 
-                            android:text="ঢাকা"
+                           android:id="@+id/upazila_name_bnID"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/grey_text" />
                     </LinearLayout>
@@ -169,7 +168,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
 
-                            android:text="ঢাকা"
+                            android:id="@+id/post_office_name_bnID"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/grey_text" />
                     </LinearLayout>
@@ -193,7 +192,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
 
-                            android:text="ঢাকা"
+                            android:id="@+id/post_office_code_bnID"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/grey_text" />
                     </LinearLayout>
@@ -227,8 +226,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/present_address_road_bnID"
 
-                            android:text="ঢাকা"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/grey_text" />
                     </LinearLayout>
@@ -376,7 +375,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
+                            android:id="@+id/present_address_village_bnID"
                             android:text="ঢাকা"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/grey_text" />
