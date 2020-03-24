@@ -211,13 +211,13 @@ public class DashBoard extends AppCompatActivity {
 
                     Toast.makeText(DashBoard.this, ""+i+j+k+l, Toast.LENGTH_SHORT).show();
 
-//                    if( i == 0 && j == 0 && k == 0 && l == 0 )
-//                    {
-//                       linerPieChart.setVisibility(View.GONE);
-//                    }
-//                    else {
+                    if( i == 0 && j == 0 && k == 0 && l == 0 )
+                    {
+                       linerPieChart.setVisibility(View.GONE);
+                    }
+                    else {
                        pieChartFuntion();
-//                    }
+                    }
 
 
 
@@ -240,11 +240,8 @@ public class DashBoard extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-
-
         admins = getIntent().getStringExtra("User_Type").toString();
         idx = getIntent().getStringExtra("User_Track_ID").toString();
-
         Toast.makeText(this, ""+admins+"\n"+idx, Toast.LENGTH_SHORT).show();
 
 
