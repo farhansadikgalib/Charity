@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -64,6 +65,7 @@ public class SignInFragment extends Fragment {
     private FrameLayout parentFrameLayout;
     String phone,password ;
     private RequestQueue mRequestQueue;
+    private ProgressBar progress_circular;
 
     ArrayList<LogInModelClass> logInModelClasses;
 
@@ -78,6 +80,7 @@ public class SignInFragment extends Fragment {
         checkBox = view.findViewById(R.id.remenbercheckbox);
         forgetPass = view.findViewById(R.id.forgetPass);
         parentFrameLayout = getActivity().findViewById(R.id.registration_framelayout);
+        progress_circular=view.findViewById(R.id.progress_circular);
 
 
         signInBtn.setOnClickListener(new View.OnClickListener() {
@@ -85,6 +88,7 @@ public class SignInFragment extends Fragment {
             public void onClick(View v) {
                  phone = phoneET.getText().toString().trim();
                  password = passwordET.getText().toString().trim();
+                 progress_circular.setVisibility(View.VISIBLE);
                  parseJSON();
 
                 if(c == 1 ) {
@@ -93,6 +97,7 @@ public class SignInFragment extends Fragment {
 
             }
         });
+
 
 
         forgetPass.setOnClickListener(new View.OnClickListener() {
@@ -196,7 +201,8 @@ public class SignInFragment extends Fragment {
                 }
                 catch (Exception e) {
                     e.printStackTrace();
-                  Toast.makeText(getContext(), "আপনি ভুল মোবাইল নাম্বার অথবা পাসওয়ার্ড দিয়াছেন", Toast.LENGTH_SHORT).show();
+                     Toast.makeText(getContext(), "আপনি ভুল মোবাইল নাম্বার অথবা পাসওয়ার্ড দিয়াছেন", Toast.LENGTH_SHORT).show();
+                     progress_circular.setVisibility(View.GONE);
 
                 }
 
