@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
+
 import com.farhan.charity.Applicant_Details;
 import com.farhan.charity.Dashboard_Items.All_Application_Activity;
 import com.farhan.charity.Model.ItemModel;

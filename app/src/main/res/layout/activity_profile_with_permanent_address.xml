@@ -69,11 +69,12 @@
 
 
                         <com.mikhaellopez.circularimageview.CircularImageView
+                            android:id="@+id/users_imageID"
+                            android:src="@drawable/face_devil"
                             android:layout_width="100dp"
                             android:layout_height="100dp"
                             android:layout_gravity="center_horizontal"
                             android:paddingTop="5dp"
-                            android:src="@drawable/face_devil"
                             app:civ_border_color="#26A9E1"
                             app:civ_border_width="2dp"
                             app:civ_shadow="true"
@@ -428,7 +429,7 @@
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="340dp"
+                        android:layout_height="450dp"
                         >
 
                         <androidx.viewpager.widget.ViewPager

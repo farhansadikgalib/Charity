@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,12 +21,13 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.farhan.charity.Adapter.MyAdapter;
 import com.google.android.material.tabs.TabLayout;
+import com.mikhaellopez.circularimageview.CircularImageView;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.HashMap;
-import java.util.Map;
+
 
 public class ProfilewithPermanentAddressActivity extends AppCompatActivity {
 
@@ -33,9 +35,9 @@ public class ProfilewithPermanentAddressActivity extends AppCompatActivity {
     ViewPager viewPager;
     TextView users_nameTV,users_name_bnTV,users_emailTV,users_phoneTV,users_father_name_bnTV,users_mother_name_bnTV,users_genderTV,users_blood_groupTV,
             users_dobTV,users_nidTV;
-    TextView present_address_village_bnTV,present_address_road_bnTV,division_name_bnTV,district_name_bnTV,thana_name_bnTV,
-            upazila_name_bnTV,post_office_name_bnTV,post_office_code_bnTV;
-    private RequestQueue mRequestQueue;
+    CircularImageView users_imageIV;
+
+    public RequestQueue mRequestQueue;
 
 
     @Override
@@ -54,24 +56,14 @@ public class ProfilewithPermanentAddressActivity extends AppCompatActivity {
         users_dobTV = findViewById(R.id.users_dob_ID);
         users_nidTV = findViewById(R.id.users_nid_ID);
 
+        users_imageIV = findViewById(R.id.users_imageID);
 
 
-
-        present_address_village_bnTV = findViewById(R.id.present_address_village_bnID);
-        present_address_road_bnTV = findViewById(R.id.present_address_road_bnID);
-        division_name_bnTV = findViewById(R.id.division_name_bnID);
-        district_name_bnTV = findViewById(R.id.district_name_bnID);
-        thana_name_bnTV = findViewById(R.id.thana_name_bnID);
-        upazila_name_bnTV = findViewById(R.id.upazila_name_bnID);
-        post_office_name_bnTV = findViewById(R.id.post_office_name_bnID);
-        post_office_code_bnTV = findViewById(R.id.post_office_code_bnID);
+            mRequestQueue = Volley.newRequestQueue(this);
 
 
-        mRequestQueue = Volley.newRequestQueue(this);
+            DeatailsParsex();
 
-
-//        DeatailsParsex();
-       PresentAddressParse();
 
 
         tabLayout= findViewById(R.id.tabLayout1);
@@ -85,11 +77,12 @@ public class ProfilewithPermanentAddressActivity extends AppCompatActivity {
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+
+
+
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
-
-
 
             }
 
@@ -130,6 +123,9 @@ public class ProfilewithPermanentAddressActivity extends AppCompatActivity {
                     String users_dob = jsonObject.getString("users_dob");
                     String users_nid = jsonObject.getString("users_nid");
 
+                    String users_image = jsonObject.getString("users_image");
+
+                    Picasso.get().load("http://charity.olivineltd.com/upload/frontend/users_image/"+users_image).placeholder(R.drawable.face_devil).into(users_imageIV);
 
                     users_name_bnTV.setText(users_name_bn);
                     users_nameTV.setText(users_name);
@@ -155,56 +151,6 @@ public class ProfilewithPermanentAddressActivity extends AppCompatActivity {
 
         mRequestQueue.add(request);
     }
-
-    private void PresentAddressParse() {
-
-
-        String url = "http://charity.olivineltd.com/api/user/vfDDQMOL20180726203942";
-
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-
-                //      Toast.makeText(DashBoard.this,response.toString(),Toast.LENGTH_LONG).show();
-                try {
-                    JSONObject jsonObject = (JSONObject) response.get("presentAddress");
-
-                    String present_address_village_bn = jsonObject.getString("present_address_village_bn");
-                    String present_address_road_bn = jsonObject.getString("present_address_road_bn");
-                    String division_name_bn = jsonObject.getString("division_name_bn");
-                    String district_name_bn = jsonObject.getString("district_name_bn");
-                    String thana_name_bn = jsonObject.getString("thana_name_bn");
-                    String upazila_name_bn = jsonObject.getString("upazila_name_bn");
-                    String post_office_name_bn = jsonObject.getString("post_office_name_bn");
-                    String post_office_code_bn = jsonObject.getString("post_office_code_bn");
-
-
-                    present_address_village_bnTV.setText(present_address_village_bn);
-                    present_address_road_bnTV.setText(present_address_road_bn);
-                    division_name_bnTV.setText(division_name_bn);
-                    district_name_bnTV.setText(district_name_bn);
-                    thana_name_bnTV.setText(thana_name_bn);
-                    upazila_name_bnTV.setText(upazila_name_bn);
-                    post_office_name_bnTV.setText(post_office_name_bn);
-                    post_office_code_bnTV.setText(post_office_code_bn);
-
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.d("error",error.toString());
-            }
-        });
-
-        mRequestQueue.add(request);
-    }
-
-
-
 
 
 
