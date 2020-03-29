@@ -198,8 +198,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="সাম্প্রতিক আবেদন/"
+            android:text="সাম্প্রতিক আবেদন"
             android:textSize="14dp"
+            android:id="@+id/rootTV_2"
             android:fontFamily="@font/bengali"
             android:textColor="#0B287B"
             />

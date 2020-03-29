@@ -8,9 +8,11 @@ import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -39,7 +41,7 @@ public class All_Application_Activity extends AppCompatActivity {
     //  ImageView BackId;
 
     TextView tv1,tv2;
-    TextView rootTV_1;
+    TextView rootTV_1,rootTV_2;
 
     Spinner itemsSpinner;
     private RequestQueue mRequestQueue;
@@ -52,6 +54,7 @@ public class All_Application_Activity extends AppCompatActivity {
         tv1 = findViewById(R.id.all_application_tv);
         tv2 = findViewById(R.id.without_upozilla_application_tv);
         rootTV_1 = findViewById(R.id.root_1_tv);
+        rootTV_2 = findViewById(R.id.recent_tv);
         itemsSpinner=findViewById(R.id.itemsSpinner);
 
 
@@ -81,6 +84,49 @@ public class All_Application_Activity extends AppCompatActivity {
         ArrayAdapter<AllitemsModel> adapterx=new ArrayAdapter<AllitemsModel>(this,android.R.layout.simple_spinner_dropdown_item,itemxx);
         adapterx.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         itemsSpinner.setAdapter(adapterx);
+
+
+        itemsSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+                    case 0:
+                        rootTV_2.setText("সাম্প্রতিক আবেদন");
+
+                        break;
+                    case 1:
+                        items = new ArrayList<>();
+                        getData();
+                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(All_Application_Activity.this);
+                        recyclerView = findViewById(R.id.recyclerView1);
+                        recyclerView.setLayoutManager(linearLayoutManager);
+                        Adapter_item1 adapter = new Adapter_item1(All_Application_Activity.this, items);
+                        recyclerView.setAdapter(adapter);
+                        rootTV_2.setText("অনুমোদিত আবেদন");
+                        break;
+                    case 2:
+                        rootTV_2.setText("বিবেচনাধীন আবেদন");
+
+                        break;
+
+                    case 3:
+                        rootTV_2.setText("অননুমোদিত আবেদন ");
+                        break;
+
+                    case 4:
+                        rootTV_2.setText("পুনরায় জমা আবেদন ");
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+
 
 
 
