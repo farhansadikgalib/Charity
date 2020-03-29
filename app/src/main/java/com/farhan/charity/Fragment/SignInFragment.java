@@ -235,7 +235,6 @@ public class SignInFragment extends Fragment {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(TEXT, phoneET.getText().toString());
         editor.putString(PASS, passwordET.getText().toString());
-        checkBox.setChecked(true);
         editor.apply();
     }
 
@@ -243,11 +242,15 @@ public class SignInFragment extends Fragment {
         SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
         phone = sharedPreferences.getString(TEXT, "");
         password = sharedPreferences.getString(PASS, "");
+        checkBox.setChecked(true);
+
     }
 
     public void updateViews() {
         phoneET.setText(phone);
         passwordET.setText(password);
+        checkBox.setChecked(true);
+
     }
 
 }

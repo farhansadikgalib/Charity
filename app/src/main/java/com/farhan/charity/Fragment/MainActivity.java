@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setFragment(Fragment fragment) {
 
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction().addToBackStack(null);
         ft.replace(frameLayout.getId(), fragment);
         ft.commit();
 

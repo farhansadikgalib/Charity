@@ -105,7 +105,7 @@ public class PhoneFragment extends Fragment  {
                 pass = passwordx.trim();
 
                // Toast.makeText(getContext(), ""+phone, Toast.LENGTH_SHORT).show();
-                Toast.makeText(getContext(), ""+pass, Toast.LENGTH_SHORT).show();
+             //   Toast.makeText(getContext(), ""+pass, Toast.LENGTH_SHORT).show();
 
                 if (TextUtils.isEmpty(phone)) {
                     phoneET.setError("মোবাইল নাম্বার আবশ্যক");
@@ -168,28 +168,9 @@ public class PhoneFragment extends Fragment  {
 
       private void setFragment(Fragment fragment) {
 
-        FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+        FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null);
         fragmentTransaction.replace(parentFrameLayout.getId(), fragment);
-          getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
           fragmentTransaction.commit();
-
-
-
-          getView().setFocusableInTouchMode(true);
-          getView().requestFocus();
-          getView().setOnKeyListener(new View.OnKeyListener() {
-              @Override
-              public boolean onKey(View v, int keyCode, KeyEvent event) {
-                  //  Log.i(tag, "keyCode: " + keyCode);
-                  if( keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
-                      //      Log.i(tag, "onKey Back listener is working!!!");
-                      getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-                      return true;
-                  }
-                  return false;
-              }
-          });
-
 
       }
 

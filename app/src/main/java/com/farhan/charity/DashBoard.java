@@ -276,8 +276,6 @@ public class DashBoard extends AppCompatActivity {
      //   Toast.makeText(this, ""+admins+"\n"+idx, Toast.LENGTH_SHORT).show();
 
 
-
-
     }
 }
 
