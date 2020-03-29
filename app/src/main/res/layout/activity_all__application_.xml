@@ -145,12 +145,12 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="সাম্প্রতিক আবেদন/"
-            android:textSize="14dp"
+            android:layout_height="match_parent"
             android:fontFamily="@font/bengali"
+            android:id="@+id/recent_tv"
+            android:text="সাম্প্রতিক আবেদন/"
             android:textColor="#0B287B"
-            />
+            android:textSize="14dp" />
 
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
