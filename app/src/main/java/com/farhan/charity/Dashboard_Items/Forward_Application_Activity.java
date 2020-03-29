@@ -119,7 +119,7 @@ public class Forward_Application_Activity extends AppCompatActivity {
                 Adapter_item2 adapter = new Adapter_item2(Forward_Application_Activity.this, items);
                 recyclerView.setAdapter(adapter);
 
-                getData();
+
 
 
             }
@@ -159,7 +159,7 @@ public class Forward_Application_Activity extends AppCompatActivity {
                 Adapter_item2 adapter = new Adapter_item2(Forward_Application_Activity.this, items);
                 recyclerView.setAdapter(adapter);
 
-                getData();
+
 
 
             }
@@ -198,7 +198,7 @@ public class Forward_Application_Activity extends AppCompatActivity {
                 Adapter_item2 adapter = new Adapter_item2(Forward_Application_Activity.this, items);
                 recyclerView.setAdapter(adapter);
 
-                getData();
+
 
 
             }
@@ -235,7 +235,7 @@ public class Forward_Application_Activity extends AppCompatActivity {
                 Adapter_item2 adapter = new Adapter_item2(Forward_Application_Activity.this, items);
                 recyclerView.setAdapter(adapter);
 
-                getData();
+
 
 
             }
@@ -272,7 +272,7 @@ public class Forward_Application_Activity extends AppCompatActivity {
                 Adapter_item2 adapter = new Adapter_item2(Forward_Application_Activity.this, items);
                 recyclerView.setAdapter(adapter);
 
-                getData();
+
 
 
 

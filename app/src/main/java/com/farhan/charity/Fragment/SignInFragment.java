@@ -186,7 +186,7 @@ public class SignInFragment extends Fragment {
                     {
                        //
                         //
-                        Toast.makeText(getContext(), "OK", Toast.LENGTH_SHORT).show();
+                     //   Toast.makeText(getContext(), "OK", Toast.LENGTH_SHORT).show();
                       //  startActivity(new Intent(getContext(),DashBoard.class));
 
                         Intent i = new Intent(getContext(),DashBoard.class);
