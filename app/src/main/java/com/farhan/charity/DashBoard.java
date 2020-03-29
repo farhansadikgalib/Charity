@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -46,7 +47,8 @@ public class DashBoard extends AppCompatActivity {
 
     public String admins,idx;
     public static String admin_typeS,admins_track_idS;
-
+    private long backPressedTime;
+    private Toast backToast;
 
     public static final int[] colordata = {
             rgb("#FF2531"), rgb("#0B287B"), rgb("#02AFAE"), rgb("#FEA200")};
@@ -72,10 +74,7 @@ public class DashBoard extends AppCompatActivity {
         buttonIDsetFuction();
         buttonClickListenersetFunction();
         mRequestQueue = Volley.newRequestQueue(this);
-
         PieChartParsex();
-
-
 
     }
 
@@ -98,11 +97,9 @@ public class DashBoard extends AppCompatActivity {
 
                 PieChart pieChart = findViewById(R.id.piechart);
                 PieDataSet pieDataSet = new PieDataSet(getData(), "");
-
                 pieChart.setDrawEntryLabels(true);
                 pieDataSet.setColors(colordata);
                 PieData pieData = new PieData(pieDataSet);
-
                 pieChart.setHoleRadius(40);
                 pieChart.setUsePercentValues(true);
                 pieData.setValueTextSize(13f);
@@ -131,7 +128,6 @@ public class DashBoard extends AppCompatActivity {
                 climateLayout = findViewById(R.id.climateRelatedBT);
                 disabilityLayout = findViewById(R.id.disabilityRelatedBT);
                 healthLayout = findViewById(R.id.healthRelatedBT);
-
                 allApplicationLayout = findViewById(R.id.allApplicationBT);
                 forwardApplicationLayout = findViewById(R.id.forwardApplicationBT);
 
@@ -277,6 +273,23 @@ public class DashBoard extends AppCompatActivity {
 
 
     }
+
+
+    @Override
+    public void onBackPressed() {
+        if (backPressedTime + 2000 > System.currentTimeMillis()) {
+            backToast.cancel();
+            //super.onBackPressed();
+            finish();
+            return;
+        } else {
+            backToast = Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT);
+            backToast.show();
+        }
+
+        backPressedTime = System.currentTimeMillis();
+    }
+
 }
 
 

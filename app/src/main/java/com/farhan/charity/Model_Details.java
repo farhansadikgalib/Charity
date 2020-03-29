@@ -1,6 +1,6 @@
-package com.farhan.charity.Model;
+package com.farhan.charity;
 
-public class ItemModel {
+public class Model_Details {
 
     private  String users_name_bn;
     private  String application_amount;
@@ -9,36 +9,15 @@ public class ItemModel {
     private  String application_id;
     private  String application_status;
 
-    public ItemModel(String users_name_bn, String application_amount, String application_title_bn, String users_image, String application_id, String application_status) {
+    public Model_Details() {
+    }
+
+    public Model_Details(String users_name_bn, String application_amount, String application_title_bn, String users_image, String application_id, String application_status) {
         this.users_name_bn = users_name_bn;
         this.application_amount = application_amount;
         this.application_title_bn = application_title_bn;
         this.users_image = users_image;
         this.application_id = application_id;
-        this.application_status = application_status;
-    }
-
-    public ItemModel(String users_name_bn, String application_amount, String application_title_bn, String users_image) {
-        this.users_name_bn = users_name_bn;
-        this.application_amount = application_amount;
-        this.application_title_bn = application_title_bn;
-        this.users_image = users_image;
-    }
-
-
-    public String getApplication_id() {
-        return application_id;
-    }
-
-    public void setApplication_id(String application_id) {
-        this.application_id = application_id;
-    }
-
-    public String getApplication_status() {
-        return application_status;
-    }
-
-    public void setApplication_status(String application_status) {
         this.application_status = application_status;
     }
 
@@ -72,5 +51,21 @@ public class ItemModel {
 
     public void setUsers_image(String users_image) {
         this.users_image = users_image;
+    }
+
+    public String getApplication_id() {
+        return application_id;
+    }
+
+    public void setApplication_id(String application_id) {
+        this.application_id = application_id;
+    }
+
+    public String getApplication_status() {
+        return application_status;
+    }
+
+    public void setApplication_status(String application_status) {
+        this.application_status = application_status;
     }
 }

@@ -1,7 +1,5 @@
 package com.farhan.charity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +9,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import androidx.appcompat.app.AppCompatActivity;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -19,12 +17,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.farhan.charity.Fragment.MainActivity;
 import com.farhan.charity.Model.LogInModelClass;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -52,15 +47,9 @@ public class CheekActivity extends AppCompatActivity {
         forgetPass = findViewById(R.id.forgetPass);
         parentFrameLayout = findViewById(R.id.registration_framelayout);
 
-
-
-
-
         singInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
 
                 username = phoneET.getText().toString();
                 passwordd = passwordET.getText().toString();
@@ -125,6 +114,8 @@ public class CheekActivity extends AppCompatActivity {
                 };
 
                 Volley.newRequestQueue(CheekActivity.this).add(stringRequest);
+                //We can use it
+                //mRequestQueue.add(stringRequest);
 
             }
         });

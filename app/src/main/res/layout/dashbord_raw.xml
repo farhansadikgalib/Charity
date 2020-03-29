@@ -69,13 +69,14 @@
                     <TextView
                         android:id="@+id/textViewNumberId"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:text="১,৫২৮"
                         android:layout_margin="5dp"
                         android:layout_gravity="center"
                         android:textAlignment="textEnd"
                         android:textColor="#26A9E1"
                         android:textSize="20sp"
+                        android:layout_marginRight="30dp"
                         android:textStyle="bold"
                         tools:ignore="RtlCompat" />
                 </LinearLayout>
