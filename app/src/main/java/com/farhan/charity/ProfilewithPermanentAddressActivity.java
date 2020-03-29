@@ -90,6 +90,7 @@ public class ProfilewithPermanentAddressActivity extends AppCompatActivity {
                 viewPager.setCurrentItem(tab.getPosition());
 
 
+
             }
 
             @Override

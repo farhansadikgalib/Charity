@@ -85,6 +85,13 @@ public class All_Application_Activity extends AppCompatActivity {
 
 
 
+        items = new ArrayList<>();
+        getData();
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(All_Application_Activity.this);
+        recyclerView = findViewById(R.id.recyclerView1);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        Adapter_item1 adapter = new Adapter_item1(All_Application_Activity.this, items);
+        recyclerView.setAdapter(adapter);
 
 
 
@@ -101,6 +108,18 @@ public class All_Application_Activity extends AppCompatActivity {
                 tv1.setTextColor(Color.parseColor("#ffffff"));
                 tv2.setTextColor(Color.parseColor("#515151"));
                 tv2.setBackgroundColor(Color.parseColor("#ffffff"));
+
+
+                items = new ArrayList<>();
+                getData();
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(All_Application_Activity.this);
+                recyclerView = findViewById(R.id.recyclerView1);
+                recyclerView.setLayoutManager(linearLayoutManager);
+                Adapter_item1 adapter = new Adapter_item1(All_Application_Activity.this, items);
+                recyclerView.setAdapter(adapter);
+
+                getData();
+
             }
         });
 
@@ -118,17 +137,18 @@ public class All_Application_Activity extends AppCompatActivity {
                 tv1.setTextColor(Color.parseColor("#515151"));
                 tv1.setBackgroundColor(Color.parseColor("#ffffff"));
 
+
+                items = new ArrayList<>();
+                getData();
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(All_Application_Activity.this);
+                recyclerView = findViewById(R.id.recyclerView1);
+                recyclerView.setLayoutManager(linearLayoutManager);
+                Adapter_item1 adapter = new Adapter_item1(All_Application_Activity.this, items);
+                recyclerView.setAdapter(adapter);
+
+                getData();
             }
         });
-
-        items = new ArrayList<>();
-        getData();
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(All_Application_Activity.this);
-        recyclerView = findViewById(R.id.recyclerView1);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        Adapter_item1 adapter = new Adapter_item1(All_Application_Activity.this, items);
-        recyclerView.setAdapter(adapter);
-
 
     }
 

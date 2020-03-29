@@ -154,12 +154,12 @@ public class SignInFragment extends Fragment {
         String url="http://charity.olivineltd.com/api/login";
 
 
-
         if (TextUtils.isEmpty(phone)) {
             phoneET.setError("মোবাইল নাম্বার আবশ্যক");
             phoneET.requestFocus();
             return;
         }
+
 
 
         if (TextUtils.isEmpty(password)) {
@@ -193,6 +193,8 @@ public class SignInFragment extends Fragment {
                         i.putExtra("User_Track_ID",admins_track_idS);
                         startActivity(i);
 
+                        progress_circular.setVisibility(View.GONE);
+
                     }
 
 
@@ -201,7 +203,7 @@ public class SignInFragment extends Fragment {
                 }
                 catch (Exception e) {
                     e.printStackTrace();
-                     Toast.makeText(getContext(), "আপনি ভুল মোবাইল নাম্বার অথবা পাসওয়ার্ড দিয়াছেন", Toast.LENGTH_SHORT).show();
+                     Toast.makeText(getContext(), "আপনি ভুল মোবাইল নাম্বার অথবা পাসওয়ার্ড দিয়েছেন", Toast.LENGTH_SHORT).show();
                      progress_circular.setVisibility(View.GONE);
 
                 }
