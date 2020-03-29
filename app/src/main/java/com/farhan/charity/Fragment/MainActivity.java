@@ -30,10 +30,15 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(frameLayout.getId(), fragment);
         ft.commit();
+        super.onBackPressed();
 
     }
 
+
+
+
     public void backToPrevious(View view) {
         super.onBackPressed();
+
     }
 }

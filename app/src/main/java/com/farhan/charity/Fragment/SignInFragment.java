@@ -191,7 +191,10 @@ public class SignInFragment extends Fragment {
                         Intent i = new Intent(getContext(),DashBoard.class);
                         i.putExtra("User_Type",admin_typeS);
                         i.putExtra("User_Track_ID",admins_track_idS);
+                        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(i);
+                        getActivity().finish();
+
 
                         progress_circular.setVisibility(View.GONE);
 

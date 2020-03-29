@@ -160,15 +160,6 @@ public class All_Application_Activity extends AppCompatActivity {
     public void getData(){
 
 
-       /* items.add(new ItemModel(R.mipmap.ic_launcher,"Mridul","শিক্ষা আবেদন","৫০০০০০৯"));
-        items.add(new ItemModel(R.mipmap.ic_launcher,"Turjoy","শিক্ষা আবেদন","৫০০০০০৯"));
-        items.add(new ItemModel(R.mipmap.ic_launcher,"Farhan","শিক্ষা আবেদন","৫০০০০০৯"));
-        items.add(new ItemModel(R.mipmap.ic_launcher,"Farhan","শিক্ষা আবেদন","৫০০০০০৯"));
-        items.add(new ItemModel(R.mipmap.ic_launcher,"Farhan","শিক্ষা আবেদন","৫০০০০০৯"));
-        items.add(new ItemModel(R.mipmap.ic_launcher,"Farhan","শিক্ষা আবেদন","৫০০০০০৯"));
-        items.add(new ItemModel(R.mipmap.ic_launcher,"Farhan","শিক্ষা আবেদন","৫০০০০০৯"));
-        items.add(new ItemModel(R.mipmap.ic_launcher,"Farhan","শিক্ষা আবেদন","৫০০০০০৯"));*/
-
 
 
         String url = "http://charity.olivineltd.com/api/uno/application?admins_type=UNO&admins_track_id=SKW0V3qiOL20180808114529";

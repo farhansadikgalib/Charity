@@ -4,6 +4,8 @@ package com.farhan.charity.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +16,9 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -23,7 +27,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.farhan.charity.DashBoard;
 import com.farhan.charity.R;
 
 import org.json.JSONObject;
@@ -35,7 +38,7 @@ import java.util.Map;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PhoneFragment extends Fragment {
+public class PhoneFragment extends Fragment  {
 
 
     public PhoneFragment() {
@@ -63,6 +66,36 @@ public class PhoneFragment extends Fragment {
         progress_circular=view.findViewById(R.id.progress_circular);
 
         mRequestQueue = Volley.newRequestQueue(getContext());
+
+
+
+
+
+
+        view.setFocusableInTouchMode(true);
+        view.requestFocus();
+        view.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+              //  Log.i(tag, "keyCode: " + keyCode);
+                if( keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
+              //      Log.i(tag, "onKey Back listener is working!!!");
+                    getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                    return true;
+                }
+                return false;
+            }
+        });
+
+
+
+
+
+
+
+
+
+
 
 
         submitBtn.setOnClickListener(new View.OnClickListener() {
@@ -127,26 +160,43 @@ public class PhoneFragment extends Fragment {
                 };
                 Volley.newRequestQueue(getContext()).add(stringRequest);
 
-
-
             }
         });
 
         return view;
     }
 
-
-
-    private void setFragment(Fragment fragment) {
+      private void setFragment(Fragment fragment) {
 
         FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(parentFrameLayout.getId(), fragment);
-        fragmentTransaction.commit();
+          getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+          fragmentTransaction.commit();
 
-    }
 
+
+          getView().setFocusableInTouchMode(true);
+          getView().requestFocus();
+          getView().setOnKeyListener(new View.OnKeyListener() {
+              @Override
+              public boolean onKey(View v, int keyCode, KeyEvent event) {
+                  //  Log.i(tag, "keyCode: " + keyCode);
+                  if( keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
+                      //      Log.i(tag, "onKey Back listener is working!!!");
+                      getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                      return true;
+                  }
+                  return false;
+              }
+          });
+
+
+      }
 
 
 
 }
+
+
+
 
