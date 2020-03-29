@@ -118,7 +118,6 @@ public class All_Application_Activity extends AppCompatActivity {
                 Adapter_item1 adapter = new Adapter_item1(All_Application_Activity.this, items);
                 recyclerView.setAdapter(adapter);
 
-                getData();
 
             }
         });
@@ -146,7 +145,7 @@ public class All_Application_Activity extends AppCompatActivity {
                 Adapter_item1 adapter = new Adapter_item1(All_Application_Activity.this, items);
                 recyclerView.setAdapter(adapter);
 
-                getData();
+
             }
         });
 

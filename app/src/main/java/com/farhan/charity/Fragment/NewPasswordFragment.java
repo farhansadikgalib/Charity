@@ -75,7 +75,7 @@ public class NewPasswordFragment extends Fragment {
                                 if (newPass==conNewPass) {
 
                                     startActivity(new Intent(getContext(), DashBoard.class));
-
+                                    getActivity().finish();
                                 }
 
 

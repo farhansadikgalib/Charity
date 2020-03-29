@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -46,6 +45,7 @@ public class DashBoard extends AppCompatActivity {
 
 
     public String admins,idx;
+    public static String admin_typeS,admins_track_idS;
 
 
     public static final int[] colordata = {
@@ -142,28 +142,59 @@ public class DashBoard extends AppCompatActivity {
                 educationLayout.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startActivity(new Intent(DashBoard.this, ApplicationOf_EducationActivity.class));
+                      //  startActivity(new Intent(DashBoard.this, ApplicationOf_EducationActivity.class));
+
+
+
+                        Intent i = new Intent(DashBoard.this, ApplicationOf_EducationActivity.class);
+
+                        i.putExtra("User_Type",admin_typeS);
+
+                        i.putExtra("User_Track_ID",admins_track_idS);
+
+                        startActivity(i);
+
                     }
                 });
 
                 climateLayout.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startActivity(new Intent(DashBoard.this, DisasterRelatedActivity.class));
+                     //   startActivity(new Intent(DashBoard.this, DisasterRelatedActivity.class));
+
+                        Intent i = new Intent(DashBoard.this, DisasterRelatedActivity.class);
+                        i.putExtra("User_Type",admin_typeS);
+                        i.putExtra("User_Track_ID",admins_track_idS);
+                        startActivity(i);
+
+
                     }
                 });
 
                 disabilityLayout.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startActivity(new Intent(DashBoard.this, DisabilityRelatedActivity.class));
+                      //  startActivity(new Intent(DashBoard.this, DisabilityRelatedActivity.class));
+
+                        Intent i = new Intent(DashBoard.this, DisabilityRelatedActivity.class);
+                        i.putExtra("User_Type",admin_typeS);
+                        i.putExtra("User_Track_ID",admins_track_idS);
+                        startActivity(i);
+
+
                     }
                 });
 
                 healthLayout.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startActivity(new Intent(DashBoard.this, HealthRelatedActivity.class));
+                      //  startActivity(new Intent(DashBoard.this, HealthRelatedActivity.class));
+
+                        Intent i = new Intent(DashBoard.this, HealthRelatedActivity.class);
+                        i.putExtra("User_Type",admin_typeS);
+                        i.putExtra("User_Track_ID",admins_track_idS);
+                        startActivity(i);
+
                     }
                 });
 
@@ -202,14 +233,14 @@ public class DashBoard extends AppCompatActivity {
                     disable = jsonObject.get("disable").toString();
                     disaster = jsonObject.get("disaster").toString();
 
-                    Toast.makeText(DashBoard.this, education, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(DashBoard.this, education, Toast.LENGTH_SHORT).show();
 
                     i = Integer.parseInt(education);
                     j = Integer.parseInt(disable);
                     k = Integer.parseInt(health);
                     l = Integer.parseInt(disaster);
 
-                    Toast.makeText(DashBoard.this, ""+i+j+k+l, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(DashBoard.this, ""+i+j+k+l, Toast.LENGTH_SHORT).show();
 
                     if( i == 0 && j == 0 && k == 0 && l == 0 )
                     {
@@ -242,8 +273,7 @@ public class DashBoard extends AppCompatActivity {
 
         admins = getIntent().getStringExtra("User_Type").toString();
         idx = getIntent().getStringExtra("User_Track_ID").toString();
-        Toast.makeText(this, ""+admins+"\n"+idx, Toast.LENGTH_SHORT).show();
-
+     //   Toast.makeText(this, ""+admins+"\n"+idx, Toast.LENGTH_SHORT).show();
 
 
     }
