@@ -125,11 +125,7 @@ public class ProfilewithPermanentAddressActivity extends AppCompatActivity {
 
                     String users_image = jsonObject.getString("users_image");
 
-                    Picasso.get().load(users_image).into(users_imageIV);
-
-
-
-
+                    Picasso.get().load("http://charity.olivineltd.com/upload/frontend/users_image/"+users_image).placeholder(R.drawable.face_devil).into(users_imageIV);
 
                     users_name_bnTV.setText(users_name_bn);
                     users_nameTV.setText(users_name);
