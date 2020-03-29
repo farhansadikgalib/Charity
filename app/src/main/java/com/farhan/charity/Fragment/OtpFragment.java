@@ -2,6 +2,7 @@ package com.farhan.charity.Fragment;
 
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.farhan.charity.R;
+import com.mukesh.OnOtpCompletionListener;
 import com.mukesh.OtpView;
 
 import org.json.JSONObject;
@@ -45,14 +47,19 @@ public class OtpFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_otp, container, false);
 
+        otpView = view.findViewById(R.id.otp_view);
         otpSubmitBtn = view.findViewById(R.id.otpSubmitBtn);
-        otpView = view.findViewById(R.id.pinView);
+
 
         otp = otpView.getText().toString();
 
 
 
-
+        otpView.setOtpCompletionListener(new OnOtpCompletionListener() {
+            @Override public void onOtpCompleted(String otp) {     // do Stuff
+                Log.d("onOtpCompleted=>", otp);
+            }
+        });
         parentFrameLayout = getActivity().findViewById(R.id.registration_framelayout);
 
 

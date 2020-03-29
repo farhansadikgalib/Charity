@@ -34,19 +34,23 @@
             android:textColor="#000000"
             android:textSize="22dp"
             />
+
+
+
         <com.mukesh.OtpView
+            android:id="@+id/otp_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            app:itemSpacing="5dp"
             android:layout_gravity="center"
             android:layout_marginLeft="35dp"
             android:layout_marginRight="35dp"
-            android:id="@+id/pinView"
+            android:inputType="number"
+            android:itemBackground="#20A7E0"
             android:padding="10dp"
             app:itemCount="6"
             app:itemRadius="10dp"
-            android:itemBackground="#20A7E0"/>
+            app:itemSpacing="5dp"
+            />
 
 
         <ProgressBar
@@ -55,7 +59,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="@+id/pinView"
+            app:layout_constraintBottom_toBottomOf="@+id/otp_view"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             />
@@ -66,6 +70,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginLeft="35dp"
             android:layout_marginRight="35dp"
+            android:paddingBottom="30dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -90,6 +95,7 @@
 
 
             <Button
+
                 android:id="@+id/otpSubmitBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -99,7 +105,7 @@
                 android:textColor="#FFFFFF"
                 android:textSize="20dp"
 
-               android:layout_marginTop="5dp"
+                android:layout_marginTop="5dp"
                 android:textStyle="bold"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -111,8 +117,9 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     </LinearLayout>
+
+
 
 
 </androidx.core.widget.NestedScrollView>

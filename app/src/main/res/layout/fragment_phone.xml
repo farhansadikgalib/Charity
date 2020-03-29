@@ -63,7 +63,8 @@
         android:layout_marginRight="35dp"
         android:background="#EFF5E7"
         android:textSize="22dp"
-        android:hint="   01XXXXXXXXX"
+        android:paddingLeft="20dp"
+        android:hint="01XXXXXXXXX"
         android:inputType="number"
 
         app:layout_constraintLeft_toLeftOf="parent"
