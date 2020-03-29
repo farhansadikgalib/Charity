@@ -92,6 +92,7 @@ public class SignInFragment extends Fragment {
                  parseJSON();
 
                 if(c == 1 ) {
+
                     saveData();
                 }
 
@@ -234,7 +235,7 @@ public class SignInFragment extends Fragment {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(TEXT, phoneET.getText().toString());
         editor.putString(PASS, passwordET.getText().toString());
-
+        checkBox.setChecked(true);
         editor.apply();
     }
 
