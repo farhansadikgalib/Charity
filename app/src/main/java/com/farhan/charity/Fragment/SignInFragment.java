@@ -53,11 +53,12 @@ public class SignInFragment extends Fragment {
     private static final String SHARED_PREFS = "sharedPrefs";
     private static final String TEXT = "text";
     private static final String PASS = "pass";
+    private static final String BOLC = "checkto";
     int c;
     private static String admin_typeS,admins_track_idS;
 
 
-
+    private  Boolean checkme;
     private EditText phoneET, passwordET;
     private TextView forgetPass;
     private Button signInBtn;
@@ -77,7 +78,7 @@ public class SignInFragment extends Fragment {
         phoneET = view.findViewById(R.id.phoneET);
         passwordET = view.findViewById(R.id.passET);
         signInBtn = view.findViewById(R.id.loginBtn);
-        checkBox = view.findViewById(R.id.remenbercheckbox);
+        checkBox = view.findViewById(R.id.remenbercheckboxsign);
         forgetPass = view.findViewById(R.id.forgetPass);
         parentFrameLayout = getActivity().findViewById(R.id.registration_framelayout);
         progress_circular=view.findViewById(R.id.progress_circular);
@@ -91,9 +92,14 @@ public class SignInFragment extends Fragment {
                  progress_circular.setVisibility(View.VISIBLE);
                  parseJSON();
 
-                if(c == 1 ) {
+                if(checkBox.isChecked() == true ) {
 
                     saveData();
+                    savecheck();
+                }
+
+                else {
+                    savecheck();
                 }
 
             }
@@ -110,17 +116,17 @@ public class SignInFragment extends Fragment {
         });
 
 
-        checkBox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(checkBox.isChecked()) {
-                    c =1;
-                }else{
-                    c =0;
-                }
-
-            }
-        });
+//        checkBox.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(checkBox.isChecked()) {
+//                    c =1;
+//                }else{
+//                    c =0;
+//                }
+//
+//            }
+//        });
 
         loadData();
         updateViews();
@@ -235,19 +241,30 @@ public class SignInFragment extends Fragment {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(TEXT, phoneET.getText().toString());
         editor.putString(PASS, passwordET.getText().toString());
-        checkBox.setChecked(true);
+        editor.putBoolean(BOLC, checkBox.isChecked());
+
+        editor.apply();
+    }
+
+    public void savecheck() {
+        SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(BOLC, checkBox.isChecked());
         editor.apply();
     }
 
     public void loadData() {
         SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
         phone = sharedPreferences.getString(TEXT, "");
-        password = sharedPreferences.getString(PASS, "");
+        password = sharedPreferences.getString(PASS, "");;
+        checkme = sharedPreferences.getBoolean(BOLC, false);
+
     }
 
     public void updateViews() {
         phoneET.setText(phone);
         passwordET.setText(password);
+        checkBox.setChecked(checkme);
     }
 
 }
