@@ -10,7 +10,6 @@ public class AllitemsModel {
     public AllitemsModel() {
     }
 
-
     public AllitemsModel(String name) {
         this.name = name;
     }

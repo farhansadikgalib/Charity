@@ -7,21 +7,52 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Applicant_Details extends AppCompatActivity {
     AlertDialog alertDialog;
-    TextView applicantsNameTV1;
+    TextView applicantsNameTV1,app_ID,app_Title,app_amount,app_staus;
+    ImageView profile;
     Button forwardBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_applicant_details);
         forwardBtn=findViewById(R.id.forwardBtn);
-
+        profile = findViewById(R.id.profile_image);
         applicantsNameTV1 = findViewById(R.id.applicantsNameTV);
+        app_ID = findViewById(R.id.idTV);
+        app_Title = findViewById(R.id.titleHeadingTV);
+        app_amount = findViewById(R.id.currencyTV);
+        app_staus = findViewById(R.id.stateTV);
+
+        Intent iin= getIntent();
+        Bundle b = iin.getExtras();
+
+        if(b!=null)
+        {
+            String Name =(String) b.get("name");
+            String  Amount =(String)  b.get("amount");
+            String Title =(String) b.get("title");
+            String  Status =(String)  b.get("status");
+            String Id =(String) b.get("id");
+            //int img = (int) b.get("img");
+            String img = (String) b.get("img") ;
+
+            applicantsNameTV1.setText(Name);
+            app_ID.setText(Id);
+            app_Title.setText(Title);
+            app_amount.setText(Amount);
+            app_staus.setText(Status);
+           // profile.setImageResource(Integer.parseInt(img));
+
+
+        }
+
+
 
         applicantsNameTV1.setOnClickListener(new View.OnClickListener() {
             @Override

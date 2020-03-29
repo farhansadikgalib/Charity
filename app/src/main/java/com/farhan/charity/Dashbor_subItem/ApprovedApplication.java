@@ -1,12 +1,11 @@
 package com.farhan.charity.Dashbor_subItem;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -16,13 +15,9 @@ import com.android.volley.toolbox.Volley;
 import com.farhan.charity.Model.ItemModel;
 import com.farhan.charity.R;
 import com.farhan.charity.SubItem_Adapter.ApplicationApproved_Adapter;
-import com.farhan.charity.SubItem_Adapter.ApplicationRecent_Adapter;
-import com.farhan.charity.SubItem_Adapter.ApplicationResubmit_Adapter;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
 

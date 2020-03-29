@@ -122,7 +122,6 @@ public class ProfilewithPermanentAddressActivity extends AppCompatActivity {
                     String users_blood_group = jsonObject.getString("users_blood_group");
                     String users_dob = jsonObject.getString("users_dob");
                     String users_nid = jsonObject.getString("users_nid");
-
                     String users_image = jsonObject.getString("users_image");
 
                     Picasso.get().load("http://charity.olivineltd.com/upload/frontend/users_image/"+users_image).placeholder(R.drawable.face_devil).into(users_imageIV);

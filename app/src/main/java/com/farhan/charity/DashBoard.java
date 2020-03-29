@@ -72,10 +72,7 @@ public class DashBoard extends AppCompatActivity {
         buttonIDsetFuction();
         buttonClickListenersetFunction();
         mRequestQueue = Volley.newRequestQueue(this);
-
         PieChartParsex();
-
-
 
     }
 
@@ -98,11 +95,9 @@ public class DashBoard extends AppCompatActivity {
 
                 PieChart pieChart = findViewById(R.id.piechart);
                 PieDataSet pieDataSet = new PieDataSet(getData(), "");
-
                 pieChart.setDrawEntryLabels(true);
                 pieDataSet.setColors(colordata);
                 PieData pieData = new PieData(pieDataSet);
-
                 pieChart.setHoleRadius(40);
                 pieChart.setUsePercentValues(true);
                 pieData.setValueTextSize(13f);
@@ -131,7 +126,6 @@ public class DashBoard extends AppCompatActivity {
                 climateLayout = findViewById(R.id.climateRelatedBT);
                 disabilityLayout = findViewById(R.id.disabilityRelatedBT);
                 healthLayout = findViewById(R.id.healthRelatedBT);
-
                 allApplicationLayout = findViewById(R.id.allApplicationBT);
                 forwardApplicationLayout = findViewById(R.id.forwardApplicationBT);
 

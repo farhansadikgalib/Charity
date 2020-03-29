@@ -58,11 +58,6 @@ public class ForwardForm extends AppCompatActivity {
 
 
 
-
-
-
-
-
     }
 
     public void backToApplicantsDetails(View view){
