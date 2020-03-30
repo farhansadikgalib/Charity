@@ -1,13 +1,11 @@
-package com.farhan.charity.Dashbor_subItem;
+package com.farhan.charity.Dashboard_subItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -15,11 +13,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.farhan.charity.Adapter.Adapter_item1;
-import com.farhan.charity.Adapter.Unapproved_Adapter;
-import com.farhan.charity.Dashboard_Items.All_Application_Activity;
 import com.farhan.charity.Model.ItemModel;
 import com.farhan.charity.R;
+import com.farhan.charity.SubItem_Adapter.ApplicationRecent_Adapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,32 +24,25 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UnapprovedApplication extends AppCompatActivity {
-
+public class RecentApplication extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private List<ItemModel> items;
-    private Unapproved_Adapter unapproved_adapter;
-
+    List<ItemModel> items;
     private RequestQueue mRequestQueue;
+    private  ApplicationRecent_Adapter applicationRecent_adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_unapproved_application);
+        setContentView(R.layout.activity_recent_application);
         items = new ArrayList<>();
-        unapproved_adapter = new Unapproved_Adapter(this, items);
-
         mRequestQueue = Volley.newRequestQueue(this);
         getData();
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(UnapprovedApplication.this);
-        recyclerView = findViewById(R.id.recyclerView_unapproved);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(RecentApplication.this);
+        recyclerView = findViewById(R.id.recyclerView_recent);
         recyclerView.setLayoutManager(linearLayoutManager);
-
-
-        // Unapproved_Adapter adapter = new Unapproved_Adapter(UnapprovedApplication.this, items);
-        //recyclerView.setAdapter(adapter);
+        ApplicationRecent_Adapter adapter = new ApplicationRecent_Adapter(RecentApplication.this, items);
+        recyclerView.setAdapter(adapter);
     }
-
     public void getData() {
 
         String url = "http://charity.olivineltd.com/api/uno/application?admins_type=UNO&admins_track_id=SKW0V3qiOL20180808114529";
@@ -83,8 +72,9 @@ public class UnapprovedApplication extends AppCompatActivity {
                                 items.add(test);
                             }
 
-                            unapproved_adapter = new Unapproved_Adapter(UnapprovedApplication.this,items);
-                            recyclerView.setAdapter(unapproved_adapter);
+                            applicationRecent_adapter = new ApplicationRecent_Adapter(RecentApplication.this,items);
+                            recyclerView.setAdapter(applicationRecent_adapter);
+
 
                         } catch (JSONException e) {
                             e.printStackTrace();

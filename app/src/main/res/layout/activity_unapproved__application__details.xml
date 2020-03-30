@@ -19,7 +19,7 @@
 
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image"
+        android:id="@+id/profile_image_p"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/ic_crose"
@@ -36,8 +36,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/profile_image"
-        android:layout_below="@id/profile_image"
+        app:layout_constraintTop_toBottomOf="@id/profile_image_p"
+        android:layout_below="@id/profile_image_p"
         android:text="তাহমিদ শাহারিয়ার ধ্রুব"
 
         android:textColor="#0B287B"

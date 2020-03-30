@@ -34,9 +34,9 @@ public class Adapter_item1 extends  RecyclerView.Adapter<Adapter_item1.ViewHolde
     }
 
     @Override
-    public Adapter_item1.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.row_layout, parent, false);
-        return new Adapter_item1.ViewHolder(v);
+        return new ViewHolder(v);
 
     }
 
@@ -74,7 +74,7 @@ public class Adapter_item1 extends  RecyclerView.Adapter<Adapter_item1.ViewHolde
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(context, ""+ itemModel.getUsers_name_bn() ,Toast.LENGTH_SHORT).show();
+               // Toast.makeText(context, ""+ itemModel.getUsers_name_bn() ,Toast.LENGTH_SHORT).show();
 
                 Intent i = new Intent(context, Applicant_Details.class);
                 // i.putExtra("imageUrl",imageUrl);

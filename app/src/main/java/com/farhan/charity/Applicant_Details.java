@@ -12,17 +12,21 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.squareup.picasso.Picasso;
+
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class Applicant_Details extends AppCompatActivity {
     AlertDialog alertDialog;
     TextView applicantsNameTV1,app_ID,app_Title,app_amount,app_staus;
-    ImageView profile;
+    CircleImageView profilex;
     Button forwardBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_applicant_details);
         forwardBtn=findViewById(R.id.forwardBtn);
-        profile = findViewById(R.id.profile_image);
+       profilex  = findViewById(R.id.profile_image_p);
         applicantsNameTV1 = findViewById(R.id.applicantsNameTV);
         app_ID = findViewById(R.id.idTV);
         app_Title = findViewById(R.id.titleHeadingTV);
@@ -48,6 +52,7 @@ public class Applicant_Details extends AppCompatActivity {
             app_amount.setText(Amount);
             app_staus.setText(Status);
             //profile.setImageResource(Integer.parseInt(img));
+            Picasso.get().load(img).into(profilex);
 
 
         }

@@ -1,4 +1,4 @@
-package com.farhan.charity.Dashbor_subItem;
+package com.farhan.charity.Dashboard_subItem;
 
 import android.os.Bundle;
 import android.view.View;

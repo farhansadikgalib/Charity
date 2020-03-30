@@ -14,10 +14,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.farhan.charity.Adapter.Unapproved_Adapter;
-import com.farhan.charity.Dashbor_subItem.ApplicationUnderConsideration;
-import com.farhan.charity.Dashbor_subItem.UnapprovedApplication;
-import com.farhan.charity.SubItem_Adapter.ApplicationUnApproved_Adapter;
 import com.farhan.charity.Model.ItemModel;
 import com.farhan.charity.SubItem_Adapter.ApplicationUnderConsideration_Adapter;
 

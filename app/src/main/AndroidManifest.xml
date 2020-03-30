@@ -14,11 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".CheekActivity"/>
-        <activity android:name=".Dashbor_subItem.ResubmitApplication" />
-        <activity android:name=".Dashbor_subItem.UnapprovedApplication" />
-        <activity android:name=".Dashbor_subItem.ApplicationUnderConsideration" />
-        <activity android:name=".Dashbor_subItem.ApprovedApplication" />
-        <activity android:name=".Dashbor_subItem.RecentApplication" />
+        <activity android:name=".Dashboard_subItem.ResubmitApplication" />
+        <activity android:name=".Dashboard_subItem.UnapprovedApplication" />
+        <activity android:name=".Dashboard_subItem.ApplicationUnderConsideration" />
+        <activity android:name=".Dashboard_subItem.ApprovedApplication" />
+        <activity android:name=".Dashboard_subItem.RecentApplication" />
         <activity android:name=".Dashboard_Items.Forward_Application_Activity" />
         <activity android:name=".ForwardForm" />
         <activity android:name=".Dashboard_Items.All_Application_Activity" />

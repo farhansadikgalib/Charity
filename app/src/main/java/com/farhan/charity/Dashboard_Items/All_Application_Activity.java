@@ -102,7 +102,7 @@ public class All_Application_Activity extends AppCompatActivity {
                     case 1:
                         items = new ArrayList<>();
                         getData();
-                         linearLayoutManager = new LinearLayoutManager(All_Application_Activity.this);
+                        linearLayoutManager = new LinearLayoutManager(All_Application_Activity.this);
                         recyclerView = findViewById(R.id.recyclerView1);
                         recyclerView.setLayoutManager(linearLayoutManager);
                         Adapter_item1 adapter = new Adapter_item1(All_Application_Activity.this, items);
@@ -250,7 +250,7 @@ public class All_Application_Activity extends AppCompatActivity {
                                 ItemModel test = new ItemModel(applicantName, applicationAmount, application_title_bn, user_image,application_id,application_Staus);
                                 items.add(test);
 
-                        //        int appliedfor = applicationList.getString();
+                                //        int appliedfor = applicationList.getString();
 
                                 //items.add(new ItemModel(applicantName, applicationAmount, application_title_bn,user_image));
                             }
