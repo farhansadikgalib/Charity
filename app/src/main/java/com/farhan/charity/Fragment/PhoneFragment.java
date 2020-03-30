@@ -125,7 +125,7 @@ public class PhoneFragment extends Fragment  {
 
                             if (status.equals("Ok"))
                             {
-                             //   Toast.makeText(getContext(), "OK", Toast.LENGTH_SHORT).show();
+                            //  Toast.makeText(getContext(), "OK", Toast.LENGTH_SHORT).show();
                                 setFragment(new OtpFragment());
                             }else{
 
@@ -141,6 +141,7 @@ public class PhoneFragment extends Fragment  {
                         catch (Exception e) {
                             e.printStackTrace();
 
+                            Toast.makeText(getContext(), "অনুগ্রহপূর্বক ইন্টারনেট সংযোগ চালু করুন" , Toast.LENGTH_SHORT).show();
 
                         }
 
@@ -148,7 +149,6 @@ public class PhoneFragment extends Fragment  {
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getContext(), "অনুগ্রহপূর্বক ইন্টারনেট সংযোগ চালু করুন" , Toast.LENGTH_SHORT).show();
                         progress_circular.setVisibility(View.GONE);}
                 }) {
                     @Override

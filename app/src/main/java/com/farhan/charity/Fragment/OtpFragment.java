@@ -51,13 +51,13 @@ public class OtpFragment extends Fragment {
         otpSubmitBtn = view.findViewById(R.id.otpSubmitBtn);
 
 
-        otp = otpView.getText().toString();
+        otp = otpView.getText().toString().trim();
 
 
 
         otpView.setOtpCompletionListener(new OnOtpCompletionListener() {
             @Override public void onOtpCompleted(String otp) {     // do Stuff
-                Log.d("onOtpCompleted=>", otp);
+               // Log.d("onOtpCompleted=>", otp);
             }
         });
         parentFrameLayout = getActivity().findViewById(R.id.registration_framelayout);
@@ -67,9 +67,9 @@ public class OtpFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-            setFragment(new NewPasswordFragment());
+          //  setFragment(new NewPasswordFragment());
 
-                StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://charity.olivineltd.com/api/login", new Response.Listener<String>() {
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://charity.olivineltd.com/api/otpCheck", new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
@@ -86,7 +86,7 @@ public class OtpFragment extends Fragment {
                         }
                         catch (Exception e) {
                             e.printStackTrace();
-                            Toast.makeText(getContext(), "আপনি ভুল মোবাইল নাম্বার দিয়েছেন", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), "আপনি ভুল OTP দিয়েছেন", Toast.LENGTH_SHORT).show();
                         }
 
                     }
@@ -99,8 +99,8 @@ public class OtpFragment extends Fragment {
                     @Override
                     protected Map<String, String> getParams() throws AuthFailureError {
                         Map<String, String> params = new HashMap<>();
-                        params.put("admin_mobile", otp);
-                        params.put("admin_password", password);
+                        params.put("otp", otp);
+
                         return params;
                     }
                 };
