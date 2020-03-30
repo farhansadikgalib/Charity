@@ -223,9 +223,6 @@ public class All_Application_Activity extends AppCompatActivity {
 
     public void getData(){
 
-
-
-
         String url = "http://charity.olivineltd.com/api/uno/application?admins_type=UNO&admins_track_id=SKW0V3qiOL20180808114529";
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
