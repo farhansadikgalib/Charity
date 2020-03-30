@@ -33,16 +33,18 @@ import static com.github.mikephil.charting.utils.ColorTemplate.rgb;
 
 public class DisabilityRelatedActivity extends AppCompatActivity {
         public static final int[] colordata = {
-                rgb("#FF2531"), rgb("#0B287B"), rgb("#02AFAE"), rgb("#FEA200")};
+                rgb("#FF2531"), rgb("#0B287B"), rgb("#02AFAE"),
+                rgb("#a53118"),rgb("#FEA200")};
 
         public static final int colorwhite = rgb("#ffffff");
         String education , disable , disaster , health ;
+        String submitted , approved , resubmitted , rejected,pending ;
         public static String admins,idx;
 
         LinearLayout linerPieChart ;
         RequestQueue mRequestQueue;
 
-        int i , j , k , l ;
+        int i , j , k , l,p,q,r,s,t ;
 
 
         @Override
@@ -50,20 +52,21 @@ public class DisabilityRelatedActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_disability_related);
             // Add RecyclerView Start here
-            Recyclerview();
-            pieChartFuntion();
             mRequestQueue = Volley.newRequestQueue(this);
-            PieChartParsex();
+
+
+            catDashboardInfoparse();
         }
 
 
 
         private ArrayList getData() {
             ArrayList<PieEntry> entries = new ArrayList<>();
-            entries.add(new PieEntry(i, "শিক্ষা সংক্রান্ত"));
-            entries.add(new PieEntry(j, "প্রতিবন্ধী সংক্রান্ত"));
-            entries.add(new PieEntry(k, " স্বাস্থ্য সংক্রান্ত"));
-            entries.add(new PieEntry(l, "দুর্যোগ সংক্রান্ত"));
+            entries.add(new PieEntry(p, "সাম্প্রতিক"));
+            entries.add(new PieEntry(q, "অনুমোদিত"));
+            entries.add(new PieEntry(t, "বিবেচনাধীন"));
+            entries.add(new PieEntry(s, "অননুমোদিত"));
+            entries.add(new PieEntry(r, "পুনরায় জমা"));
             return entries;
         }
 
@@ -78,11 +81,11 @@ public class DisabilityRelatedActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.stopScroll();
         dataModels = new ArrayList<>();
-        dataModels.add(new DataModel("সাম্প্রতিক আবেদন", "১,৫২৮", R.drawable.ic_icon_3));
-        dataModels.add(new DataModel("অনুমোদিত আবেদন", "২১,২৫৬", R.drawable.ic_icon_4));
-        dataModels.add(new DataModel("বিবেচনাধীন আবেদন", "৮৫১", R.drawable.ic_icon_2));
-        dataModels.add(new DataModel("অননুমোদিত আবেদন", "২৫", R.drawable.ic_icon_1));
-        dataModels.add(new DataModel("পুনরায় জমা আবেদন", "৫", R.drawable.ic_icon_5));
+        dataModels.add(new DataModel("সাম্প্রতিক আবেদন", submitted, R.drawable.ic_icon_3));
+        dataModels.add(new DataModel("অনুমোদিত আবেদন", approved, R.drawable.ic_icon_4));
+        dataModels.add(new DataModel("বিবেচনাধীন আবেদন", pending, R.drawable.ic_icon_2));
+        dataModels.add(new DataModel("অননুমোদিত আবেদন",rejected , R.drawable.ic_icon_1));
+        dataModels.add(new DataModel("পুনরায় জমা আবেদন", resubmitted, R.drawable.ic_icon_5));
         mAdapter = new DashbordRecyclerViewAdapter(DisabilityRelatedActivity.this, dataModels);
         recyclerView.setAdapter(mAdapter);
 
@@ -110,10 +113,11 @@ public class DisabilityRelatedActivity extends AppCompatActivity {
 
     }
 
-    private void PieChartParsex() {
+
+    private void catDashboardInfoparse() {
 
 
-        String url = "http://charity.olivineltd.com/api/dashboard?admins_type="+admins+"&admins_track_id="+idx ;
+        String url = "http://charity.olivineltd.com/api/dashboardCat?application_service_id=df" ;
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,new Response.Listener<JSONObject>() {
             @Override
@@ -121,22 +125,24 @@ public class DisabilityRelatedActivity extends AppCompatActivity {
 
                 //      Toast.makeText(DashBoard.this,response.toString(),Toast.LENGTH_LONG).show();
                 try {
-                    JSONObject jsonObject = (JSONObject) response.get("pieChart");
-                    education = jsonObject.get("education").toString();
-                    health = jsonObject.get("health").toString();
-                    disable = jsonObject.get("disable").toString();
-                    disaster = jsonObject.get("disaster").toString();
+                    JSONObject jsonObject = (JSONObject) response.get("catDashboardInfo");
+                    submitted = jsonObject.get("submitted").toString();
+                    approved = jsonObject.get("approved").toString();
+                    resubmitted = jsonObject.get("resubmitted").toString();
+                    rejected = jsonObject.get("rejected").toString();
+                    pending = jsonObject.get("pending").toString();
 
-              //      Toast.makeText(getApplicationContext(), education, Toast.LENGTH_SHORT).show();
+                    //      Toast.makeText(getApplicationContext(), education, Toast.LENGTH_SHORT).show();
 
-                    i = Integer.parseInt(education);
-                    j = Integer.parseInt(disable);
-                    k = Integer.parseInt(health);
-                    l = Integer.parseInt(disaster);
+                    p = Integer.parseInt(submitted);
+                    q = Integer.parseInt(approved);
+                    r = Integer.parseInt(resubmitted);
+                    s = Integer.parseInt(rejected);
+                    t = Integer.parseInt(pending);
 
-               //     Toast.makeText(getApplicationContext(), ""+i+j+k+l, Toast.LENGTH_SHORT).show();
+                    //     Toast.makeText(getApplicationContext(), ""+i+j+k+l, Toast.LENGTH_SHORT).show();
 
-                    if( i == 0 && j == 0 && k == 0 && l == 0 )
+                    if( p == 0 && q == 0 && r == 0 && s == 0 && t==0)
                     {
                         linerPieChart.setVisibility(View.GONE);
                     }
@@ -144,7 +150,7 @@ public class DisabilityRelatedActivity extends AppCompatActivity {
                         pieChartFuntion();
                     }
 
-
+                    Recyclerview();
 
                 } catch (JSONException e) {
                     e.printStackTrace();

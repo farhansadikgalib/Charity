@@ -62,6 +62,7 @@ public class Applicant_Details extends AppCompatActivity {
         applicantsNameTV1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 startActivity(new Intent(Applicant_Details.this, ProfilewithPermanentAddressActivity.class));
             }
         });

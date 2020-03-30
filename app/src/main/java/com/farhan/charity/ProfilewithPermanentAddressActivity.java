@@ -31,6 +31,7 @@ import org.json.JSONObject;
 
 public class ProfilewithPermanentAddressActivity extends AppCompatActivity {
 
+    public static String admins,idx;
     TabLayout tabLayout;
     ViewPager viewPager;
     TextView users_nameTV,users_name_bnTV,users_emailTV,users_phoneTV,users_father_name_bnTV,users_mother_name_bnTV,users_genderTV,users_blood_groupTV,
@@ -124,7 +125,7 @@ public class ProfilewithPermanentAddressActivity extends AppCompatActivity {
                     String users_nid = jsonObject.getString("users_nid");
                     String users_image = jsonObject.getString("users_image");
 
-                    Picasso.get().load("http://charity.olivineltd.com/upload/frontend/users_image/"+users_image).placeholder(R.drawable.face_devil).into(users_imageIV);
+                    Picasso.get().load("http://charity.olivineltd.com/upload/frontend/users_image/"+users_image).placeholder(R.drawable.round_logo).into(users_imageIV);
 
                     users_name_bnTV.setText(users_name_bn);
                     users_nameTV.setText(users_name);
@@ -151,7 +152,17 @@ public class ProfilewithPermanentAddressActivity extends AppCompatActivity {
         mRequestQueue.add(request);
     }
 
-
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//
+//        admins = getIntent().getStringExtra("User_Type");
+//        idx = getIntent().getStringExtra("User_Track_ID");
+////         Toast.makeText(this, ""+admins+"\n"+idx, Toast.LENGTH_SHORT).show();
+//
+//
+//
+//    }
 
 
 

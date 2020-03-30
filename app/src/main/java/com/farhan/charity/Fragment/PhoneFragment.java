@@ -44,7 +44,7 @@ public class PhoneFragment extends Fragment  {
     public PhoneFragment() {
         // Required empty public constructor
     }
-
+    public static final String SignInTag = "signIn";
     private FrameLayout parentFrameLayout;
     private EditText phoneET;
     private Button submitBtn;
@@ -69,7 +69,20 @@ public class PhoneFragment extends Fragment  {
 
 
 
-
+//        view.setFocusableInTouchMode(true);
+//        view.requestFocus();
+//        view.setOnKeyListener( new View.OnKeyListener()
+//        {
+//            @Override
+//            public boolean onKey( View v, int keyCode, KeyEvent event )
+//            {
+//                if( keyCode == KeyEvent.KEYCODE_BACK )
+//                {
+//                    return true;
+//                }
+//                return false;
+//            }
+//        } );
 
 
         view.setFocusableInTouchMode(true);
@@ -166,13 +179,19 @@ public class PhoneFragment extends Fragment  {
         return view;
     }
 
+
+
+
       private void setFragment(Fragment fragment) {
 
         FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null);
         fragmentTransaction.replace(parentFrameLayout.getId(), fragment);
           fragmentTransaction.commit();
 
+
       }
+
+
 
 
 
