@@ -55,6 +55,7 @@ public class NewPasswordFragment extends Fragment {
         newPass = confirmPassET.getText().toString();
 
 
+
         finalSubmitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
