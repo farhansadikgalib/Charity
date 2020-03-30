@@ -52,12 +52,14 @@ public class NewPasswordFragment extends Fragment {
         finalSubmitBtn  = view.findViewById(R.id.finalSubmitBtn);
 
         newPass = passET.getText().toString();
-        conNewPass = confirmPassET.getText().toString();
+        newPass = confirmPassET.getText().toString();
 
 
         finalSubmitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
 
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://charity.olivineltd.com/api/login", new Response.Listener<String>() {
                     @Override
@@ -66,21 +68,16 @@ public class NewPasswordFragment extends Fragment {
                             JSONObject jsonObject = new JSONObject(response);
                             String status = jsonObject.getString("status");
 
-
                             if (status.equals("Ok"))
                             {
                                 Toast.makeText(getContext(), "OK", Toast.LENGTH_SHORT).show();
-                                    if(newPass.length() >=8 && conNewPass.length() >=8 ) {
-                                        if (newPass == conNewPass) {
 
-                                            startActivity(new Intent(getContext(), DashBoard.class));
-                                            getActivity().finish();
-                                        }
-                                    }
+                                if (newPass==conNewPass) {
 
-                                    else{
-                                        Toast.makeText(getContext(), "আপনার পাসওয়ার্ডটি 8 থেকে 30 টি অক্ষরের মধ্যে হওয়া আবশ্যক", Toast.LENGTH_SHORT).show();
-                                    }
+                                    startActivity(new Intent(getContext(), DashBoard.class));
+                                    getActivity().finish();
+                                }
+
 
                             }else {
 
@@ -112,9 +109,6 @@ public class NewPasswordFragment extends Fragment {
 
 
         });
-
-
-
 
     return  view;
     }

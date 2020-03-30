@@ -87,7 +87,7 @@ public class ApplicationResubmit_Adapter extends  RecyclerView.Adapter<Applicati
 
         CardView cardView;
         TextView tilte,name,amount;
-        ImageView user_Img;
+        CircleImageView user_Img;
 
         public ViewHolder(View itemView) {
             super(itemView);

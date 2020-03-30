@@ -49,7 +49,7 @@ public class Adapter_item1 extends  RecyclerView.Adapter<Adapter_item1.ViewHolde
         String applicataionFor=itemModel.getApplication_title_bn();
         String applictionAmount=itemModel.getApplication_amount();
 
-        String imageUrl = "http://charity.olivineltd.com/upload/frontend/users_image/"+itemModel.getUsers_image();
+       // String imageUrl = "http://charity.olivineltd.com/upload/frontend/users_image/"+itemModel.getUsers_image();
 
   //      Toast.makeText(context, ""+imageUrl, Toast.LENGTH_LONG).show();
       //  Picasso.get().load("http://charity.olivineltd.com/upload/frontend/users_image/20180726225536OL5b59fd087bc788.jpg").placeholder(R.mipmap.ic_launcher).into(holder.profileImagex);
@@ -59,16 +59,31 @@ public class Adapter_item1 extends  RecyclerView.Adapter<Adapter_item1.ViewHolde
         holder.application_for.setText(applicataionFor);
         holder.applicant_amount.setText(applictionAmount);
      //   Glide.with(context).load("http://charity.olivineltd.com/upload/frontend/users_image/20180726225536OL5b59fd087bc788.jpg").into(holder.profileImagex);
-        Picasso.get().load("http://charity.olivineltd.com/upload/frontend/users_image/"+itemModel.getUsers_image()).placeholder(R.drawable.profile).into(holder.profileImagex);
+        final String UserName  = itemModel.getUsers_name_bn();
+        final String Amount = itemModel.getApplication_amount();
+        final String ApllicationId = itemModel.getApplication_id();
+        final String ApplicationTitle = itemModel.getApplication_title_bn();
+        final String Status = itemModel.getApplication_status();
+        final String Image= itemModel.getUsers_image();
+
+
+        final String imageUrl = "http://charity.olivineltd.com/upload/frontend/users_image/"+itemModel.getUsers_image();
+        Picasso.get().load(imageUrl).into(holder.profileImagex);
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
-
                 Toast.makeText(context, ""+ itemModel.getUsers_name_bn() ,Toast.LENGTH_SHORT).show();
+
                 Intent i = new Intent(context, Applicant_Details.class);
+                // i.putExtra("imageUrl",imageUrl);
+                i.putExtra("name",UserName);
+                i.putExtra("id",ApllicationId);
+                i.putExtra("amount",Amount);
+                i.putExtra("title",ApplicationTitle);
+                i.putExtra("status",Status);
+                i.putExtra("img",imageUrl);
                 context.startActivity(i);
             }
         });
