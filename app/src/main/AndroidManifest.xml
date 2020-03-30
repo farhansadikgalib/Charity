@@ -32,7 +32,8 @@
         <activity android:name=".Applicant_Details" />
         <activity android:name=".DashBoard" />
         <activity android:name=".ProfilewithPermanentAddressActivity" />
-        <activity android:name=".Fragment.MainActivity" />
+        <activity android:name=".Fragment.MainActivity"
+            android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
