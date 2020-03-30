@@ -38,14 +38,13 @@ public class All_Application_Activity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     List<ItemModel> items;
-    //  ImageView BackId;
 
     TextView tv1,tv2;
     TextView rootTV_1,rootTV_2;
 
     Spinner itemsSpinner;
     private RequestQueue mRequestQueue;
-
+    LinearLayoutManager linearLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,12 +91,18 @@ public class All_Application_Activity extends AppCompatActivity {
                 switch (position) {
                     case 0:
                         rootTV_2.setText("সাম্প্রতিক আবেদন");
-
+                        items = new ArrayList<>();
+                        getData();
+                        linearLayoutManager = new LinearLayoutManager(All_Application_Activity.this);
+                        recyclerView = findViewById(R.id.recyclerView1);
+                        recyclerView.setLayoutManager(linearLayoutManager);
+                        Adapter_item1 adapter0 = new Adapter_item1(All_Application_Activity.this, items);
+                        recyclerView.setAdapter(adapter0);
                         break;
                     case 1:
                         items = new ArrayList<>();
                         getData();
-                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(All_Application_Activity.this);
+                         linearLayoutManager = new LinearLayoutManager(All_Application_Activity.this);
                         recyclerView = findViewById(R.id.recyclerView1);
                         recyclerView.setLayoutManager(linearLayoutManager);
                         Adapter_item1 adapter = new Adapter_item1(All_Application_Activity.this, items);
@@ -106,15 +111,38 @@ public class All_Application_Activity extends AppCompatActivity {
                         break;
                     case 2:
                         rootTV_2.setText("বিবেচনাধীন আবেদন");
-
+                        items = new ArrayList<>();
+                        getData();
+                        linearLayoutManager = new LinearLayoutManager(All_Application_Activity.this);
+                        recyclerView = findViewById(R.id.recyclerView1);
+                        recyclerView.setLayoutManager(linearLayoutManager);
+                        Adapter_item1 adapter2 = new Adapter_item1(All_Application_Activity.this, items);
+                        recyclerView.setAdapter(adapter2);
                         break;
 
                     case 3:
                         rootTV_2.setText("অননুমোদিত আবেদন ");
+
+                        items = new ArrayList<>();
+                        getData();
+                        linearLayoutManager = new LinearLayoutManager(All_Application_Activity.this);
+                        recyclerView = findViewById(R.id.recyclerView1);
+                        recyclerView.setLayoutManager(linearLayoutManager);
+                        Adapter_item1 adapter3 = new Adapter_item1(All_Application_Activity.this, items);
+                        recyclerView.setAdapter(adapter3);
+
                         break;
 
                     case 4:
                         rootTV_2.setText("পুনরায় জমা আবেদন ");
+                        items = new ArrayList<>();
+                        getData();
+                        linearLayoutManager = new LinearLayoutManager(All_Application_Activity.this);
+                        recyclerView = findViewById(R.id.recyclerView1);
+                        recyclerView.setLayoutManager(linearLayoutManager);
+                        Adapter_item1 adapter4 = new Adapter_item1(All_Application_Activity.this, items);
+                        recyclerView.setAdapter(adapter4);
+
                         break;
                 }
             }
@@ -129,15 +157,6 @@ public class All_Application_Activity extends AppCompatActivity {
 
 
 
-
-
-        items = new ArrayList<>();
-        getData();
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(All_Application_Activity.this);
-        recyclerView = findViewById(R.id.recyclerView1);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        Adapter_item1 adapter = new Adapter_item1(All_Application_Activity.this, items);
-        recyclerView.setAdapter(adapter);
 
 
 
