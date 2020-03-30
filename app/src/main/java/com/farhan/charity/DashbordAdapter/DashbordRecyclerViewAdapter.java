@@ -12,11 +12,11 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.farhan.charity.Dashbor_subItem.ApplicationUnderConsideration;
-import com.farhan.charity.Dashbor_subItem.ApprovedApplication;
-import com.farhan.charity.Dashbor_subItem.RecentApplication;
-import com.farhan.charity.Dashbor_subItem.ResubmitApplication;
-import com.farhan.charity.Dashbor_subItem.UnapprovedApplication;
+import com.farhan.charity.Dashboard_subItem.ApplicationUnderConsideration;
+import com.farhan.charity.Dashboard_subItem.ApprovedApplication;
+import com.farhan.charity.Dashboard_subItem.RecentApplication;
+import com.farhan.charity.Dashboard_subItem.ResubmitApplication;
+import com.farhan.charity.Dashboard_subItem.UnapprovedApplication;
 import com.farhan.charity.R;
 
 import java.util.ArrayList;

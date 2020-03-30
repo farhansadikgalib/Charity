@@ -51,7 +51,7 @@ public class PhoneFragment extends Fragment  {
     private String phone,pass;
     private RequestQueue mRequestQueue;
     private ProgressBar progress_circular;
-    private String passwordx ="123456";
+  //  private String passwordx ="123456";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -102,7 +102,7 @@ public class PhoneFragment extends Fragment  {
             @Override
             public void onClick(View v) {
                 phone = phoneET.getText().toString().trim();
-                pass = passwordx.trim();
+           //     pass = passwordx.trim();
 
                // Toast.makeText(getContext(), ""+phone, Toast.LENGTH_SHORT).show();
              //   Toast.makeText(getContext(), ""+pass, Toast.LENGTH_SHORT).show();
@@ -116,7 +116,7 @@ public class PhoneFragment extends Fragment  {
 
                 progress_circular.setVisibility(View.VISIBLE);
 
-                StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://charity.olivineltd.com/api/login", new Response.Listener<String>() {
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://charity.olivineltd.com/api/forgotPass", new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
@@ -125,12 +125,13 @@ public class PhoneFragment extends Fragment  {
 
                             if (status.equals("Ok"))
                             {
-                                Toast.makeText(getContext(), "OK", Toast.LENGTH_SHORT).show();
+                             //   Toast.makeText(getContext(), "OK", Toast.LENGTH_SHORT).show();
                                 setFragment(new OtpFragment());
                             }else{
 
                                 Toast.makeText(getContext(), "আপনি ভুল মোবাইল নাম্বার দিয়েছেন", Toast.LENGTH_SHORT).show();
 
+                                progress_circular.setVisibility(View.GONE);
 
                             }
 
@@ -139,7 +140,7 @@ public class PhoneFragment extends Fragment  {
                         }
                         catch (Exception e) {
                             e.printStackTrace();
-                           progress_circular.setVisibility(View.GONE);
+
 
                         }
 
@@ -147,14 +148,13 @@ public class PhoneFragment extends Fragment  {
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getContext(), "error" , Toast.LENGTH_SHORT).show();
-                    }
+                        Toast.makeText(getContext(), "অনুগ্রহপূর্বক ইন্টারনেট সংযোগ চালু করুন" , Toast.LENGTH_SHORT).show();
+                        progress_circular.setVisibility(View.GONE);}
                 }) {
                     @Override
                     protected Map<String, String> getParams() throws AuthFailureError {
                         Map<String, String> params = new HashMap<>();
-                        params.put("admin_mobile", phone);
-                        params.put("admin_password", pass);
+                        params.put("admin_mobile_no", phone);
                         return params;
                     }
                 };

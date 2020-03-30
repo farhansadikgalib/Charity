@@ -1,4 +1,4 @@
-package com.farhan.charity.Dashbor_subItem;
+package com.farhan.charity.Dashboard_subItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -13,10 +13,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.farhan.charity.Adapter.Unapproved_Adapter;
 import com.farhan.charity.Model.ItemModel;
 import com.farhan.charity.R;
-import com.farhan.charity.SubItem_Adapter.ApplicationResubmit_Adapter;
+import com.farhan.charity.SubItem_Adapter.ApplicationUnderConsideration_Adapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -25,22 +24,21 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ResubmitApplication extends AppCompatActivity {
-
+public class ApplicationUnderConsideration extends AppCompatActivity {
     private RecyclerView recyclerView;
     List<ItemModel> items;
     private RequestQueue mRequestQueue;
-    private  ApplicationResubmit_Adapter applicationResubmit_adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_resubmit_application);
+        setContentView(R.layout.activity_application_under_consideration);
         items = new ArrayList<>();
         mRequestQueue = Volley.newRequestQueue(this);
         getData();
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ResubmitApplication.this);
-        recyclerView = findViewById(R.id.recyclerView_resubmit);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ApplicationUnderConsideration.this);
+        recyclerView = findViewById(R.id.recyclerView_underConsideration);
         recyclerView.setLayoutManager(linearLayoutManager);
+
     }
     public void getData() {
 
@@ -71,8 +69,8 @@ public class ResubmitApplication extends AppCompatActivity {
                                 items.add(test);
                             }
 
-                            applicationResubmit_adapter = new ApplicationResubmit_Adapter(ResubmitApplication.this,items);;
-                            recyclerView.setAdapter(applicationResubmit_adapter);
+                            ApplicationUnderConsideration_Adapter adapter = new ApplicationUnderConsideration_Adapter(ApplicationUnderConsideration.this, items);
+                            recyclerView.setAdapter(adapter);
 
 
                         } catch (JSONException e) {

@@ -1,4 +1,4 @@
-package com.farhan.charity.Dashbor_subItem;
+package com.farhan.charity.Dashboard_subItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,7 +15,6 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.farhan.charity.Model.ItemModel;
 import com.farhan.charity.R;
-import com.farhan.charity.SubItem_Adapter.ApplicationRecent_Adapter;
 import com.farhan.charity.SubItem_Adapter.ApplicationResubmit_Adapter;
 
 import org.json.JSONArray;
@@ -25,24 +24,22 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecentApplication extends AppCompatActivity {
+public class ResubmitApplication extends AppCompatActivity {
+
     private RecyclerView recyclerView;
     List<ItemModel> items;
     private RequestQueue mRequestQueue;
-    private  ApplicationRecent_Adapter applicationRecent_adapter;
-
+    private  ApplicationResubmit_Adapter applicationResubmit_adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recent_application);
+        setContentView(R.layout.activity_resubmit_application);
         items = new ArrayList<>();
         mRequestQueue = Volley.newRequestQueue(this);
         getData();
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(RecentApplication.this);
-        recyclerView = findViewById(R.id.recyclerView_recent);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ResubmitApplication.this);
+        recyclerView = findViewById(R.id.recyclerView_resubmit);
         recyclerView.setLayoutManager(linearLayoutManager);
-        ApplicationRecent_Adapter adapter = new ApplicationRecent_Adapter(RecentApplication.this, items);
-        recyclerView.setAdapter(adapter);
     }
     public void getData() {
 
@@ -73,8 +70,8 @@ public class RecentApplication extends AppCompatActivity {
                                 items.add(test);
                             }
 
-                            applicationRecent_adapter = new ApplicationRecent_Adapter(RecentApplication.this,items);
-                            recyclerView.setAdapter(applicationRecent_adapter);
+                            applicationResubmit_adapter = new ApplicationResubmit_Adapter(ResubmitApplication.this,items);;
+                            recyclerView.setAdapter(applicationResubmit_adapter);
 
 
                         } catch (JSONException e) {

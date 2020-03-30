@@ -54,14 +54,14 @@ public class ApplicationRecent_Adapter extends  RecyclerView.Adapter<Application
         final String Image= itemModel.getUsers_image();
 
 
-        final String imageUrl = "http://charity.olivineltd.com/upload/frontend/users_image/"+itemModel.getUsers_image();
-        Picasso.get().load(imageUrl).into(holder.user_Img);
+        final String imageUrlx = "http://charity.olivineltd.com/upload/frontend/users_image/"+itemModel.getUsers_image();
+        Picasso.get().load(imageUrlx).into(holder.user_Img);
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(context, ""+ itemModel.getUsers_name_bn() ,Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(context, ""+ itemModel.getUsers_name_bn() ,Toast.LENGTH_SHORT).show();
 
                 Intent i = new Intent(context, Applicant_Details.class);
                // i.putExtra("imageUrl",imageUrl);
@@ -70,7 +70,7 @@ public class ApplicationRecent_Adapter extends  RecyclerView.Adapter<Application
                 i.putExtra("amount",Amount);
                 i.putExtra("title",ApplicationTitle);
                 i.putExtra("status",Status);
-                i.putExtra("img",imageUrl);
+                i.putExtra("img",imageUrlx);
                 context.startActivity(i);
             }
         });

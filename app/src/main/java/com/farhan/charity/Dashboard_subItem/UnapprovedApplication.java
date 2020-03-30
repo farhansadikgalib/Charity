@@ -1,4 +1,4 @@
-package com.farhan.charity.Dashbor_subItem;
+package com.farhan.charity.Dashboard_subItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,8 +16,6 @@ import com.android.volley.toolbox.Volley;
 import com.farhan.charity.Adapter.Unapproved_Adapter;
 import com.farhan.charity.Model.ItemModel;
 import com.farhan.charity.R;
-import com.farhan.charity.SubItem_Adapter.ApplicationApproved_Adapter;
-import com.farhan.charity.SubItem_Adapter.ApplicationUnderConsideration_Adapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,22 +24,32 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ApplicationUnderConsideration extends AppCompatActivity {
+public class UnapprovedApplication extends AppCompatActivity {
+
     private RecyclerView recyclerView;
-    List<ItemModel> items;
+    private List<ItemModel> items;
+    private Unapproved_Adapter unapproved_adapter;
+
     private RequestQueue mRequestQueue;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_application_under_consideration);
+        setContentView(R.layout.activity_unapproved_application);
         items = new ArrayList<>();
+        unapproved_adapter = new Unapproved_Adapter(this, items);
+
         mRequestQueue = Volley.newRequestQueue(this);
         getData();
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ApplicationUnderConsideration.this);
-        recyclerView = findViewById(R.id.recyclerView_underConsideration);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(UnapprovedApplication.this);
+        recyclerView = findViewById(R.id.recyclerView_unapproved);
         recyclerView.setLayoutManager(linearLayoutManager);
 
+
+        // Unapproved_Adapter adapter = new Unapproved_Adapter(UnapprovedApplication.this, items);
+        //recyclerView.setAdapter(adapter);
     }
+
     public void getData() {
 
         String url = "http://charity.olivineltd.com/api/uno/application?admins_type=UNO&admins_track_id=SKW0V3qiOL20180808114529";
@@ -71,9 +79,8 @@ public class ApplicationUnderConsideration extends AppCompatActivity {
                                 items.add(test);
                             }
 
-                            ApplicationUnderConsideration_Adapter adapter = new ApplicationUnderConsideration_Adapter(ApplicationUnderConsideration.this, items);
-                            recyclerView.setAdapter(adapter);
-
+                            unapproved_adapter = new Unapproved_Adapter(UnapprovedApplication.this,items);
+                            recyclerView.setAdapter(unapproved_adapter);
 
                         } catch (JSONException e) {
                             e.printStackTrace();

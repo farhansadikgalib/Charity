@@ -43,7 +43,7 @@ public class ApplicationUnApproved_Adapter extends  RecyclerView.Adapter<Applica
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(context, ""+ itemModel.getUsers_name_bn() ,Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(context, ""+ itemModel.getUsers_name_bn() ,Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(context, Unapproved_Application_Details_Activity.class);
                 context.startActivity(i);
             }

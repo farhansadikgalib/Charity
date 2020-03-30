@@ -53,7 +53,7 @@ public class ApplicationApproved_Adapter extends  RecyclerView.Adapter<Applicati
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(context, "" + itemModel.getUsers_name_bn(), Toast.LENGTH_SHORT).show();
+             //   Toast.makeText(context, "" + itemModel.getUsers_name_bn(), Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(context, Applicant_Details.class);
                 context.startActivity(i);
             }
