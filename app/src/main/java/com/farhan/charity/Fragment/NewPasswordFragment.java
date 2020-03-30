@@ -3,7 +3,6 @@ package com.farhan.charity.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,7 +59,6 @@ public class NewPasswordFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(getContext(), DashBoard.class));
 
 
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://charity.olivineltd.com/api/login", new Response.Listener<String>() {
@@ -76,8 +74,6 @@ public class NewPasswordFragment extends Fragment {
 
                                 if (newPass==conNewPass) {
 
-
-
                                     startActivity(new Intent(getContext(), DashBoard.class));
                                     getActivity().finish();
                                 }
@@ -86,7 +82,7 @@ public class NewPasswordFragment extends Fragment {
                             }else {
 
 
-                            //    Toast.makeText(getContext(), "আপনি ভুল মোবাইল নাম্বার দিয়েছেন", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getContext(), "আপনি ভুল মোবাইল নাম্বার দিয়েছেন", Toast.LENGTH_SHORT).show();
 
                             }
                         }
