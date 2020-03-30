@@ -21,6 +21,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class ApplicationRecent_Adapter extends  RecyclerView.Adapter<ApplicationRecent_Adapter.ViewHolder> {
 
     private Context context;
@@ -83,7 +85,7 @@ public class ApplicationRecent_Adapter extends  RecyclerView.Adapter<Application
     public class ViewHolder extends RecyclerView.ViewHolder {
         CardView cardView;
         TextView tilte,name,amount;
-        ImageView user_Img;
+        CircleImageView user_Img;
 
         public ViewHolder(View itemView) {
             super(itemView);

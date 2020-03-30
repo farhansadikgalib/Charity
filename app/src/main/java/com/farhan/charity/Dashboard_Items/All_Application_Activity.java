@@ -244,10 +244,15 @@ public class All_Application_Activity extends AppCompatActivity {
                                 String applicationAmount=applicationList.getString("application_amount");
                                 String application_title_bn=applicationList.getString("application_title_bn");
                                 String user_image =applicationList.getString("users_image");
+                                String application_id = applicationList.getString("application_id");
+                                String application_Staus = applicationList.getString("application_status");
+                                ItemModel itemModel = new ItemModel(applicantName, applicationAmount, application_title_bn, user_image);
+                                ItemModel test = new ItemModel(applicantName, applicationAmount, application_title_bn, user_image,application_id,application_Staus);
+                                items.add(test);
 
                         //        int appliedfor = applicationList.getString();
 
-                                items.add(new ItemModel(applicantName, applicationAmount, application_title_bn,user_image));
+                                //items.add(new ItemModel(applicantName, applicationAmount, application_title_bn,user_image));
                             }
 
                             Adapter_item1 adapter_item1 = new Adapter_item1(All_Application_Activity.this,items);

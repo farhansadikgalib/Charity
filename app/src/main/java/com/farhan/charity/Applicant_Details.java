@@ -47,7 +47,7 @@ public class Applicant_Details extends AppCompatActivity {
             app_Title.setText(Title);
             app_amount.setText(Amount);
             app_staus.setText(Status);
-           // profile.setImageResource(Integer.parseInt(img));
+            //profile.setImageResource(Integer.parseInt(img));
 
 
         }
