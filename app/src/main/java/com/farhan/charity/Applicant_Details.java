@@ -177,7 +177,7 @@ public class Applicant_Details extends AppCompatActivity {
                     JSONObject jsonObject = new JSONObject(response);
                     String status = jsonObject.getString("status");
 
-                    if (status.equals("Ok")) {
+                    if(status.equals("Ok")) {
 
                  //       Toast.makeText(Applicant_Details.this, "Okk Baby!", Toast.LENGTH_SHORT).show();
                         //Toast.makeText(Applicant_Details.this, ""+lostid+"\n"+application_track_id, Toast.LENGTH_SHORT).show();
@@ -217,7 +217,6 @@ public class Applicant_Details extends AppCompatActivity {
                 Map<String, String> params = new HashMap<>();
                 params.put("admins_id", lostid);
                 params.put("application_track_id", application_track_id);
-
                 return params;
             }
         };
@@ -329,13 +328,6 @@ public class Applicant_Details extends AppCompatActivity {
 
         super.onBackPressed();
     }
-
-
-
-
-
-
-
 
 
 
