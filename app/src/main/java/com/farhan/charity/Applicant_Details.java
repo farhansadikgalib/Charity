@@ -60,6 +60,7 @@ public class Applicant_Details extends AppCompatActivity {
         sharedPreferences = this.getSharedPreferences("myapp", Context.MODE_PRIVATE);
         lostid = sharedPreferences.getString("UTI",null);
         Toast.makeText(this, lostid, Toast.LENGTH_SHORT).show();
+
         Log.d("admin_track", lostid);
 
 
