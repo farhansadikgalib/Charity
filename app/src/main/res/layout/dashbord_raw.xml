@@ -61,10 +61,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="সাম্প্রতিক আবেদন"
-                        android:layout_gravity="center"
                         android:layout_margin="5dp"
                         android:textColor="#515151"
-                        android:textSize="22sp" />
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/textViewNumberId"

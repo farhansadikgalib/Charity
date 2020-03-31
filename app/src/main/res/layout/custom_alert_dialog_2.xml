@@ -46,6 +46,7 @@
         android:background="#EBECE9">
 
         <EditText
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#EBECE9"
@@ -54,10 +55,6 @@
             android:id="@+id/reject_reason"
             android:hint="আবেদকারীর সকল তথ্য সঠিক নয়"
             android:gravity="start" />
-
-
-
-
 
 
     </androidx.cardview.widget.CardView>
@@ -79,6 +76,7 @@
             android:fontFamily="@font/bengali"
             android:text="সাবমিট করুন"
             android:textStyle="bold"
+            android:id="@+id/submit_prottakhan"
             android:textColor="#FFFFFF" />
 
     </LinearLayout>

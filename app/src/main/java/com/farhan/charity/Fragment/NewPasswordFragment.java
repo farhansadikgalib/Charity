@@ -53,6 +53,16 @@ public class NewPasswordFragment extends Fragment {
 
         pass = confirmPassET.getText().toString();
 
+       /* if (passET.getText().toString().equals("")) {
+            passET.setError("Please Enter Your Password");
+
+        } else if (passET.getText().toString().length() < 8) {
+
+            passET.setError("Please Input minimume 8 digits");
+
+        } else if (!passET.getText().toString().equals(confirmPassET.getText().toString())) {
+            confirmPassET.setError("New Password and Confirm Password should be same.");
+        }*/
 
 
         finalSubmitBtn.setOnClickListener(new View.OnClickListener() {
