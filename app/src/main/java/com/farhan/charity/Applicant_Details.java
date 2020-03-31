@@ -36,7 +36,7 @@ import java.util.Map;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Applicant_Details extends AppCompatActivity {
-    AlertDialog alertDialog;
+    AlertDialog alertDialog,alertDialogx;
     TextView applicantsNameTV1,app_ID,app_Title,app_amount,app_staus;
     CircleImageView profilex;
     Button forwardBtn;
@@ -78,10 +78,7 @@ public class Applicant_Details extends AppCompatActivity {
 
 
 
-        View myLayout = LayoutInflater.from(this).inflate(R.layout.custom_alert_dialog_2, null);
 
-        EditText rejectReasonx   =myLayout.findViewById(R.id.reject_reason);
-          rejectReason = rejectReasonx.getText().toString();
 
 
 
@@ -92,8 +89,8 @@ public class Applicant_Details extends AppCompatActivity {
                 View dialogView = LayoutInflater.from(Applicant_Details.this).inflate(R.layout.custom_alert_dialog, viewGroup, false);
                 AlertDialog.Builder builder = new AlertDialog.Builder(Applicant_Details.this);
                 builder.setView(dialogView);
-                alertDialog = builder.create();
-                alertDialog.show();
+                alertDialogx = builder.create();
+                alertDialogx.show();
 
 
             }
@@ -110,8 +107,8 @@ public class Applicant_Details extends AppCompatActivity {
                 View dialogView = LayoutInflater.from(Applicant_Details.this).inflate(R.layout.custom_alert_dialog_2, viewGroup, false);
                 AlertDialog.Builder builder = new AlertDialog.Builder(Applicant_Details.this);
                 builder.setView(dialogView);
-                alertDialog = builder.create();
-                alertDialog.show();
+                alertDialogx = builder.create();
+                alertDialogx.show();
 
 
             }
@@ -175,7 +172,7 @@ public class Applicant_Details extends AppCompatActivity {
     public void final_submit_button(View view) {
 
         String url = "http://charity.olivineltd.com/api/approveApplication";
-
+        alertDialogx.dismiss();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -248,15 +245,20 @@ public class Applicant_Details extends AppCompatActivity {
 
        // Toast.makeText(this, "hi baby", Toast.LENGTH_SHORT).show();
 
-
-
+        alertDialogx.dismiss();
+        View myLayout = LayoutInflater.from(this).inflate(R.layout.custom_alert_dialog_2, null,false);
+        EditText rejectReasonx =myLayout.findViewById(R.id.reject_reason);
+        rejectReason = rejectReasonx.getText().toString();
 //
 
-        if(rejectReason.length()==0){
+        if(rejectReason.length()>0){
+
+
+
 
             Toast.makeText(this, "Please type something", Toast.LENGTH_SHORT).show();
 
-        }else {
+        }else if (rejectReason.length()==0){
 
             Toast.makeText(this, "What is this?"+rejectReason, Toast.LENGTH_SHORT).show();
         }
