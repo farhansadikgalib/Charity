@@ -67,7 +67,7 @@ public class Applicant_Details extends AppCompatActivity {
 
         sharedPreferences = this.getSharedPreferences("myapp", Context.MODE_PRIVATE);
         lostid = sharedPreferences.getString("UTI", null);
-        Toast.makeText(this, lostid, Toast.LENGTH_SHORT).show();
+   //     Toast.makeText(this, lostid, Toast.LENGTH_SHORT).show();
 
         Log.d("admin_track", lostid);
 
@@ -250,7 +250,6 @@ public class Applicant_Details extends AppCompatActivity {
 
                 } catch (Exception e) {
                     e.printStackTrace();
-                    //    Toast.makeText(Applicant_Details.this, "আপনি ভুল মোবাইল নাম্বার অথবা পাসওয়ার্ড দিয়েছেন", Toast.LENGTH_SHORT).show();
 
                 }
 

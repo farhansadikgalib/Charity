@@ -63,14 +63,12 @@ public class ApplicationUnderConsideration extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         try {
 
-                            //Toast.makeText(UnapprovedApplication.this, "Hello "+response, Toast.LENGTH_SHORT).show();
                             JSONArray jsonArray = response.getJSONArray("applicationList");
 
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject applicationList = jsonArray.getJSONObject(i);
 
 
-                                //String profileImg = hit.getString("webformatURL");
                                 String applicantName = applicationList.getString("users_name_bn");
                                 String applicationAmount = applicationList.getString("application_amount");
                                 String application_title_bn = applicationList.getString("application_title_bn");
