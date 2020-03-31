@@ -36,25 +36,25 @@ import java.util.Map;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Applicant_Details extends AppCompatActivity {
-    AlertDialog alertDialog,alertDialogx;
-    TextView applicantsNameTV1,app_ID,app_Title,app_amount,app_staus;
+    AlertDialog alertDialog, alertDialogx;
+    TextView applicantsNameTV1, app_ID, app_Title, app_amount, app_staus;
     CircleImageView profilex;
     Button forwardBtn;
-    SharedPreferences sharedPreferences ;
+    SharedPreferences sharedPreferences;
     String application_track_id;
     RequestQueue mRequestQueuex;
-    String admins_track_id ="ijOhgOL20180808104412" ;
+    String admins_track_id = "ijOhgOL20180808104412";
     String lostid;
-    LinearLayout Onumodon,Prottakhan;
+    LinearLayout Onumodon, Prottakhan;
 
-    String  rejectReason;
+    String rejectReason;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_applicant_details);
-        forwardBtn=findViewById(R.id.forwardBtn);
-       profilex  = findViewById(R.id.profile_image_p);
+        forwardBtn = findViewById(R.id.forwardBtn);
+        profilex = findViewById(R.id.profile_image_p);
         applicantsNameTV1 = findViewById(R.id.applicantsNameTV);
         app_ID = findViewById(R.id.idTV);
         app_Title = findViewById(R.id.titleHeadingTV);
@@ -65,21 +65,13 @@ public class Applicant_Details extends AppCompatActivity {
         mRequestQueuex = Volley.newRequestQueue(this);
 
 
-
         sharedPreferences = this.getSharedPreferences("myapp", Context.MODE_PRIVATE);
-        lostid = sharedPreferences.getString("UTI",null);
+        lostid = sharedPreferences.getString("UTI", null);
         Toast.makeText(this, lostid, Toast.LENGTH_SHORT).show();
 
         Log.d("admin_track", lostid);
 
         application_track_id = app_ID.getText().toString();
-
-
-
-
-
-
-
 
 
         Onumodon.setOnClickListener(new View.OnClickListener() {
@@ -101,8 +93,6 @@ public class Applicant_Details extends AppCompatActivity {
             public void onClick(View v) {
 
 
-
-
                 ViewGroup viewGroup = findViewById(android.R.id.content);
                 View dialogView = LayoutInflater.from(Applicant_Details.this).inflate(R.layout.custom_alert_dialog_2, viewGroup, false);
                 AlertDialog.Builder builder = new AlertDialog.Builder(Applicant_Details.this);
@@ -115,25 +105,17 @@ public class Applicant_Details extends AppCompatActivity {
         });
 
 
-
-
-
-
-
-
-
-        Intent iin= getIntent();
+        Intent iin = getIntent();
         Bundle b = iin.getExtras();
 
-        if(b!=null)
-        {
-            String Name =(String) b.get("name");
-            String  Amount =(String)  b.get("amount");
-            String Title =(String) b.get("title");
-            String  Status =(String)  b.get("status");
-            String Id =(String) b.get("id");
+        if (b != null) {
+            String Name = (String) b.get("name");
+            String Amount = (String) b.get("amount");
+            String Title = (String) b.get("title");
+            String Status = (String) b.get("status");
+            String Id = (String) b.get("id");
             //int img = (int) b.get("img");
-            String img = (String) b.get("img") ;
+            String img = (String) b.get("img");
 
             applicantsNameTV1.setText(Name);
             app_ID.setText(Id);
@@ -145,7 +127,6 @@ public class Applicant_Details extends AppCompatActivity {
 
 
         }
-
 
 
         applicantsNameTV1.setOnClickListener(new View.OnClickListener() {
@@ -160,11 +141,9 @@ public class Applicant_Details extends AppCompatActivity {
     }
 
 
-
     public void crossBtn(View view) {
 
         alertDialog.dismiss();
-
 
 
     }
@@ -182,7 +161,7 @@ public class Applicant_Details extends AppCompatActivity {
 
                     if (status.equals("Ok")) {
 
-                 //       Toast.makeText(Applicant_Details.this, "Okk Baby!", Toast.LENGTH_SHORT).show();
+                        //       Toast.makeText(Applicant_Details.this, "Okk Baby!", Toast.LENGTH_SHORT).show();
                         //Toast.makeText(Applicant_Details.this, ""+lostid+"\n"+application_track_id, Toast.LENGTH_SHORT).show();
 
                         ViewGroup viewGroup = findViewById(android.R.id.content);
@@ -191,13 +170,11 @@ public class Applicant_Details extends AppCompatActivity {
                         builder.setView(dialogView);
                         alertDialog = builder.create();
                         alertDialog.show();
-                    }else {
+                    } else {
 
                         Toast.makeText(Applicant_Details.this, "Something went wrong!!", Toast.LENGTH_SHORT).show();
                         alertDialog.dismiss();
                     }
-
-
 
 
                 } catch (Exception e) {
@@ -226,106 +203,76 @@ public class Applicant_Details extends AppCompatActivity {
         };
         Volley.newRequestQueue(Applicant_Details.this).add(stringRequest);
 
-
-
-
-
     }
-
-
-
-
-
-
-
 
 
     public void submit_prottakhan(View view) {
 
 
-       // Toast.makeText(this, "hi baby", Toast.LENGTH_SHORT).show();
+        // Toast.makeText(this, "hi baby", Toast.LENGTH_SHORT).show();
 
         alertDialogx.dismiss();
-        View myLayout = LayoutInflater.from(this).inflate(R.layout.custom_alert_dialog_2, null,false);
-        EditText rejectReasonx =myLayout.findViewById(R.id.reject_reason);
-        rejectReason = rejectReasonx.getText().toString();
-//
-
-        if(rejectReason.length()>0){
+        View myLayout = LayoutInflater.from(this).inflate(R.layout.custom_alert_dialog_2, null, false);
+        final EditText rejectReasonx = myLayout.findViewById(R.id.reject_reason);
 
 
+        String url = "http://charity.olivineltd.com/api/rejectApplication";
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                rejectReason = rejectReasonx.getText().toString();
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    String status = jsonObject.getString("status");
+
+                    Toast.makeText(Applicant_Details.this, "Succesfully Reject", Toast.LENGTH_SHORT).show();
+
+                    if (status.equals("Ok")) {
+
+                        //       Toast.makeText(Applicant_Details.this, "Okk Baby!", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(Applicant_Details.this, ""+lostid+"\n"+application_track_id, Toast.LENGTH_SHORT).show();
+                        ViewGroup viewGroup = findViewById(android.R.id.content);
+                        View dialogView = LayoutInflater.from(Applicant_Details.this).inflate(R.layout.custom_alert_dialog_4, viewGroup, false);
+                        AlertDialog.Builder builder = new AlertDialog.Builder(Applicant_Details.this);
+                        builder.setView(dialogView);
+                        alertDialog = builder.create();
+                        alertDialog.show();
 
 
-            Toast.makeText(this, "Please type something", Toast.LENGTH_SHORT).show();
+                    }else {
 
-        }else if (rejectReason.length()==0){
+                        Toast.makeText(Applicant_Details.this, "Something went wrong!!", Toast.LENGTH_SHORT).show();
+                        alertDialog.dismiss();
+                    }
 
-            Toast.makeText(this, "What is this?"+rejectReason, Toast.LENGTH_SHORT).show();
-        }
 
-//        String url = "http://charity.olivineltd.com/api/rejectApplication";
-//
-//        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-//            @Override
-//            public void onResponse(String response) {
-//                try {
-//                    JSONObject jsonObject = new JSONObject(response);
-//                    String status = jsonObject.getString("status");
-//
-//                    if (status.equals("Ok")) {
-//
-//                        //       Toast.makeText(Applicant_Details.this, "Okk Baby!", Toast.LENGTH_SHORT).show();
-//                        //Toast.makeText(Applicant_Details.this, ""+lostid+"\n"+application_track_id, Toast.LENGTH_SHORT).show();
-//
-//                        ViewGroup viewGroup = findViewById(android.R.id.content);
-//                        View dialogView = LayoutInflater.from(Applicant_Details.this).inflate(R.layout.custom_alert_dialog_4, viewGroup, false);
-//                        AlertDialog.Builder builder = new AlertDialog.Builder(Applicant_Details.this);
-//                        builder.setView(dialogView);
-//                        alertDialog = builder.create();
-//                        alertDialog.show();
-//
-//                    }else {
-//
-//                        Toast.makeText(Applicant_Details.this, "Something went wrong!!", Toast.LENGTH_SHORT).show();
-//                        alertDialog.dismiss();
-//                    }
-//
-//
-//
-//
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                    //    Toast.makeText(Applicant_Details.this, "আপনি ভুল মোবাইল নাম্বার অথবা পাসওয়ার্ড দিয়েছেন", Toast.LENGTH_SHORT).show();
-//
-//                }
-//
-//            }
-//        }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//
-//                Toast.makeText(Applicant_Details.this, "অনুগ্রহপূর্বক ইন্টারনেট সংযোগ চালু করুন", Toast.LENGTH_SHORT).show();
-//
-//            }
-//        }) {
-//            @Override
-//            protected Map<String, String> getParams() throws AuthFailureError {
-//                Map<String, String> params = new HashMap<>();
-//                params.put("admins_id", lostid);
-//                params.put("application_rejection_note", rejectReason);
-//                params.put("application_track_id", application_track_id);
-//                return params;
-//            }
-//        };
-//        Volley.newRequestQueue(Applicant_Details.this).add(stringRequest);
-//
-//
-//
-//
-//
-//
-//
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    //    Toast.makeText(Applicant_Details.this, "আপনি ভুল মোবাইল নাম্বার অথবা পাসওয়ার্ড দিয়েছেন", Toast.LENGTH_SHORT).show();
 
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+               // Toast.makeText(Applicant_Details.this, "অনুগ্রহপূর্বক ইন্টারনেট সংযোগ চালু করুন", Toast.LENGTH_SHORT).show();
+
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("admins_id", lostid);
+                params.put("application_rejection_note", rejectReason);
+                params.put("application_track_id", application_track_id);
+                return params;
+            }
+        };
+        Volley.newRequestQueue(Applicant_Details.this).add(stringRequest);
 
 
     }
@@ -337,22 +284,13 @@ public class Applicant_Details extends AppCompatActivity {
         startActivity(new Intent(Applicant_Details.this, ForwardForm.class));
 
 
-
     }
 
 
-    public void backToAllApplication(View view){
+    public void backToAllApplication(View view) {
 
         super.onBackPressed();
     }
-
-
-
-
-
-
-
-
 
 
 }
