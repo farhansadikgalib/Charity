@@ -4,12 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.Toast;
+
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -53,15 +53,12 @@ public class HealthRelatedActivity extends AppCompatActivity {
         setContentView(R.layout.activity_health_related);
 //        Recyclerview();
 //        pieChartFuntion();
+
+
         mRequestQueue = Volley.newRequestQueue(this);
         catDashboardInfoparse();
 
-
     }
-
-
-
-
 
 
 
@@ -89,9 +86,7 @@ public class HealthRelatedActivity extends AppCompatActivity {
 
     }
 
-
     private void catDashboardInfoparse() {
-
 
         String url = "http://charity.olivineltd.com/api/dashboardCat?application_service_id=df" ;
 

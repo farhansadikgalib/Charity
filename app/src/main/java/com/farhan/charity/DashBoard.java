@@ -3,7 +3,9 @@ package com.farhan.charity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -49,6 +51,8 @@ public class DashBoard extends AppCompatActivity {
     public static String admin_typeS,admins_track_idS;
     private long backPressedTime;
     private Toast backToast;
+    SharedPreferences sharedPreferences ;
+    String admin_lost_id;
 
     public static final int[] colordata = {
             rgb("#FF2531"), rgb("#0B287B"), rgb("#02AFAE"), rgb("#FEA200")};
@@ -68,7 +72,7 @@ public class DashBoard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dash_board);
-
+        sharedPreferences = this.getSharedPreferences("myapp", Context.MODE_PRIVATE);
         imageSlider();
         pieChartFuntion();
         buttonIDsetFuction();
@@ -277,7 +281,7 @@ public class DashBoard extends AppCompatActivity {
         idx = getIntent().getStringExtra("User_Track_ID").toString();
      //   Toast.makeText(this, ""+admins+"\n"+idx, Toast.LENGTH_SHORT).show();
 
-
+        sharedPreferences.edit().putString("UTI",idx).apply();
     }
 
 

@@ -185,6 +185,7 @@ public class SignInFragment extends Fragment {
                     String admins_type = jsonObject.getString("admins_type");
                     String admins_track_id = jsonObject.getString("admins_track_id");
 
+
                    // Toast.makeText(getContext(), ""+admins_type+" "+admins_track_id, Toast.LENGTH_SHORT).show();
                     admin_typeS = admins_type;
                     admins_track_idS= admins_track_id;
