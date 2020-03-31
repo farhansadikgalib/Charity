@@ -80,6 +80,7 @@ public class All_Application_Activity extends AppCompatActivity {
 
 
 
+
         ArrayAdapter<AllitemsModel> adapterx=new ArrayAdapter<AllitemsModel>(this,android.R.layout.simple_spinner_dropdown_item,itemxx);
         adapterx.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         itemsSpinner.setAdapter(adapterx);

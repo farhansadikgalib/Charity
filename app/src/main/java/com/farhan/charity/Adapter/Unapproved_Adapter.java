@@ -59,7 +59,7 @@ public class Unapproved_Adapter extends  RecyclerView.Adapter<Unapproved_Adapter
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(context, ""+ itemModel.getUsers_name_bn() ,Toast.LENGTH_SHORT).show();
+//                Toast.makeText(context, ""+ itemModel.getUsers_name_bn() ,Toast.LENGTH_SHORT).show();
 
                 Intent i = new Intent(context, Applicant_Details.class);
                 // i.putExtra("imageUrl",imageUrl);
