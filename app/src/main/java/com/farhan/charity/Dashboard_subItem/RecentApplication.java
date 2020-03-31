@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -29,11 +32,21 @@ public class RecentApplication extends AppCompatActivity {
     List<ItemModel> items;
     private RequestQueue mRequestQueue;
     private  ApplicationRecent_Adapter applicationRecent_adapter;
+    SharedPreferences sharedPreferences ;
+    String valueNo;
+    TextView value;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recent_application);
+
+
+        sharedPreferences = this.getSharedPreferences("number", Context.MODE_PRIVATE);
+        value = findViewById(R.id.num_69);
+        valueNo = sharedPreferences.getString("submitted",null);
+        value.setText(valueNo);
+
         items = new ArrayList<>();
         mRequestQueue = Volley.newRequestQueue(this);
         getData();

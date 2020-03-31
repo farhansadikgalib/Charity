@@ -1,7 +1,10 @@
 package com.farhan.charity.Dashboard_subItem;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -25,10 +28,21 @@ public class ApprovedApplication extends AppCompatActivity {
     private RecyclerView recyclerView;
     List<ItemModel> items;
     private RequestQueue mRequestQueue;
+
+    SharedPreferences sharedPreferences ;
+    String valueNo;
+    TextView value;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_approved_application);
+
+        sharedPreferences = this.getSharedPreferences("number", Context.MODE_PRIVATE);
+        value = findViewById(R.id.num_69);
+        valueNo = sharedPreferences.getString("approved",null);
+        value.setText(valueNo);
+
         items = new ArrayList<>();
         mRequestQueue = Volley.newRequestQueue(this);
         getData();
