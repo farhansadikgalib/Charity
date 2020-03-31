@@ -52,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text=" যাচাই নিশ্চিত"
+        android:text=" অনুমোদন নিশ্চিত"
         android:textSize="20dp"
         android:textColor="#0B287B"
         android:textStyle="bold"
