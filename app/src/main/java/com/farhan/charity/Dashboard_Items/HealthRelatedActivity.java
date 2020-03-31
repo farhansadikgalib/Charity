@@ -103,6 +103,7 @@ public class HealthRelatedActivity extends AppCompatActivity {
                     submitted = jsonObject.get("submitted").toString();
                     approved = jsonObject.get("approved").toString();
                     resubmitted = jsonObject.get("resubmitted").toString();
+
                     rejected = jsonObject.get("rejected").toString();
                     pending = jsonObject.get("pending").toString();
 
