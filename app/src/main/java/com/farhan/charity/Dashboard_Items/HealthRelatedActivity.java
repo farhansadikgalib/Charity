@@ -4,14 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.Toast;
+
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -43,8 +41,6 @@ public class HealthRelatedActivity extends AppCompatActivity {
 
     public static final int colorwhite = rgb("#ffffff");
 
-    SharedPreferences sharedPreferences;
-    String lostid;
     String education , disable , disaster , health ;
     String submitted , approved , resubmitted , rejected,pending ;
     int i , j , k , l,p,q,r,s,t ;
@@ -61,14 +57,8 @@ public class HealthRelatedActivity extends AppCompatActivity {
 
         mRequestQueue = Volley.newRequestQueue(this);
         catDashboardInfoparse();
-        Log.d("TAGME", lostid);
-
 
     }
-
-
-
-
 
 
 
@@ -96,9 +86,7 @@ public class HealthRelatedActivity extends AppCompatActivity {
 
     }
 
-
     private void catDashboardInfoparse() {
-
 
         String url = "http://charity.olivineltd.com/api/dashboardCat?application_service_id=df" ;
 
