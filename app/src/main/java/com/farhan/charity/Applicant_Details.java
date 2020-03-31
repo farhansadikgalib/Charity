@@ -47,7 +47,7 @@ public class Applicant_Details extends AppCompatActivity {
     String lostid;
     LinearLayout Onumodon, Prottakhan;
 
-    String rejectReason;
+    String rejectReason= "rejected" ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,7 +143,7 @@ public class Applicant_Details extends AppCompatActivity {
 
     public void crossBtn(View view) {
 
-        alertDialog.dismiss();
+        alertDialogx.dismiss();
 
 
     }
@@ -161,8 +161,6 @@ public class Applicant_Details extends AppCompatActivity {
 
                     if (status.equals("Ok")) {
 
-                        //       Toast.makeText(Applicant_Details.this, "Okk Baby!", Toast.LENGTH_SHORT).show();
-                        //Toast.makeText(Applicant_Details.this, ""+lostid+"\n"+application_track_id, Toast.LENGTH_SHORT).show();
 
                         ViewGroup viewGroup = findViewById(android.R.id.content);
                         View dialogView = LayoutInflater.from(Applicant_Details.this).inflate(R.layout.custom_alert_dialog_3, viewGroup, false);
@@ -209,9 +207,7 @@ public class Applicant_Details extends AppCompatActivity {
     public void submit_prottakhan(View view) {
 
 
-        // Toast.makeText(this, "hi baby", Toast.LENGTH_SHORT).show();
 
-        alertDialogx.dismiss();
         View myLayout = LayoutInflater.from(this).inflate(R.layout.custom_alert_dialog_2, null, false);
         final EditText rejectReasonx = myLayout.findViewById(R.id.reject_reason);
 
@@ -222,14 +218,17 @@ public class Applicant_Details extends AppCompatActivity {
 
             @Override
             public void onResponse(String response) {
-                rejectReason = rejectReasonx.getText().toString();
+                //rejectReason = rejectReasonx.getText().toString();
+                alertDialogx.dismiss();
+
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     String status = jsonObject.getString("status");
 
-                    Toast.makeText(Applicant_Details.this, "Succesfully Reject", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(Applicant_Details.this, "Succesfully Reject", Toast.LENGTH_SHORT).show();
 
                     if (status.equals("Ok")) {
+
 
                         //       Toast.makeText(Applicant_Details.this, "Okk Baby!", Toast.LENGTH_SHORT).show();
                         //Toast.makeText(Applicant_Details.this, ""+lostid+"\n"+application_track_id, Toast.LENGTH_SHORT).show();
