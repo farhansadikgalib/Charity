@@ -51,6 +51,7 @@
             android:background="#EBECE9"
             android:textAlignment="viewStart"
             android:inputType="text"
+            android:id="@+id/reject_reason"
             android:hint="আবেদকারীর সকল তথ্য সঠিক নয়"
             android:gravity="start" />
 
@@ -66,7 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:onClick="submit_button">
+       >
 
         <Button
             android:layout_width="200dp"

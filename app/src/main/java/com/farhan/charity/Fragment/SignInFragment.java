@@ -55,7 +55,7 @@ public class SignInFragment extends Fragment {
     private static final String PASS = "pass";
     private static final String BOLC = "checkto";
     int c;
-    private static String admin_typeS,admins_track_idS;
+    public static String admin_typeS,admins_track_idS;
 
 
     private  Boolean checkme;

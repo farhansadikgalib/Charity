@@ -33,9 +33,9 @@ import java.util.Map;
 public class NewPasswordFragment extends Fragment {
 
 
-    private EditText passET,confirmPassET;
+    private EditText passET, confirmPassET;
     private Button finalSubmitBtn;
-    String newPass,conNewPass;
+    String pass;
     public NewPasswordFragment() {
         // Required empty public constructor
     }
@@ -45,73 +45,80 @@ public class NewPasswordFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_new_password, container, false);
+        View view = inflater.inflate(R.layout.fragment_new_password, container, false);
 
         passET = view.findViewById(R.id.newPassET);
         confirmPassET = view.findViewById(R.id.newPassET2);
-        finalSubmitBtn  = view.findViewById(R.id.finalSubmitBtn);
+        finalSubmitBtn = view.findViewById(R.id.finalSubmitBtn);
 
-        newPass = passET.getText().toString();
-        newPass = confirmPassET.getText().toString();
+        pass = confirmPassET.getText().toString();
 
 
 
         finalSubmitBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                @Override
+                public void onClick(View v) {
+
+
+                    StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://charity.olivineltd.com/api/passwordReset", new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            try {
+                                JSONObject jsonObject = new JSONObject(response);
+                                String status = jsonObject.getString("status");
+
+                                if (status.equals("Ok")) {
+                                    Toast.makeText(getContext(), "OK", Toast.LENGTH_SHORT).show();
+
+                                    if (passET.getText().toString().equals("")) {
+                                        passET.setError("Please Enter Your Password");
+
+                                    } else if (passET.getText().toString().length() < 8) {
+
+                                        passET.setError("Please Input minimume 8 digits");
+
+                                    } else if (!passET.getText().toString().equals(confirmPassET.getText().toString())) {
+                                        confirmPassET.setError("New Password and Confirm Password should be same.");
+                                    }
+                                    else if (passET.getText().length()>7 && confirmPassET.equals(passET)) {
+
+                                        startActivity(new Intent(getContext(), DashBoard.class));
+                                        getActivity().finish();
+                                    }
 
 
 
-                StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://charity.olivineltd.com/api/login", new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            String status = jsonObject.getString("status");
+                                } else {
 
-                            if (status.equals("Ok"))
-                            {
-                                Toast.makeText(getContext(), "OK", Toast.LENGTH_SHORT).show();
 
-                                if (newPass==conNewPass) {
+                                    Toast.makeText(getContext(), "আপনি ভুল পাসওয়ার্ড দিয়েছেন", Toast.LENGTH_SHORT).show();
 
-                                    startActivity(new Intent(getContext(), DashBoard.class));
-                                    getActivity().finish();
                                 }
-
-
-                            }else {
-
-
-                                Toast.makeText(getContext(), "আপনি ভুল মোবাইল নাম্বার দিয়েছেন", Toast.LENGTH_SHORT).show();
-
+                            } catch (Exception e) {
+                                e.printStackTrace();
                             }
+
                         }
-                        catch (Exception e) {
-                            e.printStackTrace();
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(getContext(), "error", Toast.LENGTH_SHORT).show();
                         }
-
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getContext(), "error" , Toast.LENGTH_SHORT).show();
-                    }
-                }) {
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String, String> params = new HashMap<>();
-                        params.put("admin_pass", newPass);
-                        return params;
-                    }
-                };
-                Volley.newRequestQueue(getContext()).add(stringRequest);
-            }
+                    }) {
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+                            Map<String, String> params = new HashMap<>();
+                            params.put("password", pass);
+                            return params;
+                        }
+                    };
+                    Volley.newRequestQueue(getContext()).add(stringRequest);
+                }
 
 
-        });
+            });
 
-    return  view;
+            return view;
+        }
+
     }
-
-}

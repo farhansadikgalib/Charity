@@ -197,14 +197,20 @@ public class DashBoard extends AppCompatActivity {
                 allApplicationLayout.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startActivity(new Intent(DashBoard.this, All_Application_Activity.class));
+                        Intent i = new Intent(DashBoard.this, All_Application_Activity.class);
+                        i.putExtra("User_Type",admin_typeS);
+                        i.putExtra("User_Track_ID",admins_track_idS);
+                        startActivity(i);
                     }
                 });
 
                 forwardApplicationLayout.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startActivity(new Intent(DashBoard.this, Forward_Application_Activity.class));
+                        Intent i = new Intent(DashBoard.this, Forward_Application_Activity.class);
+                        i.putExtra("User_Type",admin_typeS);
+                        i.putExtra("User_Track_ID",admins_track_idS);
+                        startActivity(i);
                     }
                 });
 
