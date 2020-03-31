@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -29,7 +32,9 @@ public class UnapprovedApplication extends AppCompatActivity {
     private RecyclerView recyclerView;
     private List<ItemModel> items;
     private Unapproved_Adapter unapproved_adapter;
-
+    SharedPreferences sharedPreferences ;
+    String valueNo;
+    TextView value;
     private RequestQueue mRequestQueue;
 
     @Override
@@ -38,6 +43,12 @@ public class UnapprovedApplication extends AppCompatActivity {
         setContentView(R.layout.activity_unapproved_application);
         items = new ArrayList<>();
         unapproved_adapter = new Unapproved_Adapter(this, items);
+
+        sharedPreferences = this.getSharedPreferences("number", Context.MODE_PRIVATE);
+        value = findViewById(R.id.num_69);
+        valueNo = sharedPreferences.getString("rejected",null);
+        value.setText(valueNo);
+
 
         mRequestQueue = Volley.newRequestQueue(this);
         getData();
