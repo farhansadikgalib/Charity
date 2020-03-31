@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -44,6 +46,8 @@ public class DisasterRelatedActivity extends AppCompatActivity {
     LinearLayout linerPieChart ;
     RequestQueue mRequestQueue;
 
+    SharedPreferences sharedPreferences ;
+
     int i , j , k , l,p,q,r,s,t ;
 
 
@@ -51,7 +55,7 @@ public class DisasterRelatedActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_disaster_related);
-
+        sharedPreferences = this.getSharedPreferences("number", Context.MODE_PRIVATE);
 //        Recyclerview();
 //        pieChartFuntion();
         mRequestQueue = Volley.newRequestQueue(this);
@@ -133,6 +137,12 @@ public class DisasterRelatedActivity extends AppCompatActivity {
                     r = Integer.parseInt(resubmitted);
                     s = Integer.parseInt(rejected);
                     t = Integer.parseInt(pending);
+
+                    sharedPreferences.edit().putString("submitted",submitted).apply();
+                    sharedPreferences.edit().putString("approved",approved).apply();
+                    sharedPreferences.edit().putString("resubmitted",resubmitted).apply();
+                    sharedPreferences.edit().putString("rejected",rejected).apply();
+                    sharedPreferences.edit().putString("pending",pending).apply();
 
                     //     Toast.makeText(getApplicationContext(), ""+i+j+k+l, Toast.LENGTH_SHORT).show();
 

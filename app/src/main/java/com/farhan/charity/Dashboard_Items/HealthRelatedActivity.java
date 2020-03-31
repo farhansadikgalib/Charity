@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -46,14 +48,15 @@ public class HealthRelatedActivity extends AppCompatActivity {
     int i , j , k , l,p,q,r,s,t ;
     LinearLayout linerPieChart ;
     RequestQueue mRequestQueue;
-
+    SharedPreferences sharedPreferences ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_health_related);
+
+        sharedPreferences = this.getSharedPreferences("number", Context.MODE_PRIVATE);
 //        Recyclerview();
 //        pieChartFuntion();
-
 
         mRequestQueue = Volley.newRequestQueue(this);
         catDashboardInfoparse();
@@ -100,6 +103,7 @@ public class HealthRelatedActivity extends AppCompatActivity {
                     submitted = jsonObject.get("submitted").toString();
                     approved = jsonObject.get("approved").toString();
                     resubmitted = jsonObject.get("resubmitted").toString();
+
                     rejected = jsonObject.get("rejected").toString();
                     pending = jsonObject.get("pending").toString();
 
@@ -110,6 +114,12 @@ public class HealthRelatedActivity extends AppCompatActivity {
                     r = Integer.parseInt(resubmitted);
                     s = Integer.parseInt(rejected);
                     t = Integer.parseInt(pending);
+
+                    sharedPreferences.edit().putString("submitted",submitted).apply();
+                    sharedPreferences.edit().putString("approved",approved).apply();
+                    sharedPreferences.edit().putString("resubmitted",resubmitted).apply();
+                    sharedPreferences.edit().putString("rejected",rejected).apply();
+                    sharedPreferences.edit().putString("pending",pending).apply();
 
                     //     Toast.makeText(getApplicationContext(), ""+i+j+k+l, Toast.LENGTH_SHORT).show();
 
