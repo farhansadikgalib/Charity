@@ -42,13 +42,12 @@ public class Applicant_Details extends AppCompatActivity {
     Button forwardBtn;
     SharedPreferences sharedPreferences ;
     String application_track_id;
-    String rejectReason;
     RequestQueue mRequestQueuex;
     String admins_track_id ="ijOhgOL20180808104412" ;
     String lostid;
     LinearLayout Onumodon,Prottakhan;
 
-
+    String  rejectReason;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +78,12 @@ public class Applicant_Details extends AppCompatActivity {
 
 
 
+        View myLayout = LayoutInflater.from(this).inflate(R.layout.custom_alert_dialog_2, null);
+
+        EditText rejectReasonx   =myLayout.findViewById(R.id.reject_reason);
+          rejectReason = rejectReasonx.getText().toString();
+
+
 
         Onumodon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,6 +102,7 @@ public class Applicant_Details extends AppCompatActivity {
         Prottakhan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
 
 
@@ -240,13 +246,21 @@ public class Applicant_Details extends AppCompatActivity {
     public void submit_prottakhan(View view) {
 
 
-        EditText rejectReasonx   = findViewById(R.id.reject_reason);
-        rejectReason =   rejectReasonx.getText().toString();
-
+       // Toast.makeText(this, "hi baby", Toast.LENGTH_SHORT).show();
 
 
 
 //
+
+        if(rejectReason.length()==0){
+
+            Toast.makeText(this, "Please type something", Toast.LENGTH_SHORT).show();
+
+        }else {
+
+            Toast.makeText(this, "What is this?"+rejectReason, Toast.LENGTH_SHORT).show();
+        }
+
 //        String url = "http://charity.olivineltd.com/api/rejectApplication";
 //
 //        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
