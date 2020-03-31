@@ -230,7 +230,7 @@
                 android:background="@drawable/buttonbackground"
                 android:backgroundTint="#0B287B"
                 android:gravity="center"
-                android:onClick="Onumodon_korun"
+                android:id="@+id/Onumodon"
                 android:orientation="horizontal"
                 android:textColor="#ffffff">
 
@@ -262,7 +262,7 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/buttonbackground"
                 android:gravity="center"
-                android:onClick="prottakhan_korun"
+                android:id="@+id/prottakhan_korun"
                 android:orientation="horizontal"
                 android:textColor="#ffffff">
 

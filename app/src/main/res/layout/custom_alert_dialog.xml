@@ -93,7 +93,7 @@
             android:background="@drawable/buttonbackground"
             android:text="নিশ্চিত করুন"
             android:layout_centerInParent="true"
-            android:onClick="submit_button"
+            android:onClick="final_submit_button"
             android:textStyle="bold"
             android:backgroundTint="#0B287B"
             android:fontFamily="@font/bengali"

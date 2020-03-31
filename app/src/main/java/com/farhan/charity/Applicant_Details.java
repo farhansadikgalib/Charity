@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +46,9 @@ public class Applicant_Details extends AppCompatActivity {
     RequestQueue mRequestQueuex;
     String admins_track_id ="ijOhgOL20180808104412" ;
     String lostid;
+    LinearLayout Onumodon,Prottakhan;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,15 +61,61 @@ public class Applicant_Details extends AppCompatActivity {
         app_Title = findViewById(R.id.titleHeadingTV);
         app_amount = findViewById(R.id.currencyTV);
         app_staus = findViewById(R.id.stateTV);
+        Onumodon = findViewById(R.id.Onumodon);
+        Prottakhan = findViewById(R.id.prottakhan_korun);
+        mRequestQueuex = Volley.newRequestQueue(this);
+
+
+
         sharedPreferences = this.getSharedPreferences("myapp", Context.MODE_PRIVATE);
         lostid = sharedPreferences.getString("UTI",null);
         Toast.makeText(this, lostid, Toast.LENGTH_SHORT).show();
 
         Log.d("admin_track", lostid);
 
+        application_track_id = app_ID.getText().toString();
 
 
-        mRequestQueuex = Volley.newRequestQueue(this);
+
+
+
+
+        Onumodon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ViewGroup viewGroup = findViewById(android.R.id.content);
+                View dialogView = LayoutInflater.from(Applicant_Details.this).inflate(R.layout.custom_alert_dialog, viewGroup, false);
+                AlertDialog.Builder builder = new AlertDialog.Builder(Applicant_Details.this);
+                builder.setView(dialogView);
+                alertDialog = builder.create();
+                alertDialog.show();
+
+
+            }
+        });
+
+        Prottakhan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+
+                ViewGroup viewGroup = findViewById(android.R.id.content);
+                View dialogView = LayoutInflater.from(Applicant_Details.this).inflate(R.layout.custom_alert_dialog_2, viewGroup, false);
+                AlertDialog.Builder builder = new AlertDialog.Builder(Applicant_Details.this);
+                builder.setView(dialogView);
+                alertDialog = builder.create();
+                alertDialog.show();
+
+
+            }
+        });
+
+
+
+
+
+
 
 
 
@@ -90,7 +140,7 @@ public class Applicant_Details extends AppCompatActivity {
             //profile.setImageResource(Integer.parseInt(img));
             Picasso.get().load(img).into(profilex);
 
-            application_track_id = app_ID.getText().toString();
+
         }
 
 
@@ -106,16 +156,7 @@ public class Applicant_Details extends AppCompatActivity {
 
     }
 
-    public void Onumodon_korun(View view) {
 
-        ViewGroup viewGroup = findViewById(android.R.id.content);
-        View dialogView = LayoutInflater.from(this).inflate(R.layout.custom_alert_dialog, viewGroup, false);
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setView(dialogView);
-        alertDialog = builder.create();
-        alertDialog.show();
-
-    }
 
     public void crossBtn(View view) {
 
@@ -125,106 +166,153 @@ public class Applicant_Details extends AppCompatActivity {
 
     }
 
-    public void submit_button(View view) {
+    public void final_submit_button(View view) {
 
-        ViewGroup viewGroup = findViewById(android.R.id.content);
-        View dialogView = LayoutInflater.from(this).inflate(R.layout.custom_alert_dialog_3, viewGroup, false);
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setView(dialogView);
-        alertDialog = builder.create();
-        alertDialog.show();
+        String url = "http://charity.olivineltd.com/api/approveApplication";
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    String status = jsonObject.getString("status");
+
+                    if (status.equals("Ok")) {
+
+                 //       Toast.makeText(Applicant_Details.this, "Okk Baby!", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(Applicant_Details.this, ""+lostid+"\n"+application_track_id, Toast.LENGTH_SHORT).show();
+
+                        ViewGroup viewGroup = findViewById(android.R.id.content);
+                        View dialogView = LayoutInflater.from(Applicant_Details.this).inflate(R.layout.custom_alert_dialog_3, viewGroup, false);
+                        AlertDialog.Builder builder = new AlertDialog.Builder(Applicant_Details.this);
+                        builder.setView(dialogView);
+                        alertDialog = builder.create();
+                        alertDialog.show();
+                    }else {
+
+                        Toast.makeText(Applicant_Details.this, "Something went wrong!!", Toast.LENGTH_SHORT).show();
+                        alertDialog.dismiss();
+                    }
+
+
+
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    //    Toast.makeText(Applicant_Details.this, "আপনি ভুল মোবাইল নাম্বার অথবা পাসওয়ার্ড দিয়েছেন", Toast.LENGTH_SHORT).show();
+
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                Toast.makeText(Applicant_Details.this, "অনুগ্রহপূর্বক ইন্টারনেট সংযোগ চালু করুন", Toast.LENGTH_SHORT).show();
+
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("admins_id", lostid);
+                params.put("application_track_id", application_track_id);
+
+                return params;
+            }
+        };
+        Volley.newRequestQueue(Applicant_Details.this).add(stringRequest);
+
+
+
 
 
     }
 
-    public void prottakhan_korun(View view) {
 
 
-        ViewGroup viewGroup = findViewById(android.R.id.content);
-        View dialogView = LayoutInflater.from(this).inflate(R.layout.custom_alert_dialog_2, viewGroup, false);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setView(dialogView);
-        alertDialog = builder.create();
-        alertDialog.show();
-    }
+
+
+
+
 
     public void submit_prottakhan(View view) {
 
+
+        EditText rejectReasonx   = findViewById(R.id.reject_reason);
+        rejectReason =   rejectReasonx.getText().toString();
+
+
+
+
 //
-//        EditText rejectReasonx   = findViewById(R.id.reject_reason);
-//        rejectReason =   rejectReasonx.getText().toString();
+//        String url = "http://charity.olivineltd.com/api/rejectApplication";
 //
+//        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String response) {
+//                try {
+//                    JSONObject jsonObject = new JSONObject(response);
+//                    String status = jsonObject.getString("status");
 //
-////        if (TextUtils.isEmpty(rejectReason)) {
-////            Toast.makeText(this, "অনুগ্রহপূর্বক প্রত্যাখানের কারণ উল্লেখ করুন", Toast.LENGTH_SHORT).show();
-////            alertDialog.dismiss();
-////            return;
-////
-////        } else {
+//                    if (status.equals("Ok")) {
 //
+//                        //       Toast.makeText(Applicant_Details.this, "Okk Baby!", Toast.LENGTH_SHORT).show();
+//                        //Toast.makeText(Applicant_Details.this, ""+lostid+"\n"+application_track_id, Toast.LENGTH_SHORT).show();
 //
+//                        ViewGroup viewGroup = findViewById(android.R.id.content);
+//                        View dialogView = LayoutInflater.from(Applicant_Details.this).inflate(R.layout.custom_alert_dialog_4, viewGroup, false);
+//                        AlertDialog.Builder builder = new AlertDialog.Builder(Applicant_Details.this);
+//                        builder.setView(dialogView);
+//                        alertDialog = builder.create();
+//                        alertDialog.show();
 //
+//                    }else {
 //
-//            String url = "http://charity.olivineltd.com/api/rejectApplication";
-//
-//            StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-//                @Override
-//                public void onResponse(String response) {
-//                    try {
-//                        JSONObject jsonObject = new JSONObject(response);
-//                        String status = jsonObject.getString("status");
-//
-//                        if (status.equals("Ok")) {
-//
-//                            Toast.makeText(Applicant_Details.this, "Okk Baby!", Toast.LENGTH_SHORT).show();
-//
-//                            ViewGroup viewGroup = findViewById(android.R.id.content);
-//                            View dialogView = LayoutInflater.from(Applicant_Details.this).inflate(R.layout.custom_alert_dialog_4, viewGroup, false);
-//                            AlertDialog.Builder builder = new AlertDialog.Builder(Applicant_Details.this);
-//                            builder.setView(dialogView);
-//                            alertDialog = builder.create();
-//                            alertDialog.show();
-//
-//
-//                        }
-//
-//
-//                        // startActivity(new Intent(getContext(),DashBoard.class));
-//
-//                    } catch (Exception e) {
-//                        e.printStackTrace();
-//                        //     Toast.makeText(Applicant_Details.this, "আপনি ভুল মোবাইল নাম্বার অথবা পাসওয়ার্ড দিয়েছেন", Toast.LENGTH_SHORT).show();
-//
+//                        Toast.makeText(Applicant_Details.this, "Something went wrong!!", Toast.LENGTH_SHORT).show();
+//                        alertDialog.dismiss();
 //                    }
 //
-//                }
-//            }, new Response.ErrorListener() {
-//                @Override
-//                public void onErrorResponse(VolleyError error) {
 //
-//                    Toast.makeText(Applicant_Details.this, "অনুগ্রহপূর্বক ইন্টারনেট সংযোগ চালু করুন", Toast.LENGTH_SHORT).show();
+//
+//
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                    //    Toast.makeText(Applicant_Details.this, "আপনি ভুল মোবাইল নাম্বার অথবা পাসওয়ার্ড দিয়েছেন", Toast.LENGTH_SHORT).show();
 //
 //                }
-//            }) {
-//                @Override
-//                protected Map<String, String> getParams() throws AuthFailureError {
-//                    Map<String, String> params = new HashMap<>();
-//                    params.put("application_track_id", application_track_id);
-//                    params.put("application_rejection_note", rejectReason);
-//                    params.put("admins_id", admins_track_id);
-//                    return params;
-//                }
-//            };
-//            Volley.newRequestQueue(this).add(stringRequest);
-        }
+//
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//
+//                Toast.makeText(Applicant_Details.this, "অনুগ্রহপূর্বক ইন্টারনেট সংযোগ চালু করুন", Toast.LENGTH_SHORT).show();
+//
+//            }
+//        }) {
+//            @Override
+//            protected Map<String, String> getParams() throws AuthFailureError {
+//                Map<String, String> params = new HashMap<>();
+//                params.put("admins_id", lostid);
+//                params.put("application_rejection_note", rejectReason);
+//                params.put("application_track_id", application_track_id);
+//                return params;
+//            }
+//        };
+//        Volley.newRequestQueue(Applicant_Details.this).add(stringRequest);
+//
+//
+//
+//
+//
+//
+//
 
 
 
-
-
-
-
+    }
 
 
     public void forwardForm(View view) {
