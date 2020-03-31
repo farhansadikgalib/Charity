@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -41,6 +43,8 @@ public class HealthRelatedActivity extends AppCompatActivity {
 
     public static final int colorwhite = rgb("#ffffff");
 
+    SharedPreferences sharedPreferences;
+    String lostid;
     String education , disable , disaster , health ;
     String submitted , approved , resubmitted , rejected,pending ;
     int i , j , k , l,p,q,r,s,t ;
@@ -53,8 +57,11 @@ public class HealthRelatedActivity extends AppCompatActivity {
         setContentView(R.layout.activity_health_related);
 //        Recyclerview();
 //        pieChartFuntion();
+
+
         mRequestQueue = Volley.newRequestQueue(this);
         catDashboardInfoparse();
+        Log.d("TAGME", lostid);
 
 
     }

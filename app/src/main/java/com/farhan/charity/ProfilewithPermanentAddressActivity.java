@@ -3,7 +3,9 @@ package com.farhan.charity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -58,6 +60,7 @@ public class ProfilewithPermanentAddressActivity extends AppCompatActivity {
         users_nidTV = findViewById(R.id.users_nid_ID);
 
         users_imageIV = findViewById(R.id.users_imageID);
+
 
 
             mRequestQueue = Volley.newRequestQueue(this);
